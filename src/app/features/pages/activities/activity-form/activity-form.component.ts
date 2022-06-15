@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActivityFormComponent implements OnInit {
   title = 'base-ong-angular-client';
-
+  prueba = 'prueba'
   constructor() { }
 
   ngOnInit(): void {
