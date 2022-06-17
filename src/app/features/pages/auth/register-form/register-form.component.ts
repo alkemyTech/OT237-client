@@ -8,14 +8,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterFormComponent implements OnInit {
   form!: FormGroup;
-  submitted!: boolean;
+  isSubmitted!: boolean;
 
   constructor(
     private formBuilder: FormBuilder,
   ) { }
 
   ngOnInit(): void {
-    this.submitted = false;
+    this.isSubmitted = false;
     this.form = this.formBuilder.group({
       email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
       password: ['', [Validators.required, Validators.pattern("^(?=.*[A-Za-z])(?=.*\\d)(?=.*[$@$!%*#?&])[A-Za-z\\d$@$!%*#?&]{6,}$")]],
@@ -44,13 +44,13 @@ export class RegisterFormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.submitted = true;
+    this.isSubmitted = true;
     
     if (this.form.invalid) {
         return;
     }
 
-    let myForm: { email: string, password: string, confirmPassword: string } = 
+    let formObject: { email: string, password: string, confirmPassword: string } = 
                 { email: this.form.controls.email.value,  
                   password: this.form.controls.password.value,
                   confirmPassword: this.form.controls.password.value
