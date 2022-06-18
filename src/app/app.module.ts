@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { CKEditorModule } from "@ckeditor/ckeditor5-angular";
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     CoreModule,
-    FeaturesModule
+    FeaturesModule,
+    CKEditorModule
   ],
   providers: [],
   bootstrap: [AppComponent]
