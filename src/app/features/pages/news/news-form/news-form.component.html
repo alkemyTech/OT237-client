@@ -1,1 +1,17 @@
-<ckeditor [editor]="Editor" data="<p>Hello, world!</p>"></ckeditor>
+
+
+<form action="">
+    <p>
+        <label for="titulo">Título</label>
+        <input type="text" id="titulo">
+    </p>
+    <p>
+        <label for="contenido">Contenido</label>
+        <ckeditor [editor]="Editor" data="" id="contenido"></ckeditor>
+    </p>
+    <p>
+        <label for="categoria">Categoría</label>
+        <input type="text" id="categoria">
+    </p>
+    
+</form>
