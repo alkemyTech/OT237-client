@@ -1,17 +1,20 @@
+<form action="" class=" m-3">
 
-
-<form action="">
     <p>
-        <label for="titulo">Título</label>
+        <label for="titulo" class="me-2 fw-bold">Título</label>
         <input type="text" id="titulo">
     </p>
+
     <p>
-        <label for="contenido">Contenido</label>
+        <label for="contenido" class="fw-bold">Contenido</label>
         <ckeditor [editor]="Editor" data="" id="contenido"></ckeditor>
     </p>
+
     <p>
-        <label for="categoria">Categoría</label>
+        <label for="categoria" class="me-2 fw-bold">Categoría</label>
         <input type="text" id="categoria">
     </p>
+
+    <button class="btn btn-primary">Enviar</button>
     
 </form>
