@@ -10,6 +10,7 @@ import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -33,6 +34,6 @@ import { UserFormComponent } from "./pages/users/user-form/user-form.component";
     UserFormComponent,
     RouterModule
   ],
-  imports: [CommonModule, AppRoutingModule, RouterModule],
+  imports: [CommonModule, AppRoutingModule, RouterModule, FormsModule, ReactiveFormsModule],
 })
 export class FeaturesModule {}
