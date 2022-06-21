@@ -1,1 +1,11 @@
-<p>login-form works!</p>
+<form [formGroup]="loginForm">
+	<label for="email">email: </label>
+	<input id="email" type="email" formControlName="email">
+	<span class="invalid-text" *ngIf="requiredError('email') && touched('email')">*Es te campo es obligatorio</span>
+	<span class="invalid-text" *ngIf="emailError('email') && touched('email')">*Debe ingresar un mail valido</span>
+	<label for="password">password: </label>
+	<input id="password" type="text" formControlName="password">
+	<span class="invalid-text" *ngIf="requiredError('password') && touched('password')">*Es te campo es obligatorio</span>
+	<span class="invalid-text" *ngIf="minLengthError('password') && touched('password')">*La contraseña debe contener como minimo 6 caracteres</span>
+</form>
+
