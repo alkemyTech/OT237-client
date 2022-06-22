@@ -11,6 +11,7 @@ import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.comp
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -34,6 +35,13 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     UserFormComponent,
     RouterModule
   ],
-  imports: [CommonModule, AppRoutingModule, RouterModule, CKEditorModule],
+  imports: [
+    CommonModule, 
+    AppRoutingModule, 
+    RouterModule, 
+    CKEditorModule, 
+    FormsModule,
+    ReactiveFormsModule
+  ],
 })
 export class FeaturesModule {}

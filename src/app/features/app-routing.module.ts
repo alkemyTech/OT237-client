@@ -14,7 +14,11 @@ const routes: Routes = [
     pathMatch: "full",
   },
   {
-    path: "testimonials",
+    path: "nuevo-testimonio",
+    component: TestimonialFormComponent
+  },
+  {
+    path: "editar-testimonio/:id",
     component: TestimonialFormComponent
   },
   {
