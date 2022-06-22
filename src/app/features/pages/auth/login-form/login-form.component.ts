@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators} from '@angular/forms';
+import { FormGroup, FormControl, Validators, ValidatorFn, AbstractControl, ValidationErrors} from '@angular/forms';
 
 
 @Component({
@@ -8,6 +8,16 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
 	styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
+	private passwordValidator() :ValidatorFn{
+		return (control :AbstractControl): ValidationErrors | null => {
+			const value = control.value;
+			if(/[a-zA-Z]/.test(value) && /\d/.test(value) && /\W/.test(value)) {
+				return null;
+			} else {
+				return {passwordInvalid: true};
+			}
+		}
+	}
 	loginForm = new FormGroup({
 		email: new FormControl('', [
 			Validators.required,
@@ -16,6 +26,7 @@ export class LoginFormComponent implements OnInit {
 		password: new FormControl('', [
 			Validators.required,
 			Validators.minLength(6),
+			this.passwordValidator()
 		])
 	});
 	constructor() { }
@@ -23,20 +34,22 @@ export class LoginFormComponent implements OnInit {
 	ngOnInit(): void {
 	
 	}
-	emailError(input :string) {
+	public emailError(input :string) {
 		return this.loginForm.get(input)?.errors?.['email'];
 	}
-	requiredError(input :string) {
+	public passwordError(input :string) {
+		return this.loginForm.get(input)?.errors?.['passwordInvalid'];
+	}
+	public requiredError(input :string) {
 		return this.loginForm.get(input)?.errors?.['required'];
 	}
-	minLengthError(input :string) {
+	public minLengthError(input :string) {
 		return this.loginForm.get(input)?.errors?.['minlength'];
 	}
-	invalid(input :string) {
+	public invalid(input :string) {
 		return this.loginForm.get(input)?.invalid;
 	}
-	touched(input :string) {
+	public touched(input :string) {
 		return this.loginForm.get(input)?.touched;
 	}
-	
 }
