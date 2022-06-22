@@ -11,6 +11,7 @@ import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.comp
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -34,6 +35,6 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     UserFormComponent,
     RouterModule
   ],
-  imports: [CommonModule, AppRoutingModule, RouterModule, FormsModule, ReactiveFormsModule],
+  imports: [CommonModule, AppRoutingModule, RouterModule,HttpClientModule, FormsModule, ReactiveFormsModule],
 })
 export class FeaturesModule {}
