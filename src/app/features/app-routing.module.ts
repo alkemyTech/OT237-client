@@ -1,3 +1,4 @@
+import { SlidesFormComponent } from './pages/slides/slides-form/slides-form.component';
 import { ActivityFormComponent } from "./pages/activities/activity-form/activity-form.component";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
@@ -6,7 +7,12 @@ import { RouterModule, Routes } from "@angular/router";
 const routes: Routes = [
   { 
     path: "actividades", 
-    component: ActivityFormComponent },
+    component: ActivityFormComponent 
+  },
+  {
+    path: "slides",
+    component: SlidesFormComponent
+  },
   {
     path: "",
     redirectTo: "actividades",

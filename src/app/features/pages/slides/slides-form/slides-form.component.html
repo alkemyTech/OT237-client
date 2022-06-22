@@ -1,1 +1,52 @@
-<p>slides-form works!</p>
+<main class="flex flex-col justify-center items-center gap-4 min-h-screen">
+    <h1 class="text-2xl font-bold text-center">Edición de datos del Home</h1>
+    <form [formGroup]="form" class="flex flex-col gap-4 px-4 pb-4 w-2/5">
+      <div [ngSwitch]="iterator">
+        <div *ngSwitchCase="0" class="flex flex-col gap-2">
+          <label>Texto de Bienvenida</label>
+          <textarea
+            class="rounded-md border-2 outline-none p-2 {{(checkControl(welcomeText,'required') || checkControl(welcomeText,'minlength')) && 'border-red-500' }}"
+            placeholder="Texto de bienvenida" formControlName="welcomeText" rows="3">
+          </textarea>
+          <span *ngIf="checkControl(welcomeText,'required')" class="text-sm text-red-500">
+            Este campo es requerido
+          </span>
+          <span *ngIf="checkControl(welcomeText,'minlength')" class="text-sm text-red-500">
+            Este campo debe tener como mínimo 20 caracteres
+          </span>
+        </div>
+        <ng-container *ngFor="let i of [1, 2, 3]">
+          <div *ngSwitchCase="i" class="flex flex-col gap-2" formGroupName="{{'slide'+i}}">
+            <h2 class="font-bold text-lg">Slide {{i}}</h2>
+            <label>Texto</label>
+            <input 
+              type="text" 
+              placeholder="Texto del slide" 
+              class="rounded-md border-2 outline-none p-2 {{checkControl(textBySlide,'required') && 'border-red-500' }}"
+              formControlName="text"
+            >
+            <span *ngIf="checkControl(textBySlide,'required')" class="text-sm text-red-500">Este campo es requerido</span>
+            <label>Imagen</label>
+            <input 
+              type="text" 
+              placeholder="URL de la imagen" 
+              class="rounded-md border-2 outline-none p-2 {{(checkControl(imageBySlide,'required') || checkControl(imageBySlide,'pattern')) && 'border-red-500' }}"
+              formControlName="image"
+            >
+            <span *ngIf="checkControl(imageBySlide,'required')" class="text-sm text-red-500">Este campo es requerido</span>
+            <span *ngIf="checkControl(imageBySlide,'pattern')" class="text-sm text-red-500">Debe ingresar una url de imagen válida</span>
+            <p class="text-sm italic">Vista Previa</p>
+            <img class="rounded-lg" [src]="imageBySlide?.value" alt="img-slide">
+          </div>
+        </ng-container>
+      </div>
+      <div class="flex justify-end gap-2">
+        <button class="bg-blue-500 text-white font-bold py-2 px-4 rounded-md" *ngIf="iterator!=0" (click)="onPrevPage()">
+          Atrás
+        </button>
+        <button class="bg-red-500 text-white font-bold py-2 px-4 rounded-md" (click)="onNextPage()">
+          {{iterator == pages.length - 1 ? 'Enviar':'Siguiente'}}
+        </button>
+      </div>
+    </form>
+  </main>
