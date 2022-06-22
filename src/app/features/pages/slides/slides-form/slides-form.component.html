@@ -1,1 +1,38 @@
-<p>slides-form works!</p>
+<form [formGroup]="slideForm" (ngSubmit)="onSubmit()">
+    <p>
+        <label for="Image">Choose an Image</label>
+        <br>
+        <input 
+            formControlName="image"
+            id="Image" 
+            type="file" 
+            class="form-control"
+            (change)="LoadImage($event)">
+    </p>
+    <div *ngIf="filebase64 && filebase64 !== ''">
+        <img [src]="filebase64" width="100em" height="100em">
+    </div>
+    <p>
+      <label for="Name">Name </label>
+      <br>
+      <input type="text" id="Name" name="Name" formControlName="name">
+    </p>
+   
+    <p>
+      <label for="Description">Description </label>
+      <br>
+      <ckeditor formControlName="description" [editor]="Editor"></ckeditor>
+    </p>
+   
+    <p>
+      <label for="Order">Order </label>
+      <br>
+      <input type="text" id="Order" name="Order" formControlName="order">
+    </p>
+
+    <p>
+      <button type="submit">Submit</button>
+    </p>
+   
+  </form>
+
