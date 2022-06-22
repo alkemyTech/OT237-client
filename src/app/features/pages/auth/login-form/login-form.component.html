@@ -1,4 +1,4 @@
-<form [formGroup]="loginForm" class="show-in-row">
+<form [formGroup]="loginForm" (ngSubmit)="logInSubmit()" class="show-in-row">
 	<label for="email">email: </label>
 	<input id="email" type="email" formControlName="email">
 	<div *ngIf="touched('email')">
@@ -12,5 +12,6 @@
 		<span class="invalid-text" *ngIf="minLengthError('password')">*La contraseña debe contener como minimo 6 caracteres</span>
 		<span class="invalid-text" *ngIf="passwordError('password')">*La contraseña debe tener al menos, una letra, un numero y un simbolo</span>
 	</div>
+	<button type="submit">Login</button>
 </form>
 

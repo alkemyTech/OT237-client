@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, ValidatorFn, AbstractControl, ValidationErrors} from '@angular/forms';
+import { LoginService } from './login.service';
 
 
 @Component({
@@ -29,7 +30,7 @@ export class LoginFormComponent implements OnInit {
 			this.passwordValidator()
 		])
 	});
-	constructor() { }
+	constructor(private loginService :LoginService) { }
 
 	ngOnInit(): void {
 	
@@ -51,5 +52,20 @@ export class LoginFormComponent implements OnInit {
 	}
 	public touched(input :string) {
 		return this.loginForm.get(input)?.touched;
+	}
+	public logInSubmit() {
+		this.loginService.getToken(this.loginForm.get('email')?.value, this.loginForm.get('password')?.value).subscribe({
+		next(response) {
+			//localStorage.setItem("token", JSON.stringify(response));
+			if(response.error == "No token") {
+				console.log("The token is invalid");
+			} else {
+				localStorage.setItem("loginToken", JSON.stringify(response));
+			}
+		},
+		error(err) {
+			console.error(err);
+		} 
+		});
 	}
 }
