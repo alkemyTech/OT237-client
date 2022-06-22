@@ -17,6 +17,7 @@ export class RegisterFormComponent implements OnInit {
   ngOnInit(): void {
     this.isSubmitted = false;
     this.form = this.formBuilder.group({
+      name: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
       password: ['', [Validators.required, Validators.pattern("^(?=.*[A-Za-z])(?=.*\\d)(?=.*[$@$!%*#?&])[A-Za-z\\d$@$!%*#?&]{6,}$")]],
       confirmPassword: ['', [Validators.required]],
@@ -50,11 +51,12 @@ export class RegisterFormComponent implements OnInit {
         return;
     }
 
-    let formObject: { email: string, password: string, confirmPassword: string } = 
-                { email: this.form.controls.email.value,  
-                  password: this.form.controls.password.value,
-                  confirmPassword: this.form.controls.password.value
-                };
+    let formObject: { name: string, email: string, password: string } = 
+    { 
+        name: this.form.controls.name.value,
+        email: this.form.controls.email.value,  
+        password: this.form.controls.password.value,
+    };
   }
 
 }
