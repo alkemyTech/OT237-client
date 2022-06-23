@@ -1,4 +1,6 @@
 import { ActivityFormComponent } from "./pages/activities/activity-form/activity-form.component";
+import { RegisterFormComponent } from "./pages/auth/register-form/register-form.component";
+
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
@@ -10,15 +12,14 @@ const routes: Routes = [
     component: LoginFormComponent 
   },
   {
-    path: "",
-    redirectTo: "actividades",
-    pathMatch: "full",
+    path: "actividades", 
+    component: ActivityFormComponent
   },
-  {
-    path: "**",
-    redirectTo: "actividades",
-    pathMatch: "full",
+  { 
+    path: "registro", 
+    component: RegisterFormComponent
   },
+
 ];
 
 @NgModule({
