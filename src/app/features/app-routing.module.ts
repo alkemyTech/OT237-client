@@ -4,23 +4,20 @@ import { RegisterFormComponent } from "./pages/auth/register-form/register-form.
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
+import { LoginFormComponent } from "./pages/auth/login-form/login-form.component";
 
 const routes: Routes = [
   { 
-    path: "actividades", 
-    component: ActivityFormComponent },
-  { 
-    path: "registro", 
-    component: RegisterFormComponent },
-  {
-    path: "",
-    redirectTo: "actividades",
-    pathMatch: "full",
+    path: "login", 
+    component: LoginFormComponent 
   },
   {
-    path: "**",
-    redirectTo: "actividades",
-    pathMatch: "full",
+    path: "actividades", 
+    component: ActivityFormComponent
+  },
+  { 
+    path: "registro", 
+    component: RegisterFormComponent
   },
 
 ];
