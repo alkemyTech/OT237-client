@@ -10,6 +10,7 @@ import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 
@@ -22,7 +23,7 @@ import { HttpClientModule } from "@angular/common/http";
     NewsFormComponent,
     SlidesFormComponent,
     TestimonialFormComponent,
-    UserFormComponent,
+    UserFormComponent
   ],
   exports: [
     ActivityFormComponent,
@@ -35,6 +36,14 @@ import { HttpClientModule } from "@angular/common/http";
     UserFormComponent,
     RouterModule
   ],
-  imports: [CommonModule, AppRoutingModule, RouterModule,HttpClientModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    CommonModule, 
+    AppRoutingModule, 
+    RouterModule, 
+    CKEditorModule, 
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
+  ],
 })
 export class FeaturesModule {}
