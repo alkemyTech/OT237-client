@@ -14,7 +14,7 @@ const routes: Routes = [
     path: "registro", 
     component: RegisterFormComponent },
   {
-    path: "news",
+    path: "backoffice/news",
     component: NewsFormComponent },
   {
     path: "",

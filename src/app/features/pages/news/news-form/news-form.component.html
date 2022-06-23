@@ -1,18 +1,27 @@
-<form action="">
+<form [formGroup]="formNovedades" (ngSubmit)="onSubmit()">
+
     <p>
-        <label for="titulo">Título</label>
-        <input type="text" id="titulo">
+        <label for="title">Título</label>
+        <input type="text" id="title" formControlName="title">
     </p>
 
     <p>
-        <label for="contenido">Contenido</label>
-        <ckeditor [editor]="Editor" data="" id="contenido"></ckeditor>
+        <label for="content">Contenido</label>
+        <ckeditor [editor]="Editor" data="" id="content" formControlName="content"></ckeditor>
     </p>
 
     <p>
-        <label for="categoria">Categoría</label>
-        <input type="text" id="categoria">
+        <label for="category">Categoría</label>
+        <input type="text" id="category" formControlName="category">
     </p>
 
-    <button type="submit">Enviar</button>    
+    <p>
+        <label for="image">Imagen</label>
+        <input type="text" id="image" formControlName="image">
+    </p>
+
+    <p>
+        <button type="submit" [disabled]="!formNovedades.valid">Enviar</button>
+    </p>
+    
 </form>
