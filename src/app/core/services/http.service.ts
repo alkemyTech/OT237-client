@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { News, Novedad, Response } from "src/app/features/interfaces";
+import { Novedades } from "src/app/features/interfaces";
 
 @Injectable({
   providedIn: "root",
@@ -20,11 +20,8 @@ export class HttpService {
     return this.http.get<T>(url, activateHeader ? { headers: this._headers }: {});
   }
 
-  public getNews(): Observable<News> {
-    return this.http.get<News>("https://ongapi.alkemy.org/api/news/", { headers: this._headers });
+  public getNews(): Observable<Novedades> {
+    return this.http.get<Novedades>("https://ongapi.alkemy.org/api/news");
   }
 
-  public getNovedadById(id: number): Observable<Response> {
-    return this.http.get<Response>(`https://ongapi.alkemy.org/api/news/${id}`, { headers: this._headers });
-  }
 }

@@ -1,26 +1,19 @@
 export interface Novedad {
-    id: any,
-    name: any,
+    id: number,
+    name: string,
     slug: any,
-    content: any,
-    image: any,
-    user_id: any,
-    category_id: any,
-    created_at: any,
-    updated_at: any,
-    deleted_at: any,
-    group_id: any
+    content: string,
+    image: string,
+    user_id: number,
+    category_id: number,
+    created_at: Date|string,
+    updated_at: Date|string,
+    deleted_at: Date|string,
+    group_id: number
 }
 
-export interface News {
+export interface Novedades {
     success: boolean,
     data: Novedad[],
     message: string
 }
-
-export interface Response {
-    success: boolean,
-    data: Novedad,
-    message: string
-}
-
