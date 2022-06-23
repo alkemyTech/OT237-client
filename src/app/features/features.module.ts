@@ -23,7 +23,7 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     NewsFormComponent,
     SlidesFormComponent,
     TestimonialFormComponent,
-    UserFormComponent,
+    UserFormComponent
   ],
   exports: [
     ActivityFormComponent,
@@ -45,5 +45,6 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     ReactiveFormsModule, 
     CKEditorModule
   ]
+
 })
 export class FeaturesModule {}
