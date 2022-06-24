@@ -1,0 +1,59 @@
+<div class="card">
+    <h4 class="card-header">¡Contactate con nosotros!</h4>
+    <div class="card-body">
+        <form novalidate [formGroup]="contactForm" (ngSubmit)="handleSubmit($event)">
+            <div class="form-group">
+                <label for="name">Nombre y apellido</label>
+                <input type="text" 
+                        formControlName="name" 
+                        class="form-control" 
+                        [ngClass]="{ 'is-invalid': f.name.touched && f.name.errors }" />
+                <div *ngIf="f.name.errors && f.name.touched" class="invalid-feedback">
+                    <div *ngIf="f.name.errors.required">"Nombre" es un campo obligatorio.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" 
+                        formControlName="email" 
+                        class="form-control" 
+                        [ngClass]="{ 'is-invalid': f.email.touched && f.email.errors }" />
+                <div *ngIf="f.email.errors && f.email.touched" class="invalid-feedback">
+                    <div *ngIf="f.email.errors.required">"Email" es un campo obligatorio.</div>
+                    <div *ngIf="f.email.errors.email">El formato del email es incorrecto</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="phone">Teléfono</label>
+                <input type="text" 
+                        formControlName="phone" 
+                        class="form-control" 
+                        [ngClass]="{ 'is-invalid': f.phone.touched && f.phone.errors }" />
+                <div *ngIf="f.phone.errors && f.phone.touched" class="invalid-feedback">
+                    <div *ngIf="f.phone.errors.required">"Teléfono" es un campo obligatorio.</div>
+                    <div *ngIf="f.phone.errors.minlength">"Teléfono" debe tener al menos 8 números</div>
+                    <div *ngIf="f.phone.errors.pattern">"Teléfono" debe contener sólo números</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="message">Escribe tu consulta</label>
+                <textarea type="text" 
+                        formControlName="message" 
+                        class="form-control" 
+                        [ngClass]="{ 'is-invalid': f.message.touched && f.message.errors }">
+                </textarea>
+                <div *ngIf="f.message.errors && f.message.touched" class="invalid-feedback">
+                    <div *ngIf="f.message.errors.required">"Consulta" es un campo obligatorio.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit">
+                    Enviar Consulta
+                </button>
+                <a routerLink="/">
+                    Ir al inicio
+                </a>
+            </div>
+        </form>
+    </div>
+</div>

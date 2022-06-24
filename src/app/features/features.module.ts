@@ -13,6 +13,7 @@ import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { ContactFormComponent } from './pages/contribute/contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
     NewsFormComponent,
     SlidesFormComponent,
     TestimonialFormComponent,
-    UserFormComponent
+    UserFormComponent,
+    ContactFormComponent
   ],
   exports: [
     ActivityFormComponent,

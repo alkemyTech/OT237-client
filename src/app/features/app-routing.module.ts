@@ -6,6 +6,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { LoginFormComponent } from "./pages/auth/login-form/login-form.component";
 import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
+import { ContactFormComponent } from "./pages/contribute/contact-form/contact-form.component";
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: "backoffice/news",
     component: NewsFormComponent 
+  },
+  {
+    path: "contribuir",
+    component: ContactFormComponent
   },
   {
     path: "",
