@@ -16,9 +16,6 @@ const routes: Routes = [
   { 
     path: "backoffice/members/edit", 
     component: MembersFormComponent },
-  { 
-    path: "backoffice/members/edit/:id", 
-    component: MembersFormComponent },
   {
     path: "",
     redirectTo: "actividades",
