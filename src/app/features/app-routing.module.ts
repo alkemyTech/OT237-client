@@ -6,6 +6,7 @@ import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { LoginFormComponent } from "./pages/auth/login-form/login-form.component";
+import { OrganizationFormComponent } from "./pages/backoffice/organization-form/organization-form.component";
 
 const routes: Routes = [
   { 
@@ -20,12 +21,7 @@ const routes: Routes = [
     path: "editar-testimonio/:id",
     component: TestimonialFormComponent
   },
-  {
-    path: "**",
-    redirectTo: "actividades",
-    pathMatch: "full",
-  },
-  {
+{
     path: "actividades", 
     component: ActivityFormComponent
   },
@@ -33,7 +29,15 @@ const routes: Routes = [
     path: "registro", 
     component: RegisterFormComponent
   },
-
+  {
+    path: "backoffice/organization/edit",
+    component: OrganizationFormComponent
+  },
+  {
+    path: "**",
+    redirectTo: "actividades",
+    pathMatch: "full",
+  }
 ];
 
 @NgModule({

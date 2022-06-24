@@ -1,0 +1,12 @@
+<form>
+	<label for="name">Nombre: </label>
+	<input id="name" type="text">
+	<h5>Logo: </h5>
+	<input type="file">
+	<h5>Descripción corta: </h5>
+	<ckeditor [editor]="shortDescEditor"></ckeditor>
+	<h5>Descripción larga: </h5>
+	<ckeditor [editor]="longDescEditor"></ckeditor>
+	<button>Submit</button>
+</form>
+
