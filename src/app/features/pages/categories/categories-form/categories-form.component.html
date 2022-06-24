@@ -1,1 +1,24 @@
-<p>categories-form works!</p>
+<form  [formGroup]="forma" (ngSubmit)="crearCategoria()">
+
+    <div >
+        <div>
+            <label for="exampleInputEmail1">Nombre categoria</label>
+            <input type="text"    placeholder="Nombre"
+             name="nombre" formControlName="nombre" >
+             <small *ngIf="nombreNoValido" >Ingrese un min de 4 caracteres</small>
+        </div>
+        <div >
+            <label for="exampleInputPassword1">Descripcion</label>
+           
+            <ckeditor  [editor]="descripcion" formControlName="descripcion"></ckeditor>
+            <small *ngIf="descripcionNoValido" >Ingrese un min de 4 caracteres </small>
+        </div>
+        
+        <div>
+            <label for="exampleInputEmail1">Imagen formato(PNG o JPG)</label>
+             <input #imageInput type="file" (change)="procesarImage(imageInput.files)" formControlName="imagen" accept="image/jpg, image/png">
+             <small  *ngIf="imgNoValido" >Se espera una imagen con formato PNG o JPG </small>
+        </div>
+        <button type="submit" [disabled]="( imgNoValido )" >Crear</button>
+    </div>  
+</form>
