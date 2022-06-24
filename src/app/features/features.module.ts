@@ -10,9 +10,9 @@ import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 @NgModule({
   declarations: [
@@ -40,10 +40,11 @@ import { HttpClientModule } from "@angular/common/http";
     CommonModule, 
     AppRoutingModule, 
     RouterModule, 
-    CKEditorModule, 
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule
-  ],
+    HttpClientModule, 
+    FormsModule, 
+    ReactiveFormsModule, 
+    CKEditorModule
+  ]
+
 })
 export class FeaturesModule {}
