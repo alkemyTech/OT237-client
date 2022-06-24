@@ -59,10 +59,7 @@ export class SlidesFormComponent implements OnInit {
 
   onNextPage() {
     if(this.iterator == this.pages.length - 1) {
-      if(this.form.invalid) {
-        return;
-      }
-      console.log(this.form.value);
+      if(this.form.invalid) return;
       this.form.reset();
       this.iterator = 0;
     } else this.iterator++;
