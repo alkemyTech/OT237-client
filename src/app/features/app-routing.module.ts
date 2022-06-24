@@ -1,5 +1,6 @@
 import { ActivityFormComponent } from "./pages/activities/activity-form/activity-form.component";
 import { RegisterFormComponent } from "./pages/auth/register-form/register-form.component";
+
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
@@ -7,6 +8,7 @@ import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/
 import { LoginFormComponent } from "./pages/auth/login-form/login-form.component";
 import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { ContactFormComponent } from "./pages/contribute/contact-form/contact-form.component";
+import { MembersFormComponent } from "./pages/members/members-form/members-form.component";
 
 const routes: Routes = [
   {
@@ -32,6 +34,10 @@ const routes: Routes = [
   {
     path: "backoffice/news",
     component: NewsFormComponent 
+  },
+  { 
+    path: "backoffice/members/edit", 
+    component: MembersFormComponent 
   },
   {
     path: "contribuir",

@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { ContactFormComponent } from './pages/contribute/contact-form/contact-form.component';
+import { MembersFormComponent } from './pages/members/members-form/members-form.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ContactFormComponent } from './pages/contribute/contact-form/contact-fo
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    MembersFormComponent
   ],
   exports: [
     ActivityFormComponent,
@@ -47,6 +49,5 @@ import { ContactFormComponent } from './pages/contribute/contact-form/contact-fo
     ReactiveFormsModule, 
     CKEditorModule
   ]
-
 })
 export class FeaturesModule {}
