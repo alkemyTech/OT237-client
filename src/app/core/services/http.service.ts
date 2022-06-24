@@ -24,7 +24,7 @@ export class HttpService {
     return this.http.get<Novedades>("https://ongapi.alkemy.org/api/news");
   }
 
-  public getElementById(id: number) {
+  public getNewById(id: number) {
     return this.http.get(`https://ongapi.alkemy.org/api/news/${id}`);
   }
 

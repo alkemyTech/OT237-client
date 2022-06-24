@@ -12,8 +12,8 @@ import { Novedad } from 'src/app/features/interfaces';
 export class NewsFormComponent implements OnInit {
 
   public Editor = ClassicEditor;
-  public formNovedades: FormGroup;
-  public novedades: Novedad[];
+  public formNews!: FormGroup;
+  public news!: Novedad[];
 
   constructor(private api: HttpService, private formBuilder: FormBuilder) { }
 
@@ -24,16 +24,15 @@ export class NewsFormComponent implements OnInit {
 
   getNews(): void {
     this.api.getNews().subscribe(news => {
-      this.novedades = news.data;
+      this.news = news.data;
     });
   }
 
-  getNovedadById(id: number): void {
-    //this.api.getElementById(id);
+  getNewById(id: number): void {
   }
 
   initForm(): void {
-    this.formNovedades = this.formBuilder.group({
+    this.formNews = this.formBuilder.group({
       title: ['', [Validators.required, Validators.minLength(4)]],
       content: ['', [Validators.required]],
       category: ['', [Validators.required]],
@@ -42,8 +41,6 @@ export class NewsFormComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log("Submit successful!")
-
   }
 
 }
