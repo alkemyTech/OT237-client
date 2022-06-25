@@ -4,7 +4,10 @@
 	<span *ngIf="isSubmitted() && requiredError('name')" class="invalid-text">El campo es obligatorio</span>
 	<h5>Logo: </h5>
 	<input type="file" formControlName="logo">
-	<span *ngIf="isSubmitted() && requiredError('logo')" class="invalid-text">El campo es obligatorio</span>
+	<div *ngIf="isSubmitted()">
+		<span *ngIf="requiredError('logo')" class="invalid-text">El campo es obligatorio</span>
+		<span *ngIf="fileError('logo') && !requiredError('logo')" class="invalid-text">El archivo debe ser de formato .jpg o .png</span>
+	</div>
 	<h5>Descripción corta: </h5>
 	<ckeditor [editor]="shortDescEditor" formControlName="shortDesc"></ckeditor>
 	<span *ngIf="isSubmitted() && requiredError('shortDesc')" class="invalid-text">El campo es obligatorio</span>
@@ -13,7 +16,10 @@
 	<span *ngIf="isSubmitted() && requiredError('longDesc')" class="invalid-text">El campo es obligatorio</span>
 	<label>Links a redes sociales:</label>
 	<input type="url" formControlName="linksInput">
-	<span *ngIf="isSubmitted() && requiredError('linksInput')" class="invalid-text">El campo es obligatorio</span>
+	<div *ngIf="isSubmitted()">
+		<span *ngIf="requiredError('linksInput')" class="invalid-text">El campo es obligatorio</span>
+		<span *ngIf="patternError('linksInput')" class="invalid-text">Debe ingresar una url</span>
+	</div>
 	<button type="submit">Submit</button>
 </form>
 
