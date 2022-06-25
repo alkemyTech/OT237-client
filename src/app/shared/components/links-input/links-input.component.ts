@@ -34,7 +34,6 @@ export class LinksInputComponent implements ControlValueAccessor {
 	}
 	public addToList() :void{
 		if(!this.urlIsInvalid()) {
-			console.log(typeof(this.urlList));
 			this.urlList.push(this.urlInput);
 			this.onChange(this.urlList);
 		}
