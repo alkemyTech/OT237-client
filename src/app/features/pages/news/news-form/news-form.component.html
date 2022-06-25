@@ -1,18 +1,18 @@
 <form [formGroup]="formNovedades" (ngSubmit)="onSubmit()">
     <p>
-        <label for="title">Título</label>
+        <label for="title">Título</label><br>
         <input type="text" id="title" formControlName="title">
     </p>
     <p>
-        <label for="content">Contenido</label>
+        <label for="content">Contenido</label><br>
         <ckeditor [editor]="Editor" data="" id="content" formControlName="content"></ckeditor>
     </p>
     <p>
-        <label for="category">Categoría</label>
+        <label for="category">Categoría</label><br>
         <input type="text" id="category" formControlName="category">
     </p>
     <p>
-        <label for="image">Imagen</label>
+        <label for="image">Imagen</label><br>
         <input type="text" id="image" formControlName="image">
     </p>
     <p>

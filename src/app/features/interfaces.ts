@@ -9,11 +9,17 @@ export interface Novedad {
     created_at: Date|string,
     updated_at: Date|string,
     deleted_at: Date|string,
-    group_id: number
+    group_id?: number
 }
 
 export interface Novedades {
     success: boolean,
     data: Novedad[],
+    message: string
+}
+
+export interface ResponseObject {
+    success: boolean,
+    data: Novedad,
     message: string
 }
