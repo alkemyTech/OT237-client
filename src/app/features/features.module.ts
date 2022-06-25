@@ -12,9 +12,10 @@ import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.comp
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { OrganizationFormComponent } from "./pages/backoffice/organization-form/organization-form.component";
-import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { MembersFormComponent } from './pages/members/members-form/members-form.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HttpClientModule } from "@angular/common/http";
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
-    OrganizationFormComponent
+    OrganizationFormComponent,
+    MembersFormComponent
   ],
   exports: [
     ActivityFormComponent,
@@ -48,6 +50,6 @@ import { HttpClientModule } from "@angular/common/http";
     ReactiveFormsModule,
     HttpClientModule,
     SharedModule
-  ],
+  ]
 })
 export class FeaturesModule {}

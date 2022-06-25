@@ -7,11 +7,13 @@ import { RouterModule, Routes } from "@angular/router";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { LoginFormComponent } from "./pages/auth/login-form/login-form.component";
 import { OrganizationFormComponent } from "./pages/backoffice/organization-form/organization-form.component";
+import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
+import { MembersFormComponent } from "./pages/members/members-form/members-form.component";
 
 const routes: Routes = [
-  { 
+  {
     path: "login", 
-    component: LoginFormComponent 
+    component: LoginFormComponent
   },
   {
     path: "nuevo-testimonio",
@@ -32,6 +34,14 @@ const routes: Routes = [
   {
     path: "backoffice/organization/edit",
     component: OrganizationFormComponent
+  },
+  {
+    path: "backoffice/news",
+    component: NewsFormComponent 
+  },
+  { 
+    path: "backoffice/members/edit", 
+    component: MembersFormComponent 
   },
   {
     path: "**",
