@@ -1,4 +1,5 @@
 import { RouterModule } from "@angular/router";
+import { SharedModule } from '../shared/shared.module'
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { AppRoutingModule } from "./app-routing.module";
@@ -45,7 +46,8 @@ import { HttpClientModule } from "@angular/common/http";
     CKEditorModule, 
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ],
 })
 export class FeaturesModule {}

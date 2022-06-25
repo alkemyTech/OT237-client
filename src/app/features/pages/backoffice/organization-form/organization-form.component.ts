@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators, ValidatorFn, AbstractControl, ValidationErrors} from '@angular/forms'
 import * as ClassicEditorBuild from '@ckeditor/ckeditor5-build-classic';
 
+
 @Component({
 	selector: 'app-organization-form',
 	templateUrl: './organization-form.component.html',
@@ -66,9 +67,8 @@ export class OrganizationFormComponent implements OnInit {
 			longDesc: new FormControl('', [
 				Validators.required
 			]),
-			linksInput: new FormControl('', [
-				Validators.required,
-				Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')
+			linksInput: new FormControl([], [
+				Validators.required
 			])
 		});
 	}
