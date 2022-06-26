@@ -8,6 +8,7 @@ import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/
 import { LoginFormComponent } from "./pages/auth/login-form/login-form.component";
 import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { MembersFormComponent } from "./pages/members/members-form/members-form.component";
+import { MembersListComponent } from "./pages/members/members-list/members-list.component";
 
 const routes: Routes = [
   {
@@ -34,8 +35,16 @@ const routes: Routes = [
     path: "backoffice/news",
     component: NewsFormComponent 
   },
+  {
+    path: "backoffice/members",
+    component: MembersListComponent
+  },
+  {
+    path: "backoffice/members/create",
+    component: MembersFormComponent
+  },
   { 
-    path: "backoffice/members/edit", 
+    path: "backoffice/members/edit/:id", 
     component: MembersFormComponent 
   },
   {
