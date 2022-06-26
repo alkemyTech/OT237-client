@@ -24,8 +24,8 @@ export class MembersFormComponent implements OnInit {
       name: ['', [Validators.required, Validators.minLength(4)]],
       image: ['', [Validators.required]],
       description: ['', [Validators.required]],
-      facebookUrl: ['', [Validators.required, Validators.pattern("^(?:.*)\/(?:pages\/[A-Za-z0-9-]+\/)?(?:profile\.php\?id=)?([A-Za-z0-9.]+)")]],
-      linkedinUrl: ['', [Validators.required, Validators.pattern("^https?://((www|\w\w)\.)?linkedin.com/((in/[^/]+/?)|(pub/[^/]+/((\w|\d)+/?){3}))$")]],
+      facebookUrl: ['', [Validators.required, Validators.pattern("(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?")]],
+      linkedinUrl: ['', [Validators.required, Validators.pattern("(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?")]],
     });
   }
 
