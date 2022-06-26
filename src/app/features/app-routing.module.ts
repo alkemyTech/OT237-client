@@ -9,10 +9,13 @@ const routes: Routes = [
     path: "actividades", 
     component: ActivityFormComponent },
   
-    { 
-      path: "categorias/crear", 
-      component: CategoriesFormComponent },
-      {
+  { 
+    path: "categorias/crear", 
+    component: CategoriesFormComponent },
+  { 
+     path: "categorias/crear/:id", 
+    component: CategoriesFormComponent },
+  {
 
     path: "",
     redirectTo: "actividades",

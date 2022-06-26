@@ -1,8 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { FormGroup } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { Categoria } from 'src/app/features/pages/categories/categories-form/categorie.model';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -10,23 +7,23 @@ import { Categoria } from 'src/app/features/pages/categories/categories-form/cat
 export class CategoriesService {
   url:string="https://ongapi.alkemy.org/api/"
  
-  private httpHeaders = new HttpHeaders({'Content-type':'application/json'})
   constructor(private http:HttpClient) {}
 
-  
-  queryGet(){
-    return  this.http.get(`${this.url}categories`)
-  }
   public queryPost(categoria:any){
+    return  this.http.post(`${this.url}categories`,categoria);}
 
-    return  this.http.post(`${this.url}categories`,categoria);
-  }
+  public queryGet(id:string){
+    return  this.http.get(`${this.url}categories/${id}`)}
 
-  buscarCategoria(){
-    return this.queryGet()
-   }
+  public queryPut(id:string ,categoria:any){
+    return  this.http.put(`${this.url}${id}`,categoria)}
 
-   crearCategoria(categoria:object){
-    return this.queryPost(categoria)
-   }
+  public crearCategoria(categoria:object){
+    return this.queryPost(categoria)} 
+
+  public buscarCategoriaId(id:any){
+    return this.queryGet(`2111`)}
+
+  public editarCategoria(id:number,categoria:any){
+    return this.http.put(`${this.url}categories/${id}`,categoria)}
 }

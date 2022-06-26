@@ -1,12 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
-import { FormBuilder, FormGroup, FormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, Validators ,FormControl} from '@angular/forms';
 import { CategoriesService } from 'src/app/core/services/categories.service';
-import { HttpClient } from '@angular/common/http';
 import { Categoria } from './categorie.model';
-
-
-
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-categories-form',
@@ -15,71 +12,101 @@ import { Categoria } from './categorie.model';
 })
 
 export class CategoriesFormComponent implements OnInit {
-  forma!:FormGroup
-  public descripcion = ClassicEditor;
   
-  disabled=true
-  categoria!:Categoria 
-  base64Image!: string;
-  prueba!:string
+  public Editor = ClassicEditor;
+  public categoriaForm!:FormGroup
+  public categoria:Categoria={}
+  public base64Image!: string;
+  public categoriaId!: number;
+  public editMode = false;
+  public imgBool:boolean=true
+  public boton:boolean=true
   
-  
-  constructor(private builder:FormBuilder,private categoriasService : CategoriesService) { 
-    this.crearFormulario()
+  constructor(private builder:FormBuilder,private categoriasService : CategoriesService,private activatedRoute:ActivatedRoute) { 
+    this.crearFormulario(this.categoria);
   }
+
   ngOnInit(): void {
-  }
+    const params = this.activatedRoute.snapshot.params;
+    if (params.id) {
+      this.boton=false
+      this.categoriaId = params.id;
+      this.buscarCategoriaId(params.id);
+    }}
 
-  get nombreNoValido(){
-    return this.forma.get('nombre')?.touched && this.forma.get('nombre')?.invalid
+  get f() { return this.categoriaForm.controls; }
+  private crearFormulario(categoria:any): void {
+    this.base64Image=categoria.image
+    this.categoriaForm = new FormGroup({
+      nombre: new FormControl     (categoria.name , [Validators.minLength(4), Validators.required]),
+      descripcion: new FormControl(categoria.description , [Validators.required]),
+      imagen: new FormControl     ("", [Validators.required])
+    });
   }
-
-  get descripcionNoValido(){
-    return this.forma.get('descripcion')?.touched && this.forma.get('descripcion')?.invalid
+  public accion(){
+    if (!this.boton) {
+      this.editarCategoria()
+    }else{
+      this.crearCategoria()
+    }
   }
-
-  get imgNoValido(){
-    return this.forma.get('imagen')?.touched && this.base64Image==null
-  }
+  public crearCategoria(){
+         this.categoria= this.categoriaForm.value
+         let categoriaObjeto: { nombre: string, descripcion: string, imagen: string } = { 
+          nombre: this.categoriaForm.controls.nombre.value,  
+          descripcion: this.categoriaForm.controls.descripcion.value,
+          imagen: `data:imagen/jpeg;base64,${this.base64Image}`
+            }
+            if (this.categoriaForm.invalid) {
+              return Object.values(this.categoriaForm.controls).forEach(control =>{
+                control.markAsTouched();
+              });
+            }
+          this.categoriasService.crearCategoria(categoriaObjeto)
+          }
 
   public procesarImage(files: FileList | null = null): void {
     if (files) {
+      this.imgBool=false
       let reader = new FileReader();
       reader.onload = this._handleReaderLoaded.bind(this);
       reader.readAsBinaryString(files[0]);
     }
   }
-
   private _handleReaderLoaded(readerEvt: any): void {
     let binaryString = readerEvt.target.result;
     this.base64Image= btoa(binaryString);
   }
-
-  public crearFormulario(){
-    this.forma=this.builder.group({
-      nombre:     ["", [Validators.required, Validators.minLength(4)]],
-      descripcion:["", [Validators.required, Validators.minLength(11)]],
-      imagen:     ["", [Validators.required]]
-    })
-}
-
-  public crearCategoria(){
-    if (this.base64Image==null) {
-    }else{
-     this.categoria= this.forma.value
-     let categoriaObjeto: { name: String, description: String, image: String } = { 
-        name: this.categoria.nombre,  
-        description: this.categoria.descripcion,
-        image: `data:imagen/jpeg;base64,${this.base64Image}`
-      };
-     this.categoriasService.crearCategoria(categoriaObjeto).subscribe((data:any)=>{console.log("anda")}) 
+    get nombreNoValido(){
+    return this.categoriaForm.get('nombre')?.touched && this.categoriaForm.get('nombre')?.invalid
+  }
+  get descripcionNoValido(){
+    return this.categoriaForm.get('descripcion')?.touched && this.categoriaForm.get('descripcion')?.invalid
+  }
+  get imgNoValido(){
+    return this.categoriaForm.get('imagen')?.touched && this.base64Image==null
+  }
+  public buscarCategoriaId(id:number){
+    this.categoriasService.buscarCategoriaId(id).subscribe((data:any)=>{
+      this.categoria=data.data;
+      this.editMode = true;
+      this.crearFormulario(this.categoria); 
+    })}
+    public editarCategoria(){
+      if (this.editMode) {
+        let editCategoriaObject: { name?: string, description?: string, image?: string } = {
+          name: this.categoriaForm.get("nombre")?.value,
+        }
+        if (this.categoriaForm.get("descripcion")?.value !== this.categoria.descripcion) {
+         editCategoriaObject.description = this.categoriaForm.get("descripcion")?.value
+        }
+        if (this.categoriaForm.get('imagen')?.touched) {
+          editCategoriaObject.image = `data:image/jpeg;base64,${this.base64Image}`;
+        }
+        this.categoriasService.editarCategoria(this.categoriaId, editCategoriaObject)
+        .subscribe(()=> this.buscarCategoriaId(this.categoriaId))
+        return
+      }
     }
-      if (this.forma.invalid) {
-        return Object.values(this.forma.controls).forEach(control =>{
-          console.log(control)
-          control.markAsTouched();
-        });
-      }}
- 
-
-}
+    
+ }
