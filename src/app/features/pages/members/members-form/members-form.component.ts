@@ -33,11 +33,11 @@ export class MembersFormComponent implements OnInit {
     this.isAddMode = !this.id;
     this.isSubmitted = false;
     this.form = this.formBuilder.group({
-      name: [this.member.name || '', [Validators.required, Validators.minLength(4)]],
-      image: [this.member.image || '', [Validators.required]],
-      description: [this.member.description || '', [Validators.required]],
-      facebookUrl: [this.member.facebookUrl || '', [Validators.required, Validators.pattern("(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?")]],
-      linkedinUrl: [this.member.linkedinUrl || '', [Validators.required, Validators.pattern("(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?")]],
+      name: ['', [Validators.required, Validators.minLength(4)]],
+      image: ['', [Validators.required]],
+      description: ['', [Validators.required]],
+      facebookUrl: ['', [Validators.required, Validators.pattern("(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?")]],
+      linkedinUrl: ['', [Validators.required, Validators.pattern("(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?")]],
     });
 
     if (!this.isAddMode) {
@@ -81,30 +81,12 @@ export class MembersFormComponent implements OnInit {
     if (this.form.invalid) {
       return;
     }
-
-    if (this.isAddMode) {
-      this.createMember();
-    } else {
-      this.editMember();
-    }
-  }
-
-  private createMember() {
-    this.membersService.addMember(this.form.value)
-      .pipe(first())
+    
+    this.isAddMode ? this.membersService.addMember(this.form.value) : this.membersService.editMember(this.id, this.form.value)
+    .pipe(first())
       .subscribe({
         next: () => {
           this.router.navigate(['../'], { relativeTo: this.route });
-        }
-      });
-  }
-
-  private editMember() {
-    this.membersService.editMember(this.id, this.form.value)
-      .pipe(first())
-      .subscribe({
-        next: () => {
-          this.router.navigate(['../../'], { relativeTo: this.route });
         }
       });
   }
