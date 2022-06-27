@@ -1,1 +1,40 @@
-<p>user-form works!</p>
+<div class="container">
+    <p>Formulario Actualizar/Crear Usuario</p>
+    <form [formGroup]="form" (ngSubmit)="onStore()">
+        <div class="input-group">
+            <label>Nombre</label>
+            <input 
+                type="text"
+                class="input {{(checkControl(name,'required') || checkControl(name,'minlength')) && 'border-error'}}"
+                placeholder="Nombre"
+                formControlName="name"
+            >
+            <span *ngIf="checkControl(name,'required')">Este campo es requerido.</span>
+            <span *ngIf="checkControl(name,'minlength')">Debe tener como mínimo 4 caracteres.</span>
+        </div>
+        <div class="input-group">
+            <label>Email</label>
+            <input 
+                type="email"
+                class="input {{(checkControl(email,'required') || checkControl(email,'pattern')) && 'border-error'}}"
+                placeholder="Email"
+                formControlName="email"
+            >
+            <span *ngIf="checkControl(email,'required')">Este campo es requerido.</span>
+            <span *ngIf="checkControl(email,'pattern')">Ingrese un email válido.</span>
+        </div>
+        <div class="input-group">
+            <label>Rol</label>
+            <select formControlName="role_id" class="select {{checkControl(role_id,'required') && 'border-error'}}">
+                <option value="" selected>Seleccione un rol</option>
+                <option [value]="role.id" *ngFor="let role of roles">
+                    {{role.name}}
+                </option>
+            </select>
+            <span *ngIf="checkControl(role_id,'required')">Este campo es requerido.</span>
+        </div>
+        <button type="submit">
+            {{ id ? 'Actualizar':'Crear' }}
+        </button>
+    </form>
+</div>

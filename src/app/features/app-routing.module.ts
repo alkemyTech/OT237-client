@@ -1,3 +1,4 @@
+import { UserFormComponent } from './pages/users/user-form/user-form.component';
 import { ActivityFormComponent } from "./pages/activities/activity-form/activity-form.component";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
@@ -11,6 +12,10 @@ const routes: Routes = [
     path: "",
     redirectTo: "actividades",
     pathMatch: "full",
+  },
+  {
+    path: "backoffice/users",
+    component: UserFormComponent
   },
   {
     path: "**",

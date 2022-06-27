@@ -1,9 +1,9 @@
+import { RoleService } from './../../../../core/services/role.service';
 import { UserService } from './../../../../core/services/user.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 
 export interface UserFormEditNew {
-  id?: number;
   name: string;
   email: string;
   role_id?: number;
@@ -17,25 +17,51 @@ export interface UserFormEditNew {
 export class UserFormComponent implements OnInit {
   form!: FormGroup;
   user!: UserFormEditNew;
+  roles!: any[];
+  id!: number;
 
   constructor(
     private fb: FormBuilder,
-    private userSvc: UserService
+    private userSvc: UserService,
+    private roleSvc: RoleService
   ) { }
 
   ngOnInit(): void {
-    history.state ? this.formEdit() : this.initForm();
+    history.state.id ? this.formEdit() : this.initForm();
+    this.roleSvc.getAllRoles().subscribe({
+      next: (res: any) => {
+        this.roles = res.data;
+      }
+    });
+  }
+
+  get name() {
+    return this.form.get('name');
+  }
+
+  get email() {
+    return this.form.get('email');
+  }
+
+  get role_id() {
+    return this.form.get('role_id');
+  }
+
+  checkControl(control: any, type: string): boolean {
+    return control.hasError(type) && (control.touched || control.dirty);
   }
 
   async onStore(): Promise<void> {
 
     if (this.form.status == 'VALID') {
       try {
-        if(this.user.id){
-          this.update(this.form.value)
+        if(this.id){
+          console.log("update");
+          //this.update(this.form.value)
         }
-        else{
-          this.save(this.form.value)
+        else {
+          console.log("save");
+          //this.save(this.form.value)
         }
 
       } catch (error) {
@@ -81,24 +107,20 @@ export class UserFormComponent implements OnInit {
 
   private formEdit(): void {
     this.form = this.fb.group({
-      id: ['', Validators.required],
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      name: ['', Validators.required, Validators.minLength(4)],
+      email: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       role_id: ['', Validators.required]
     });
-
-    this.user.id = history.state.id;
-    this.user.name = history.state.name;
-    this.user.email = history.state.email;
-    this.user.role_id = history.state.role_id;
+    this.id = history.state.id;
+    const { name, email, role_id } = history.state;
+    this.user = { name, email, role_id };
     this.form.patchValue(this.user);
   }
 
   private initForm(): void {
     this.form = this.fb.group({
-      id: ['', Validators.required],
-      name: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      name: ['', Validators.required, Validators.minLength(4)],
+      email: ['', [Validators.required, Validators.pattern('^[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       role_id: ['', Validators.required]
     });
   }
