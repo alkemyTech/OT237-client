@@ -3,7 +3,7 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { FormBuilder, FormGroup, FormsModule, Validators ,FormControl} from '@angular/forms';
 import { CategoriesService } from 'src/app/core/services/categories.service';
 import { Categoria } from './categorie.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-categories-form',
@@ -22,7 +22,7 @@ export class CategoriesFormComponent implements OnInit {
   public imgBool:boolean=true
   public boton:boolean=true
   
-  constructor(private builder:FormBuilder,private categoriasService : CategoriesService,private activatedRoute:ActivatedRoute) { 
+  constructor(private builder:FormBuilder,private categoriasService : CategoriesService,private activatedRoute:ActivatedRoute, private router: Router) { 
     this.crearFormulario(this.categoria);
   }
 
@@ -52,17 +52,22 @@ export class CategoriesFormComponent implements OnInit {
   }
   public crearCategoria(){
          this.categoria= this.categoriaForm.value
-         let categoriaObjeto: { nombre: string, descripcion: string, imagen: string } = { 
-          nombre: this.categoriaForm.controls.nombre.value,  
-          descripcion: this.categoriaForm.controls.descripcion.value,
-          imagen: `data:imagen/jpeg;base64,${this.base64Image}`
+         console.log(this.base64Image)
+         let categoriaObjeto: { name: string, description: string, image: string } = { 
+          name: this.categoriaForm.controls.nombre.value,  
+          description: this.categoriaForm.controls.descripcion.value,
+          image: `data:imagen/jpeg;base64,${this.base64Image}`
             }
+            this.categoriasService.crearCategoria(categoriaObjeto).subscribe()
             if (this.categoriaForm.invalid) {
               return Object.values(this.categoriaForm.controls).forEach(control =>{
                 control.markAsTouched();
               });
             }
-          this.categoriasService.crearCategoria(categoriaObjeto)
+            
+         
+          
+          
           }
 
   public procesarImage(files: FileList | null = null): void {
@@ -97,15 +102,17 @@ export class CategoriesFormComponent implements OnInit {
         let editCategoriaObject: { name?: string, description?: string, image?: string } = {
           name: this.categoriaForm.get("nombre")?.value,
         }
-        if (this.categoriaForm.get("descripcion")?.value !== this.categoria.descripcion) {
+        if (this.categoriaForm.get("descripcion")?.value !== this.categoria.description) {
          editCategoriaObject.description = this.categoriaForm.get("descripcion")?.value
         }
         if (this.categoriaForm.get('imagen')?.touched) {
           editCategoriaObject.image = `data:image/jpeg;base64,${this.base64Image}`;
         }
+        this.router.navigate(["/"])
         this.categoriasService.editarCategoria(this.categoriaId, editCategoriaObject)
         .subscribe(()=> this.buscarCategoriaId(this.categoriaId))
-        return
+        
+        return 
       }
     }
     
