@@ -8,6 +8,7 @@ import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/
 import { LoginFormComponent } from "./pages/auth/login-form/login-form.component";
 import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { MembersFormComponent } from "./pages/members/members-form/members-form.component";
+import { ContactComponent } from "./pages/contact/contact/contact.component";
 
 const routes: Routes = [
   {
@@ -29,6 +30,11 @@ const routes: Routes = [
   { 
     path: "registro", 
     component: RegisterFormComponent 
+  },
+  {
+    path: "contacto",
+    component: ContactComponent
+
   },
   {
     path: "backoffice/news",
