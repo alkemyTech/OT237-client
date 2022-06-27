@@ -1,3 +1,5 @@
+<h1 *ngIf="isAddMode">Crear Miembro</h1>
+<h1 *ngIf="!isAddMode">Editar Miembro</h1>
 <form [formGroup]="form" (ngSubmit)="handleSubmit($event)">
   <div class="form-group">
     <label for="name">Nombre </label>
@@ -17,6 +19,7 @@
 
 <div class="form-group">
     <label for="image">Imagen </label>
+    <img *ngIf="!isAddMode" src="{{member?.image}}" alt="">
     <input #imageInput type="file" (change)="processImage(imageInput.files)" formControlName="image"
         accept="image/jpg, image/png">
     <div *ngIf="isSubmitted && f.image.errors" class="invalid-feedback">
@@ -75,6 +78,6 @@
 
   <div class="form-group">
     <button>Confirmar</button>
-    <a routerLink="../login"> Cancelar </a>
+    <a routerLink="../../"> Cancelar </a>
   </div>
 </form>
