@@ -14,6 +14,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { MembersFormComponent } from './pages/members/members-form/members-form.component';
+import { NewsComponent } from './pages/news/news/news.component';
+import { NewCardComponent } from './pages/news/news/new-card/new-card.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { MembersFormComponent } from './pages/members/members-form/members-form.
     TestimonialFormComponent,
     UserFormComponent,
     MembersFormComponent,
+    NewsComponent,
+    NewCardComponent,
   ],
   exports: [
     ActivityFormComponent,
