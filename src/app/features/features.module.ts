@@ -16,6 +16,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { MembersFormComponent } from './pages/members/members-form/members-form.component';
+import { MembersListComponent } from './pages/members/members-list/members-list.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { MembersFormComponent } from './pages/members/members-form/members-form.
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
+    MembersListComponent,
     OrganizationFormComponent,
     MembersFormComponent
   ],
