@@ -82,12 +82,18 @@ export class MembersFormComponent implements OnInit {
       return;
     }
     
-    this.isAddMode ? this.membersService.addMember(this.form.value) : this.membersService.editMember(this.id, this.form.value)
-    .pipe(first())
+    this.isAddMode ? this.membersService.addMember(this.form.value).pipe(first())
+    .subscribe({
+      next: () => {
+        this.router.navigate(['../'], { relativeTo: this.route });
+      }
+    })
+  
+    : this.membersService.editMember(this.id, this.form.value).pipe(first())
       .subscribe({
         next: () => {
           this.router.navigate(['../'], { relativeTo: this.route });
         }
-      });
+    });
   }
 }
