@@ -17,3 +17,15 @@ export interface Novedades {
     data: Novedad[],
     message: string
 }
+
+export interface Member {
+    id?: number,
+    name?: string,
+    image?: string,
+    description?: string,
+    facebookUrl?: string,
+    linkedinUrl?: string,
+    created_at?: Date|string,
+    updated_at?: Date|string,
+    deleted_at?: Date|string
+}

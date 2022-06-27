@@ -6,9 +6,11 @@ import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { LoginFormComponent } from "./pages/auth/login-form/login-form.component";
+import { OrganizationFormComponent } from "./pages/backoffice/organization-form/organization-form.component";
 import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { ContactFormComponent } from "./pages/contribute/contact-form/contact-form.component";
 import { MembersFormComponent } from "./pages/members/members-form/members-form.component";
+import { MembersListComponent } from "./pages/members/members-list/members-list.component";
 
 const routes: Routes = [
   {
@@ -23,21 +25,25 @@ const routes: Routes = [
     path: "editar-testimonio/:id",
     component: TestimonialFormComponent
   },
-  { 
+{
     path: "actividades", 
-    component: ActivityFormComponent 
+    component: ActivityFormComponent
   },
   { 
     path: "registro", 
-    component: RegisterFormComponent 
+    component: RegisterFormComponent
+  },
+  {
+    path: "backoffice/organization/edit",
+    component: OrganizationFormComponent
   },
   {
     path: "backoffice/news",
     component: NewsFormComponent 
   },
-  { 
-    path: "backoffice/members/edit", 
-    component: MembersFormComponent 
+  {
+    path: "backoffice/members",
+    component: MembersListComponent
   },
   {
     path: "contribuir",
@@ -49,11 +55,18 @@ const routes: Routes = [
     pathMatch: "full",
   },
   {
+    path: "backoffice/members/create",
+    component: MembersFormComponent
+  },
+  { 
+    path: "backoffice/members/edit/:id", 
+    component: MembersFormComponent 
+  },
+  {
     path: "**",
     redirectTo: "actividades",
     pathMatch: "full",
   }
-  
 ];
 
 @NgModule({

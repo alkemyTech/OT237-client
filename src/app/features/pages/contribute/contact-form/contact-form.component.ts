@@ -16,7 +16,6 @@ export class ContactFormComponent {
   get f() { return this.contactForm.controls; }
 
   public handleSubmit(e: Event): void {
-    e.preventDefault();
     if (this.contactForm.invalid) {
       this.contactForm.markAllAsTouched();
     }
