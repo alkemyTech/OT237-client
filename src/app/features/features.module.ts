@@ -1,4 +1,5 @@
 import { RouterModule } from "@angular/router";
+import { SharedModule } from '../shared/shared.module'
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { AppRoutingModule } from "./app-routing.module";
@@ -10,11 +11,13 @@ import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
+import { OrganizationFormComponent } from "./pages/backoffice/organization-form/organization-form.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { MembersFormComponent } from './pages/members/members-form/members-form.component';
 import { ContactComponent } from './pages/contact/contact/contact.component';
+import { MembersListComponent } from './pages/members/members-list/members-list.component';
 
 @NgModule({
   declarations: [
@@ -26,8 +29,10 @@ import { ContactComponent } from './pages/contact/contact/contact.component';
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
-    MembersFormComponent,
     ContactComponent,
+    MembersListComponent,
+    OrganizationFormComponent,
+    MembersFormComponent
   ],
   exports: [
     ActivityFormComponent,
@@ -44,10 +49,11 @@ import { ContactComponent } from './pages/contact/contact/contact.component';
     CommonModule, 
     AppRoutingModule, 
     RouterModule, 
-    HttpClientModule, 
-    FormsModule, 
-    ReactiveFormsModule, 
-    CKEditorModule
+    CKEditorModule, 
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    SharedModule
   ]
 })
 export class FeaturesModule {}
