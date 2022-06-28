@@ -40,17 +40,4 @@ export class NewsService {
     return this.http.post<ResponseObject>(this.url, novedad);
   }
 
-  //FAKE API
-  /* public modifyNovedad(id: number, params: object) {
-    return this.http.patch(`${this.fakeUrl}/${id}`, params, httpOptions);
-  }
-
-  public deleteNovedad(id: number) {
-    return this.http.delete(`${this.fakeUrl}/${id}`);
-  }
-
-  public postNovedad(novedad: Novedad){
-    return this.http.post(this.fakeUrl, novedad);
-  }
- */
 }
