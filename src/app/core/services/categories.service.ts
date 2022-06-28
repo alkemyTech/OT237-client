@@ -7,8 +7,8 @@ import { Subject } from 'rxjs';
 })
 export class CategoriesService {
   url:string="https://ongapi.alkemy.org/api/"
-  enviarPlatosSubjet= new Subject<[]>();
-  enviarPlatosObservables = this.enviarPlatosSubjet.asObservable();
+  enviarCategoriaSubjet= new Subject<[]>();
+  enviarCategoriaObservables = this.enviarCategoriaSubjet.asObservable();
  
   constructor(private http:HttpClient) {}
 
@@ -20,6 +20,9 @@ export class CategoriesService {
 
   public queryPut(id:string ,categoria:any){
     return  this.http.put(`${this.url}${id}`,categoria)}
+  
+  public queryDelete(id:any){
+    return  this.http.delete(`${this.url}categories/${id}`)}
 
   public crearCategoria(categoria:object){
     console.log("categoria")
@@ -33,7 +36,7 @@ export class CategoriesService {
   
   public buscarCategorias(id:string){
     return  this.http.get(`${this.url}categories`).subscribe((data:any)=>{
-      this.enviarPlatosSubjet.next(data)
+      this.enviarCategoriaSubjet.next(data)
     })}
   
 }

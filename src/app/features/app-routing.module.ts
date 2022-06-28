@@ -11,6 +11,7 @@ import { OrganizationFormComponent } from "./pages/backoffice/organization-form/
 import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { MembersFormComponent } from "./pages/members/members-form/members-form.component";
 import { MembersListComponent } from "./pages/members/members-list/members-list.component";
+import { CategoriesComponent } from "./pages/categories/categories/categories.component";
 
 const routes: Routes = [
   {
@@ -32,10 +33,16 @@ const routes: Routes = [
   
   { 
     path: "categorias/crear", 
-    component: CategoriesFormComponent },
+    component: CategoriesFormComponent 
+  },
   { 
      path: "categorias/crear/:id", 
-    component: CategoriesFormComponent },
+    component: CategoriesFormComponent 
+  },
+  { 
+      path: "backoffice/categories", 
+     component: CategoriesComponent
+     },
 
   { 
     path: "registro", 

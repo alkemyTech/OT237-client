@@ -17,6 +17,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { MembersFormComponent } from './pages/members/members-form/members-form.component';
 import { MembersListComponent } from './pages/members/members-list/members-list.component';
+import { CategoriesComponent } from './pages/categories/categories/categories.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { MembersListComponent } from './pages/members/members-list/members-list.
     UserFormComponent,
     MembersListComponent,
     OrganizationFormComponent,
-    MembersFormComponent
+    MembersFormComponent,
+    CategoriesComponent
   ],
   exports: [
     ActivityFormComponent,

@@ -64,9 +64,6 @@ export class CategoriesFormComponent implements OnInit {
                 control.markAsTouched();
               });
             }
-            
-         
-          
           
           }
 
