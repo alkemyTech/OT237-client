@@ -1,0 +1,60 @@
+<form [formGroup]="ProjectForm" (ngSubmit)="onSubmit()">
+    <p>
+        <label for="Image">Choose an Image</label>
+        <br>
+        <input #imageInput
+            formControlName="image"
+            id="Image" 
+            type="file" 
+            class="form-control"
+            accept="image/jpg, image/png"
+            (change)="LoadImage(imageInput.files)">
+    </p>
+    <div *ngIf="filebase64 && filebase64 !== ''">
+        <img [src]="filebase64" width="100em" height="100em">
+    </div>
+    <p>
+      
+      <label for="Title">Title </label>
+      <br>
+      <input type="text" id="Title" name="Title" formControlName="title">
+      <span *ngIf="this.ProjectForm.get('title')?.errors?.['required']">
+        El titulo es requerido
+      </span>
+      <span *ngIf="this.ProjectForm.get('title')?.errors?.['title']">
+        El titulo tiene un formato incorrecto
+      </span>
+    </p>
+   
+    <p>
+      <label for="Description">Description </label>
+      <br>
+      <ckeditor formControlName="description" [editor]="Editor"></ckeditor>
+      <span *ngIf="this.ProjectForm.get('description')?.errors?.['required']">
+        La descripcion es requerida
+      </span>
+      <span *ngIf="this.ProjectForm.get('description')?.errors?.['description']">
+        La descripcion tiene un error
+      </span>
+    </p>
+   
+    <p>
+      <label for="duedate">Due Date </label>
+      <br>
+      <input type="datetime" id="duedate" name="duedate" formControlName="duedate">
+      <span *ngIf="this.ProjectForm.get('duedate')?.errors?.['required']">
+        La Fecha es requerida
+      </span>
+      <span *ngIf="this.ProjectForm.get('duedate')?.errors?.['required']">
+        La Fecha es requerida
+      </span>
+      <span *ngIf="this.ProjectForm.get('duedate')?.errors?.['duedate']">
+        El formato de la fecha es incorrecto
+      </span>
+    </p>
+
+    <p>
+      <button type="submit">Submit</button>
+    </p>
+   
+  </form>

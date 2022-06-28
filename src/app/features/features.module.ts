@@ -12,9 +12,12 @@ import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.comp
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { OrganizationFormComponent } from "./pages/backoffice/organization-form/organization-form.component";
+import { ProjectsFormComponent } from "./pages/projects/projects-form/projects-form.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+
 import { HttpClientModule } from "@angular/common/http";
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+
 import { MembersFormComponent } from './pages/members/members-form/members-form.component';
 import { MembersListComponent } from './pages/members/members-list/members-list.component';
 
@@ -30,7 +33,8 @@ import { MembersListComponent } from './pages/members/members-list/members-list.
     UserFormComponent,
     MembersListComponent,
     OrganizationFormComponent,
-    MembersFormComponent
+    MembersFormComponent,
+    ProjectsFormComponent,
   ],
   exports: [
     ActivityFormComponent,
@@ -41,6 +45,7 @@ import { MembersListComponent } from './pages/members/members-list/members-list.
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
+    ProjectsFormComponent,
     RouterModule
   ],
   imports: [

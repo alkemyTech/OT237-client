@@ -9,6 +9,7 @@ import { Novedades } from "src/app/features/interfaces";
 export class HttpService {
   private _groupId!: string;
   private _headers!: HttpHeaders;
+  private _apiUrl:string = "https://ongapi.alkemy.org/api/";
 
   constructor(private http: HttpClient) {
     this._headers = new HttpHeaders({ 
@@ -17,7 +18,15 @@ export class HttpService {
   }
 
   public get<T>(url: string, activateHeader:boolean = false ):Observable<T> {
-    return this.http.get<T>(url, activateHeader ? { headers: this._headers }: {});
+    return this.http.get<T>(this._apiUrl+url, activateHeader ? { headers: this._headers }: {});
+  }
+
+  public post<T>(url: string, data: any, activateHeader:boolean = false ):Observable<T> {
+    return this.http.get<T>(this._apiUrl+url, activateHeader ? { headers: this._headers }: {});
+  }
+
+  public put<T>(url: string, data:any , activateHeader:boolean = false ):Observable<T> {
+    return this.http.get<T>(this._apiUrl+url, activateHeader ? { headers: this._headers }: {});
   }
 
   public getNews(): Observable<Novedades> {
