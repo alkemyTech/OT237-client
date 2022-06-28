@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { NewsService } from 'src/app/core/services/news.service';
 import { Novedad } from 'src/app/features/interfaces';
@@ -12,11 +12,7 @@ import { Novedad } from 'src/app/features/interfaces';
 export class NewsFormComponent implements OnInit {
 
   public Editor = ClassicEditor;
-  public formNovedades!: FormGroup;/*  = new FormGroup({
-    name: new FormControl("", []),
-    content: new FormControl("", []),
-    image: new FormControl("", [])
-  }); */
+  public formNovedades!: FormGroup;
   public novedades!: Novedad[];
   public novedad!: Novedad;
 
@@ -64,9 +60,7 @@ export class NewsFormComponent implements OnInit {
     });
   }
 
-  onSubmit(event: Event): void {
-    event.preventDefault();
-
+  onSubmit(): void {
     if(this.base64Image){
       this.formNovedades.value.image = `data:image/jpeg;base64,${this.base64Image}`;
     }

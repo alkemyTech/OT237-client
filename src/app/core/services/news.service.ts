@@ -3,20 +3,12 @@ import { Injectable } from '@angular/core';
 import { Observable } from "rxjs";
 import { Novedad, Novedades, ResponseObject } from "src/app/features/interfaces";
 
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type':'application/json',
-    'Access-Control-Allow-Methods': 'PATCH'
-  })
-};
-
 @Injectable({
   providedIn: 'root'
 })
 export class NewsService {
 
   url: string = "https://ongapi.alkemy.org/api/news";
-  fakeUrl: string = "http://localhost:3000/news";
 
   constructor(private http: HttpClient) { }
 
