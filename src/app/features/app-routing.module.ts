@@ -10,6 +10,8 @@ import { OrganizationFormComponent } from "./pages/backoffice/organization-form/
 import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { MembersFormComponent } from "./pages/members/members-form/members-form.component";
 import { MembersListComponent } from "./pages/members/members-list/members-list.component";
+import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
+import { ProjectsFormComponent } from "./pages/projects/projects-form/projects-form.component";
 
 const routes: Routes = [
   {
@@ -51,6 +53,22 @@ const routes: Routes = [
   { 
     path: "backoffice/members/edit/:id", 
     component: MembersFormComponent 
+  },
+  {
+    path: "Slides",
+    component: SlidesFormComponent
+  },
+  {
+    path: "Slides/:id",
+    component: SlidesFormComponent
+  },
+  {
+    path: "Projects",
+    component: SlidesFormComponent
+  },
+  {
+    path: "Projects/:id",
+    component: SlidesFormComponent
   },
   {
     path: "**",
