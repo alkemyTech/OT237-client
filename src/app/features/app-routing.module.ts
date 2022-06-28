@@ -1,9 +1,11 @@
+import { SlidesFormComponent } from './pages/slides/slides-form/slides-form.component';
 import { ActivityFormComponent } from "./pages/activities/activity-form/activity-form.component";
 import { RegisterFormComponent } from "./pages/auth/register-form/register-form.component";
 
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
+import { CategoriesFormComponent } from "./pages/categories/categories-form/categories-form.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { LoginFormComponent } from "./pages/auth/login-form/login-form.component";
 import { OrganizationFormComponent } from "./pages/backoffice/organization-form/organization-form.component";
@@ -11,6 +13,7 @@ import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { MembersFormComponent } from "./pages/members/members-form/members-form.component";
 import { NewsComponent } from "./pages/news/news/news.component";
 import { MembersListComponent } from "./pages/members/members-list/members-list.component";
+import { CategoriesComponent } from "./pages/categories/categories/categories.component";
 
 const routes: Routes = [
   {
@@ -27,12 +30,31 @@ const routes: Routes = [
   },
 {
     path: "actividades", 
-    component: ActivityFormComponent
+
+    component: ActivityFormComponent },
+  
+  { 
+    path: "categorias/crear", 
+    component: CategoriesFormComponent 
   },
+  { 
+     path: "categorias/crear/:id", 
+    component: CategoriesFormComponent 
+  },
+  {
+    path: "backoffice/home",
+    component: SlidesFormComponent
+  },
+  { 
+      path: "backoffice/categories", 
+     component: CategoriesComponent
+     },
+
   { 
     path: "registro", 
     component: RegisterFormComponent
   },
+
   {
     path: "backoffice/organization/edit",
     component: OrganizationFormComponent

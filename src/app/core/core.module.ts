@@ -1,3 +1,4 @@
+import { SlideService } from './services/slide.service';
 import { CommonModule } from "@angular/common";
 import { HttpClientModule } from "@angular/common/http";
 import {
@@ -8,6 +9,6 @@ import { HttpService } from "./services/http.service";
 @NgModule({
   declarations: [],
   imports: [CommonModule, HttpClientModule],
-  providers: [HttpService],
+  providers: [HttpService, SlideService],
 })
 export class CoreModule {}
