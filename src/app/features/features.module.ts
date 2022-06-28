@@ -1,3 +1,4 @@
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from "@angular/router";
 import { SharedModule } from '../shared/shared.module'
 import { CommonModule } from "@angular/common";
@@ -19,6 +20,8 @@ import { MembersFormComponent } from './pages/members/members-form/members-form.
 import { NewsComponent } from './pages/news/news/news.component';
 import { NewCardComponent } from './pages/news/news/new-card/new-card.component';
 import { MembersListComponent } from './pages/members/members-list/members-list.component';
+import { CategoriesComponent } from './pages/categories/categories/categories.component';
+
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import { MembersListComponent } from './pages/members/members-list/members-list.
     NewCardComponent,
     MembersListComponent,
     OrganizationFormComponent,
-    MembersFormComponent
+    MembersFormComponent,
+    CategoriesComponent
   ],
   exports: [
     ActivityFormComponent,
@@ -48,6 +52,7 @@ import { MembersListComponent } from './pages/members/members-list/members-list.
     UserFormComponent,
     RouterModule
   ],
+
   imports: [
     CommonModule, 
     AppRoutingModule, 
@@ -58,5 +63,6 @@ import { MembersListComponent } from './pages/members/members-list/members-list.
     HttpClientModule,
     SharedModule
   ]
+
 })
 export class FeaturesModule {}
