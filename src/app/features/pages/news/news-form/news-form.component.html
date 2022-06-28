@@ -1,7 +1,7 @@
-<form [formGroup]="formNovedades" (ngSubmit)="onSubmit()">
+<form [formGroup]="formNovedades" (ngSubmit)="onSubmit($event)">
     <p>
         <label for="title">Título</label><br>
-        <input type="text" id="title" formControlName="title">
+        <input type="text" id="title" formControlName="name">
     </p>
     <p>
         <label for="content">Contenido</label><br>
@@ -12,10 +12,21 @@
         <input type="text" id="category" formControlName="category">
     </p>
     <p>
-        <label for="image">Imagen</label><br>
-        <input type="text" id="image" formControlName="image">
+        <label for="exampleInputEmail1">Imagen </label>
+        <input  #imageInput 
+                type="file" 
+                (change)="processImage(imageInput.files)"
+                formControlName="image" 
+                accept="image/jpg, image/png">
+<!--         <small *ngIf="imgNoValido">Se espera una imagen con formato PNG o JPG</small>
+ -->        <img *ngIf="imgBool" [src]="base64Image">
     </p>
     <p>
         <button type="submit" [disabled]="!formNovedades.valid">Enviar</button>
     </p>
 </form>
+
+
+<pre>
+    {{ formNovedades.value| json }}
+</pre>

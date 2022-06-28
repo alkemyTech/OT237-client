@@ -18,6 +18,7 @@ export class NewsComponent implements OnInit {
       this.novedades = novedades.data;
       this.novedades.sort(
         function(a, b): number {
+          if(a.updated_at===undefined||b.updated_at===undefined) return 0;
           return a.updated_at > b.updated_at ? -1: 1;
         }
       );

@@ -28,7 +28,7 @@ export class NewsService {
     return this.http.get<ResponseObject>(`${this.url}/${id}`);
   }
 
-/*   public modifyNovedad(id: number, params: object): Observable<ResponseObject> {
+  public modifyNovedad(id: number, params: object): Observable<any> {
     return this.http.patch<ResponseObject>(`${this.url}/${id}`, params);
   }
 
@@ -38,10 +38,10 @@ export class NewsService {
 
   public postNovedad(novedad: Novedad): Observable<ResponseObject> {
     return this.http.post<ResponseObject>(this.url, novedad);
-  } */
+  }
 
   //FAKE API
-  public modifyNovedad(id: number, params: object) {
+  /* public modifyNovedad(id: number, params: object) {
     return this.http.patch(`${this.fakeUrl}/${id}`, params, httpOptions);
   }
 
@@ -52,5 +52,5 @@ export class NewsService {
   public postNovedad(novedad: Novedad){
     return this.http.post(this.fakeUrl, novedad);
   }
-
+ */
 }
