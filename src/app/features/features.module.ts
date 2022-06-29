@@ -49,7 +49,6 @@ import { CategoriesComponent } from './pages/categories/categories/categories.co
     UserFormComponent,
     RouterModule
   ],
-
   imports: [
     CommonModule, 
     AppRoutingModule, 
@@ -60,6 +59,5 @@ import { CategoriesComponent } from './pages/categories/categories/categories.co
     HttpClientModule,
     SharedModule
   ]
-
 })
 export class FeaturesModule {}

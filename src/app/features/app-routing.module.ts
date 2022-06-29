@@ -1,3 +1,4 @@
+import { UserFormComponent } from './pages/users/user-form/user-form.component';
 import { SlidesFormComponent } from './pages/slides/slides-form/slides-form.component';
 import { ActivityFormComponent } from "./pages/activities/activity-form/activity-form.component";
 import { RegisterFormComponent } from "./pages/auth/register-form/register-form.component";
@@ -83,6 +84,10 @@ const routes: Routes = [
   { 
     path: "backoffice/members/edit/:id", 
     component: MembersFormComponent 
+  },
+  {
+    path: "backoffice/users",
+    component: UserFormComponent
   },
   {
     path: "**",

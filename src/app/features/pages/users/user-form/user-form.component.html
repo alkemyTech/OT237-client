@@ -1,1 +1,60 @@
-<p>user-form works!</p>
+<div class="container">
+    <p>Formulario Actualizar/Crear Usuario</p>
+    <form [formGroup]="form" (ngSubmit)="onStore()">
+        <div class="input-group">
+            <label>Nombre</label>
+            <input 
+                type="text"
+                class="input {{isValidControl(f['name']) && 'border-error'}}"
+                placeholder="Nombre"
+                formControlName="name"
+            >
+            <span *ngIf="checkControlByType(f['name'],'required')">Este campo es requerido.</span>
+            <span *ngIf="checkControlByType(f['name'],'minlength')">Debe tener como mínimo 4 caracteres.</span>
+        </div>
+        <div class="input-group">
+            <label>Email</label>
+            <input 
+                type="email"
+                class="input {{isValidControl(f['email'])  && 'border-error'}}"
+                placeholder="Email"
+                formControlName="email"
+            >
+            <span *ngIf="checkControlByType(f['email'],'required')">Este campo es requerido.</span>
+            <span *ngIf="checkControlByType(f['email'],'pattern')">Ingrese un email válido.</span>
+        </div>
+        <div class="input-group">
+            <label>Contraseña</label>
+            <input 
+                type="password"
+                class="input {{isValidControl(f['password']) && 'border-error'}}"
+                placeholder="Contraseña"
+                formControlName="password"
+            >
+            <span *ngIf="checkControlByType(f['password'],'required')">Este campo es requerido.</span>
+        </div>
+        <div class="input-group">
+            <label>Rol</label>
+            <select formControlName="role_id" class="select {{isValidControl(f['role_id']) && 'border-error'}}">
+                <option value="" selected>Seleccione un rol</option>
+                <option [value]="role.id" *ngFor="let role of roles">
+                    {{role.name}}
+                </option>
+            </select>
+            <span *ngIf="checkControlByType(f['role_id'],'required')">Este campo es requerido.</span>
+        </div>
+        <div class="input-group">
+            <label>Foto de Perfil</label>
+            <input
+                #imageInput
+                type="file"
+                accept="image/jpg, image/jpeg, image/png"
+                (change)="onFileChange(imageInput.files)"
+                imageInput.files="base64Image"
+            >
+        </div>
+        <button type="submit">
+            {{ id ? 'Actualizar':'Crear' }}
+        </button>
+    </form>
+</div>
