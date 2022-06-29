@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { HttpService } from 'src/app/core/services/http.service';
 import { Novedad } from 'src/app/features/interfaces';
+
 
 @Component({
   selector: 'app-news-form',
@@ -43,6 +45,7 @@ export class NewsFormComponent implements OnInit {
 
   onSubmit(): void {
     console.log("Submit successful!")
+
 
   }
 
