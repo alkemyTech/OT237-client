@@ -1,12 +1,7 @@
-.show-in-row {
+.show-in-rows {
 	display: flex;
 	flex-direction: column;
-}
-form input,button {
-	width: 300px;
 }
 .invalid-text {
 	color: red;
 }
-
-
