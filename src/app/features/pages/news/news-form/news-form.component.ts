@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { NewsService } from 'src/app/core/services/news.service';
-import { Novedad } from 'src/app/features/interfaces';
+import { Novedad, Category } from 'src/app/features/interfaces';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-news-form',
@@ -14,16 +15,17 @@ export class NewsFormComponent implements OnInit {
   public Editor = ClassicEditor;
   public formNovedades!: FormGroup;
   public novedades!: Novedad[];
-  public novedad!: Novedad;
+  /* public novedad!: Novedad; */
+  public categories!: Category[];
 
   public imgBool!: boolean;
-  /* public imgNoValido!: boolean; */
   public base64Image!: string;
 
-  constructor(private api: NewsService, private formBuilder: FormBuilder) { }
+  constructor(private api: NewsService, private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit(): void {
     this.getNovedades();
+    this.getCategories();
     this.initForm();
   }
 
@@ -33,38 +35,46 @@ export class NewsFormComponent implements OnInit {
     });
   }
 
-  getNovedadById(id: number): void {
-    this.api.getNovedadById(id).subscribe(novedad => {
-      this.novedad = novedad.data;
+  getCategories(): void {
+    this.api.getCategories().subscribe(categories => {
+      this.categories = categories.data;
     });
   }
 
+  /* getNovedadById(id: number): void {
+    this.api.getNovedadById(id).subscribe(novedad => {
+      this.novedad = novedad.data;
+    });
+  } */
+
   postNovedad(novedad: Novedad): void {
-    this.api.postNovedad(novedad).subscribe(n=>console.log(n));
+    this.api.postNovedad(novedad).subscribe(n=>{
+      //console.log(n);
+      window.location.reload();
+    });
   }
 
   modifyNovedad(id: number, params: object): void {
     this.api.modifyNovedad(id, params).subscribe();
   }
 
-  deleteNovedad(id: number): void {
+  /* deleteNovedad(id: number): void {
     this.api.deleteNovedad(id).subscribe();
-  }
+  } */
 
   initForm(): void {
     this.formNovedades = this.formBuilder.group({
       name: ['', [Validators.required, Validators.minLength(4)]],
       content: ['', [Validators.required]],
-      /* category: ['', [Validators.required]], */
+      'category_id': ['', [Validators.required]],
       image: ['', [Validators.required]]
     });
   }
 
   onSubmit(): void {
-    if(this.base64Image){
+    if(this.base64Image) {
       this.formNovedades.value.image = `data:image/jpeg;base64,${this.base64Image}`;
     }
-
     this.postNovedad(this.formNovedades.value);
   }
 
@@ -78,7 +88,7 @@ export class NewsFormComponent implements OnInit {
 
   private _handleReaderLoaded(readerEvt: any): void {
     var binaryString = readerEvt.target.result;
-    this.base64Image= btoa(binaryString);
+    this.base64Image = btoa(binaryString);
   }
 
 }
