@@ -2,7 +2,6 @@ import { UserFormComponent } from './pages/users/user-form/user-form.component';
 import { SlidesFormComponent } from './pages/slides/slides-form/slides-form.component';
 import { ActivityFormComponent } from "./pages/activities/activity-form/activity-form.component";
 import { RegisterFormComponent } from "./pages/auth/register-form/register-form.component";
-
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
@@ -13,6 +12,7 @@ import { OrganizationFormComponent } from "./pages/backoffice/organization-form/
 import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { ContactFormComponent } from "./pages/contribute/contact-form/contact-form.component";
 import { MembersFormComponent } from "./pages/members/members-form/members-form.component";
+import { ContactComponent } from "./pages/contact/contact/contact.component";
 import { MembersListComponent } from "./pages/members/members-list/members-list.component";
 import { CategoriesComponent } from "./pages/categories/categories/categories.component";
 
@@ -59,6 +59,11 @@ const routes: Routes = [
   {
     path: "backoffice/organization/edit",
     component: OrganizationFormComponent
+  },
+  {
+    path: "contacto",
+    component: ContactComponent
+
   },
   {
     path: "backoffice/news",

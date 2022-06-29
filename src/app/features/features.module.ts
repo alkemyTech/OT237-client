@@ -1,4 +1,3 @@
-import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from "@angular/router";
 import { SharedModule } from '../shared/shared.module'
 import { CommonModule } from "@angular/common";
@@ -18,6 +17,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { ContactFormComponent } from './pages/contribute/contact-form/contact-form.component';
 import { MembersFormComponent } from './pages/members/members-form/members-form.component';
+import { ContactComponent } from './pages/contact/contact/contact.component';
 import { MembersListComponent } from './pages/members/members-list/members-list.component';
 import { CategoriesComponent } from './pages/categories/categories/categories.component';
 
@@ -32,6 +32,7 @@ import { CategoriesComponent } from './pages/categories/categories/categories.co
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
+    ContactComponent,
     ContactFormComponent,
     MembersListComponent,
     OrganizationFormComponent,
