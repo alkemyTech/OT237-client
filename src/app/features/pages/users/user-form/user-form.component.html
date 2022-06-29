@@ -5,33 +5,53 @@
             <label>Nombre</label>
             <input 
                 type="text"
-                class="input {{(checkControl(name,'required') || checkControl(name,'minlength')) && 'border-error'}}"
+                class="input {{isValidControl(f['name']) && 'border-error'}}"
                 placeholder="Nombre"
                 formControlName="name"
             >
-            <span *ngIf="checkControl(name,'required')">Este campo es requerido.</span>
-            <span *ngIf="checkControl(name,'minlength')">Debe tener como mínimo 4 caracteres.</span>
+            <span *ngIf="checkControlByType(f['name'],'required')">Este campo es requerido.</span>
+            <span *ngIf="checkControlByType(f['name'],'minlength')">Debe tener como mínimo 4 caracteres.</span>
         </div>
         <div class="input-group">
             <label>Email</label>
             <input 
                 type="email"
-                class="input {{(checkControl(email,'required') || checkControl(email,'pattern')) && 'border-error'}}"
+                class="input {{isValidControl(f['email'])  && 'border-error'}}"
                 placeholder="Email"
                 formControlName="email"
             >
-            <span *ngIf="checkControl(email,'required')">Este campo es requerido.</span>
-            <span *ngIf="checkControl(email,'pattern')">Ingrese un email válido.</span>
+            <span *ngIf="checkControlByType(f['email'],'required')">Este campo es requerido.</span>
+            <span *ngIf="checkControlByType(f['email'],'pattern')">Ingrese un email válido.</span>
+        </div>
+        <div class="input-group">
+            <label>Contraseña</label>
+            <input 
+                type="password"
+                class="input {{isValidControl(f['password']) && 'border-error'}}"
+                placeholder="Contraseña"
+                formControlName="password"
+            >
+            <span *ngIf="checkControlByType(f['password'],'required')">Este campo es requerido.</span>
         </div>
         <div class="input-group">
             <label>Rol</label>
-            <select formControlName="role_id" class="select {{checkControl(role_id,'required') && 'border-error'}}">
+            <select formControlName="role_id" class="select {{isValidControl(f['role_id']) && 'border-error'}}">
                 <option value="" selected>Seleccione un rol</option>
                 <option [value]="role.id" *ngFor="let role of roles">
                     {{role.name}}
                 </option>
             </select>
-            <span *ngIf="checkControl(role_id,'required')">Este campo es requerido.</span>
+            <span *ngIf="checkControlByType(f['role_id'],'required')">Este campo es requerido.</span>
+        </div>
+        <div class="input-group">
+            <label>Foto de Perfil</label>
+            <input
+                #imageInput
+                type="file"
+                accept="image/jpg, image/jpeg, image/png"
+                (change)="onFileChange(imageInput.files)"
+                imageInput.files="base64Image"
+            >
         </div>
         <button type="submit">
             {{ id ? 'Actualizar':'Crear' }}
