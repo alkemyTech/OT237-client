@@ -10,6 +10,7 @@ import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/
 import { LoginFormComponent } from "./pages/auth/login-form/login-form.component";
 import { OrganizationFormComponent } from "./pages/backoffice/organization-form/organization-form.component";
 import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
+import { ContactFormComponent } from "./pages/contribute/contact-form/contact-form.component";
 import { MembersFormComponent } from "./pages/members/members-form/members-form.component";
 import { MembersListComponent } from "./pages/members/members-list/members-list.component";
 import { CategoriesComponent } from "./pages/categories/categories/categories.component";
@@ -65,6 +66,15 @@ const routes: Routes = [
   {
     path: "backoffice/members",
     component: MembersListComponent
+  },
+  {
+    path: "contribuir",
+    component: ContactFormComponent
+  },
+  {
+    path: "",
+    redirectTo: "actividades",
+    pathMatch: "full",
   },
   {
     path: "backoffice/members/create",
