@@ -19,6 +19,8 @@ import { OrganizationFormComponent } from "./pages/backoffice/organization-form/
 import { MembersFormComponent } from './pages/members/members-form/members-form.component';
 import { NewsComponent } from './pages/news/news/news.component';
 import { NewCardComponent } from './pages/news/news/new-card/new-card.component';
+import { ContactFormComponent } from './pages/contribute/contact-form/contact-form.component';
+import { ContactComponent } from './pages/contact/contact/contact.component';
 import { MembersListComponent } from './pages/members/members-list/members-list.component';
 import { CategoriesComponent } from './pages/categories/categories/categories.component';
 
@@ -36,6 +38,8 @@ import { CategoriesComponent } from './pages/categories/categories/categories.co
     MembersFormComponent,
     NewsComponent,
     NewCardComponent,
+    ContactComponent,
+    ContactFormComponent,
     MembersListComponent,
     OrganizationFormComponent,
     MembersFormComponent,
@@ -52,7 +56,6 @@ import { CategoriesComponent } from './pages/categories/categories/categories.co
     UserFormComponent,
     RouterModule
   ],
-
   imports: [
     CommonModule, 
     AppRoutingModule, 
@@ -63,6 +66,5 @@ import { CategoriesComponent } from './pages/categories/categories/categories.co
     HttpClientModule,
     SharedModule
   ]
-
 })
 export class FeaturesModule {}
