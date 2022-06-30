@@ -38,7 +38,7 @@ export interface Member {
 
 export interface ResponseObject {
     success: boolean,
-    data: Novedad|Category,
+    data: Novedad,
     message: string
 }
 

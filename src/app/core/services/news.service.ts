@@ -18,7 +18,7 @@ export class NewsService {
   }
 
   public getCategories(): Observable<ResponseObjectArray> {
-    return  this.http.get<ResponseObjectArray>(`${this.urlBase}/categories`)
+    return this.http.get<ResponseObjectArray>(`${this.urlBase}/categories`);
   }
 
   public getNovedadById(id: number): Observable<ResponseObject> {
@@ -26,7 +26,7 @@ export class NewsService {
   }
 
   public modifyNovedad(id: number, params: object): Observable<any> {
-    return this.http.patch<ResponseObject>(`${this.url}/${id}`, params);
+    return this.http.put<ResponseObject>(`${this.url}/${id}`, params);
   }
 
   public deleteNovedad(id: number): Observable<ResponseObject> {

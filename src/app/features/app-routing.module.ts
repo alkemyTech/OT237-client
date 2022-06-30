@@ -68,6 +68,10 @@ const routes: Routes = [
     component: NewsFormComponent 
   },
   {
+    path: "backoffice/news/:id",
+    component: NewsFormComponent 
+  },
+  {
     path: "backoffice/members",
     component: MembersListComponent
   },
