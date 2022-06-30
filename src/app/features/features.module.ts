@@ -15,8 +15,12 @@ import { OrganizationFormComponent } from "./pages/backoffice/organization-form/
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { ContactFormComponent } from './pages/contribute/contact-form/contact-form.component';
 import { MembersFormComponent } from './pages/members/members-form/members-form.component';
 import { OrganizationComponent } from './pages/backoffice/organization/organization.component';
+import { ContactComponent } from './pages/contact/contact/contact.component';
+import { MembersListComponent } from './pages/members/members-list/members-list.component';
+import { CategoriesComponent } from './pages/categories/categories/categories.component';
 
 @NgModule({
   declarations: [
@@ -28,9 +32,13 @@ import { OrganizationComponent } from './pages/backoffice/organization/organizat
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
+    ContactComponent,
+    ContactFormComponent,
+    MembersListComponent,
     OrganizationFormComponent,
     MembersFormComponent,
-    OrganizationComponent
+    OrganizationComponent,
+    CategoriesComponent
   ],
   exports: [
     ActivityFormComponent,
