@@ -1,41 +1,45 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Subject } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoriesService {
-  url:string="https://ongapi.alkemy.org/api/"
+  url:string= environment.url
+  urlCategories:string= environment.categories
+  
   enviarCategoriaSubjet= new Subject<[]>();
   enviarCategoriaObservables = this.enviarCategoriaSubjet.asObservable();
  
   constructor(private http:HttpClient) {}
 
   public queryPost(categoria:object){
-    return  this.http.post(`${this.url}categories`,categoria);}
+    return  this.http.post(`${this.urlCategories}`,categoria);}
 
   public queryGet(id:string){
-    return  this.http.get(`${this.url}categories/${id}`)}
+    return  this.http.get(`${this.urlCategories}/${id}`)}
 
   public queryPut(id:string ,categoria:any){
-    return  this.http.put(`${this.url}${id}`,categoria)}
+    return  this.http.put(`${this.urlCategories}/${id}`,categoria)}
   
   public queryDelete(id:any){
-    return  this.http.delete(`${this.url}categories/${id}`)}
+    return  this.http.delete(`${this.urlCategories}/${id}`)}
+
 
   public crearCategoria(categoria:object){
-    console.log("categoria")
     return this.queryPost(categoria)} 
 
   public buscarCategoriaId(id:any){
     return this.queryGet(`${id}`)}
 
   public editarCategoria(id:number,categoria:any){
-    return this.http.put(`${this.url}categories/${id}`,categoria)}
+    return this.queryPut(`${id}`,categoria)
+  }
   
   public buscarCategorias(id:string){
-    return  this.http.get(`${this.url}categories`).subscribe((data:any)=>{
+    return  this.http.get(this.urlCategories).subscribe((data:any)=>{
       this.enviarCategoriaSubjet.next(data)
     })}
   
