@@ -9,6 +9,7 @@ import { LoginFormComponent } from "./pages/auth/login-form/login-form.component
 import { OrganizationFormComponent } from "./pages/backoffice/organization-form/organization-form.component";
 import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { MembersFormComponent } from "./pages/members/members-form/members-form.component";
+import { OrganizationComponent } from "./pages/backoffice/organization/organization.component";
 
 const routes: Routes = [
   {
@@ -34,6 +35,10 @@ const routes: Routes = [
   {
     path: "backoffice/organization/edit",
     component: OrganizationFormComponent
+  },
+  {
+    path: "backoffice/organization/:id",
+    component: OrganizationComponent
   },
   {
     path: "backoffice/news",
