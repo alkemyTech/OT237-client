@@ -1,0 +1,44 @@
+import { Component, OnInit } from '@angular/core';
+import { OrganizationService } from 'src/app/core/services/organization.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Subscriber } from 'rxjs';
+
+@Component({
+	selector: 'app-organization',
+	templateUrl: './organization.component.html',
+	styleUrls: ['./organization.component.scss']
+})
+export class OrganizationComponent implements OnInit {
+	public name :string = "";
+	public img :string = "";
+	public shortDesc :string = "";
+	public id :number;
+	constructor(
+		private organizationService :OrganizationService,
+		private router :Router,
+		private activatedRoute :ActivatedRoute
+	) {
+	}
+
+	goToEdit() {
+		this.router.navigate(["backoffice/organization/edit"]);
+	}
+
+	ngOnInit(): void {
+		this.activatedRoute.params.subscribe({
+			next: (responseId :any) => {
+				this.organizationService.getOrg(responseId.id).subscribe({
+					next: (responseData :any) => {
+						this.name = responseData.data.name;
+						this.shortDesc = responseData.data.short_description;
+						this.img = responseData.data.logo;
+					},
+					error: () => {
+						this.router.navigate(["/"]);
+					}
+				});
+			}
+		});
+	}
+
+}
