@@ -11,6 +11,7 @@ import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
+import { HomeComponent } from './pages/home/home.component';
 import { OrganizationFormComponent } from "./pages/backoffice/organization-form/organization-form.component";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
@@ -32,6 +33,7 @@ import { CategoriesComponent } from './pages/categories/categories/categories.co
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
+    HomeComponent,
     ContactComponent,
     ContactFormComponent,
     MembersListComponent,
