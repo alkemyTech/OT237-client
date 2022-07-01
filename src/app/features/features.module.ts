@@ -17,10 +17,10 @@ import { HttpClientModule } from "@angular/common/http";
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { ContactFormComponent } from './pages/contribute/contact-form/contact-form.component';
 import { MembersFormComponent } from './pages/members/members-form/members-form.component';
+import { OrganizationComponent } from './pages/backoffice/organization/organization.component';
 import { ContactComponent } from './pages/contact/contact/contact.component';
 import { MembersListComponent } from './pages/members/members-list/members-list.component';
 import { CategoriesComponent } from './pages/categories/categories/categories.component';
-
 
 @NgModule({
   declarations: [
@@ -37,6 +37,7 @@ import { CategoriesComponent } from './pages/categories/categories/categories.co
     MembersListComponent,
     OrganizationFormComponent,
     MembersFormComponent,
+    OrganizationComponent,
     CategoriesComponent
   ],
   exports: [
