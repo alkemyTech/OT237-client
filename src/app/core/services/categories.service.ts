@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 })
 export class CategoriesService {
   url:string= environment.url
-  urlCategories:string= environment.categories
+  
   
   enviarCategoriaSubjet= new Subject<[]>();
   enviarCategoriaObservables = this.enviarCategoriaSubjet.asObservable();
@@ -16,16 +16,16 @@ export class CategoriesService {
   constructor(private http:HttpClient) {}
 
   public queryPost(categoria:object){
-    return  this.http.post(`${this.urlCategories}`,categoria);}
+    return  this.http.post(`${this.url}categories`,categoria);}
 
   public queryGet(id:string){
-    return  this.http.get(`${this.urlCategories}/${id}`)}
+    return  this.http.get(`${this.url}categories/${id}`)}
 
   public queryPut(id:string ,categoria:any){
-    return  this.http.put(`${this.urlCategories}/${id}`,categoria)}
+    return  this.http.put(`${this.url}categories/${id}`,categoria)}
   
   public queryDelete(id:any){
-    return  this.http.delete(`${this.urlCategories}/${id}`)}
+    return  this.http.delete(`${this.url}categories/${id}`)}
 
 
   public crearCategoria(categoria:object){
@@ -39,7 +39,7 @@ export class CategoriesService {
   }
   
   public buscarCategorias(id:string){
-    return  this.http.get(this.urlCategories).subscribe((data:any)=>{
+    return  this.http.get(`${this.url}categories${id}`).subscribe((data:any)=>{
       this.enviarCategoriaSubjet.next(data)
     })}
   
