@@ -24,7 +24,6 @@ export class CategoriesComponent implements OnInit {
     this.router.navigate([`categorias/crear/${id}`])
   }
   borrarCategoria(id:any){
-    console.log(id)
     this.categoriasService.queryDelete(id).subscribe(data=>{
       this.categoriasService.buscarCategorias("")
     })
