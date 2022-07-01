@@ -20,6 +20,7 @@ import { MembersFormComponent } from './pages/members/members-form/members-form.
 import { ContactComponent } from './pages/contact/contact/contact.component';
 import { MembersListComponent } from './pages/members/members-list/members-list.component';
 import { CategoriesComponent } from './pages/categories/categories/categories.component';
+import { ActivityDetailComponent } from './pages/views/activities/detail/activity-detail/activity-detail.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { CategoriesComponent } from './pages/categories/categories/categories.co
     MembersListComponent,
     OrganizationFormComponent,
     MembersFormComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    ActivityDetailComponent
   ],
   exports: [
     ActivityFormComponent,
