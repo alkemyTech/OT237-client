@@ -12,7 +12,11 @@ import { OrganizationFormComponent } from "./pages/backoffice/organization-form/
 import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { ContactFormComponent } from "./pages/contribute/contact-form/contact-form.component";
 import { MembersFormComponent } from "./pages/members/members-form/members-form.component";
+
 import { NewsComponent } from "./pages/news/news/news.component";
+
+import { OrganizationComponent } from "./pages/backoffice/organization/organization.component";
+
 import { ContactComponent } from "./pages/contact/contact/contact.component";
 import { MembersListComponent } from "./pages/members/members-list/members-list.component";
 import { CategoriesComponent } from "./pages/categories/categories/categories.component";
@@ -64,6 +68,10 @@ const routes: Routes = [
   {
     path: "novedades",
     component: NewsComponent
+  },
+  {
+    path: "backoffice/organization/:id",
+    component: OrganizationComponent
   },
   {
     path: "contacto",
