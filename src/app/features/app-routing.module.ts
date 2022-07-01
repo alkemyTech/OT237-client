@@ -1,3 +1,4 @@
+import { HomeComponent } from './pages/home/home.component';
 import { UserFormComponent } from './pages/users/user-form/user-form.component';
 import { SlidesFormComponent } from './pages/slides/slides-form/slides-form.component';
 import { ActivityFormComponent } from "./pages/activities/activity-form/activity-form.component";
@@ -34,11 +35,10 @@ const routes: Routes = [
     path: "editar-testimonio/:id",
     component: TestimonialFormComponent
   },
-{
+  {
     path: "actividades", 
-
-    component: ActivityFormComponent },
-  
+    component: ActivityFormComponent 
+   },
   { 
     path: "categorias/crear", 
     component: CategoriesFormComponent 
@@ -95,8 +95,7 @@ const routes: Routes = [
   },
   {
     path: "",
-    redirectTo: "actividades",
-    pathMatch: "full",
+    component: HomeComponent,
   },
   {
     path: "backoffice/members/create",
@@ -110,9 +109,13 @@ const routes: Routes = [
     path: "backoffice/users",
     component: UserFormComponent
   },
+  { 
+    path: "actividades", 
+    component: ActivityFormComponent 
+  },
   {
     path: "**",
-    redirectTo: "actividades",
+    redirectTo: "",
     pathMatch: "full",
   }
 ];

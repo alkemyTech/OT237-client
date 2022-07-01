@@ -1,0 +1,152 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.body {
+    position: relative;
+    margin: 0;
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+        padding: 15px 10px;
+        background: #ffffff;
+        font-size: 18px;
+        img {
+            height: 60px;
+        }
+        .left-header {
+            display: flex;
+            gap: 1rem;
+            .links {
+                display: flex;
+                align-items: center;
+                gap: .5rem;
+                a {
+                    text-decoration: none;
+                    color: black;
+                    margin: 0 .5rem;
+                }
+            }
+            .btn-group {
+                display: flex;
+                gap: .5rem;
+                .btn-login {
+                    background: #ffffff;
+                    color: #000000;
+                    border: 1px solid #000000;
+                    padding: .5rem 1rem;
+                    border-radius: 10px;
+                    font-size: 17px;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+                .btn-register {
+                    background: #ff0000;
+                    border: none;
+                    color: #ffffff;
+                    padding: .5rem 1rem;
+                    border-radius: 10px;
+                    font-size: 17px;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+    main {
+        margin-top: 100px;
+        padding-bottom: 150px;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        section.front-page {
+            width: 85%;
+            display: flex;
+            margin: 1rem auto;
+            align-items: center;
+            gap: 1rem;
+            .left {
+                h2 {
+                    font-weight: 600;
+                    font-size: 48px;
+                    line-height: 72px;
+                }
+                p {
+                    font-weight: 300;
+                    font-size: 24px;
+                    line-height: 30px;
+                    margin: 1rem 0;
+                }
+                button {
+                    border: none;
+                    color: #ffffff;
+                    padding: 20px 50px;
+                    font-weight: 700;
+                    font-size: 24px;
+                    line-height: 30px;
+                    background: #FF0000;
+                    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                    border-radius: 20px;
+                    cursor: pointer;
+                }
+            }
+            .rigth {
+                img {
+                    min-height: 500px;
+                    width: auto;
+                }
+            }
+        }
+    }
+    footer {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+        background: #C0C0C0;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1rem 0;
+        .top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            img {
+                height: 55px;
+            }
+            .line {
+                height: 2px;
+                background: #000000;
+                width: 100%;
+            }
+        }
+        .center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #000000;
+            a {
+                text-decoration: none;
+                color: black;
+                font-size: 15px;
+                line-height: 19px;
+            }
+        }
+        p {
+            text-align: center;
+            font-size: 15px;
+            line-height: 24px;
+        }
+    }
+}
