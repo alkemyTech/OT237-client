@@ -25,18 +25,15 @@ export class OrganizationComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.activatedRoute.params.subscribe({
-			next: (responseId :any) => {
-				this.organizationService.getOrg(responseId.id).subscribe({
-					next: (responseData :any) => {
-						this.name = responseData.data.name;
-						this.shortDesc = responseData.data.short_description;
-						this.img = responseData.data.logo;
-					},
-					error: () => {
-						this.router.navigate(["/"]);
-					}
-				});
+		this.id = this.activatedRoute.snapshot.params.id
+		this.organizationService.getOrg(this.id).subscribe({
+			next: (responseData :any) => {
+				this.name = responseData.data.name;
+				this.shortDesc = responseData.data.short_description;
+				this.img = responseData.data.logo;
+			},
+			error: () => {
+				this.router.navigate(["/"]);
 			}
 		});
 	}
