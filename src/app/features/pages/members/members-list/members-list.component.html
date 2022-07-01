@@ -1,0 +1,31 @@
+<div>
+    <a routerLink="/backoffice/members/create" routerLinkActive="active">Crear Nuevo Miembro</a>
+</div>
+<br>
+<table>
+    <thead>
+        <tr>
+            <th>
+                Miembros
+            </th>
+        </tr>
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Imagen
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let member of this.memberList">
+            <td><b>{{ member.name }}</b></td>
+            <td><img src={{member.image}} /></td>
+            <td><button class="btn-sm btn-info" (click)="editMember(member.id)">Editar</button>
+            </td>
+            <td><button class="btn-sm btn-danger" (click)="deleteMember(member.id)">Eliminar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
