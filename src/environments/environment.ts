@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: "https://ongapi.alkemy.org/api/"
+  url: "https://ongapi.alkemy.org/api/"
 };
 /*
  * For easier debugging in development mode, you can import the following file

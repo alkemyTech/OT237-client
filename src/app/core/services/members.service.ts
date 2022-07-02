@@ -13,23 +13,23 @@ export class MembersService {
   }
 
   getAllMembers(): Observable<any> {
-    return this.http.get<Member[]>(environment.apiUrl + 'members');
+    return this.http.get<Member[]>(environment.url + 'members');
   }
 
   getMember(id: number): Observable<any> {
-    return this.http.get<Member>(environment.apiUrl + id);
+    return this.http.get<Member>(environment.url + id);
   }
 
   addMember(member: Member): Observable<any> {
-    return this.http.post<Member>(environment.apiUrl + 'members', member);
+    return this.http.post<Member>(environment.url + 'members', member);
   }
 
   editMember(id: number, member: Member): Observable<any> {
-    return this.http.put<Member>(environment.apiUrl + 'members/' + id, member);
+    return this.http.put<Member>(environment.url + 'members/' + id, member);
   }
 
   deleteMember(id: number){
-    return this.http.delete<Member>(environment.apiUrl + 'members/' + id);
+    return this.http.delete<Member>(environment.url + 'members/' + id);
   }
 
 }
