@@ -23,6 +23,11 @@ import { MembersListComponent } from "./pages/members/members-list/members-list.
 import { CategoriesComponent } from "./pages/categories/categories/categories.component";
 
 const routes: Routes = [
+  
+  {
+    path: '**',
+    redirectTo: 'login'
+  },
   {
     path: "login", 
     component: LoginFormComponent
@@ -52,15 +57,13 @@ const routes: Routes = [
     component: SlidesFormComponent
   },
   { 
-      path: "backoffice/categories", 
-     component: CategoriesComponent
-     },
-
+    path: "backoffice/categories", 
+    component: CategoriesComponent
+  },
   { 
     path: "registro", 
     component: RegisterFormComponent
   },
-
   {
     path: "backoffice/organization/edit",
     component: OrganizationFormComponent
@@ -94,7 +97,7 @@ const routes: Routes = [
     component: ContactFormComponent
   },
   {
-    path: "",
+    path: "Home",
     component: HomeComponent,
   },
   {
@@ -112,11 +115,6 @@ const routes: Routes = [
   { 
     path: "actividades", 
     component: ActivityFormComponent 
-  },
-  {
-    path: "**",
-    redirectTo: "",
-    pathMatch: "full",
   }
 ];
 

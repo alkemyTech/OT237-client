@@ -9,10 +9,10 @@ import { Subscriber } from 'rxjs';
 	styleUrls: ['./organization.component.scss']
 })
 export class OrganizationComponent implements OnInit {
+	public id! :number;
 	public name :string = "";
 	public img :string = "";
 	public shortDesc :string = "";
-	public id :number;
 	constructor(
 		private organizationService :OrganizationService,
 		private router :Router,
