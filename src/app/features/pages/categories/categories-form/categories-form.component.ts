@@ -52,7 +52,6 @@ export class CategoriesFormComponent implements OnInit {
   }
   public crearCategoria(){
          this.categoria= this.categoriaForm.value
-         console.log(this.base64Image)
          let categoriaObjeto: { name: string, description: string, image: string } = { 
           name: this.categoriaForm.controls.nombre.value,  
           description: this.categoriaForm.controls.descripcion.value,
