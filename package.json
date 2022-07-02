@@ -20,6 +20,8 @@
     "@angular/router": "~12.2.0",
     "@ckeditor/ckeditor5-angular": "^4.0.0",
     "@ckeditor/ckeditor5-build-classic": "^34.1.0",
+    "@ngrx/effects": "^12.5.1",
+    "@ngrx/store": "^12.5.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.1",
     "zone.js": "~0.11.4"
