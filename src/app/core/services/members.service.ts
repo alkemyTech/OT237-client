@@ -28,7 +28,7 @@ export class MembersService {
     return this.httpService.put<Member>(environment.url + 'members/' + id, false, member);
   }
 
-  deleteMember(id: number){
+  deleteMember(id: number): Observable<any>{
     return this.httpService.delete<Member>(environment.url + 'members/' + id);
   }
 

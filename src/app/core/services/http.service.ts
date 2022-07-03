@@ -23,7 +23,7 @@ export class HttpService {
     return this.http.post<T>(url, activateHeader ? { headers: this._headers }: body);
   }
 
-  public put<T>(url: string, activateHeader:boolean = false, body?: any):Observable<T> {
+  public put<T>(url: string, activateHeader:boolean = false, body?: any, id?: any):Observable<T> {
     return this.http.put<T>(url, activateHeader ? { headers: this._headers }: body);
   }
 

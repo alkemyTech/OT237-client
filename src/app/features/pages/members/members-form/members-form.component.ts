@@ -93,7 +93,7 @@ export class MembersFormComponent implements OnInit {
     .pipe(first())
     .subscribe({
       next: () => {
-        this.router.navigate(['../'], { relativeTo: this.route });
+        this.router.navigate(['../../'], { relativeTo: this.route });
       }
     });
   }
