@@ -1,0 +1,29 @@
+<div class="container">
+    <table>
+        <thead>
+            <th>Nombre</th>
+            <th>Imagen</th>
+            <th>Fecha de creación</th>
+            <th>Acciones</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let novedad of novedades">
+                <td>
+                    {{novedad.name}}
+                </td>
+                <td>
+                    <div class="img">
+                        <img [src]="novedad.image" alt="">
+                    </div>
+                </td>
+                <td>
+                    {{novedad.created_at}}
+                </td>
+                <td>
+                    <button (click)="editN(novedad.id||0)">Editar</button>
+                    <button (click)="deleteN(novedad.id||0)">Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

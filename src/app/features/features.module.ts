@@ -28,6 +28,7 @@ import { OrganizationComponent } from './pages/backoffice/organization/organizat
 import { ContactComponent } from './pages/contact/contact/contact.component';
 import { MembersListComponent } from './pages/members/members-list/members-list.component';
 import { CategoriesComponent } from './pages/categories/categories/categories.component';
+import { NewsListEditComponent } from './pages/news/news/news-list-edit/news-list-edit.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { CategoriesComponent } from './pages/categories/categories/categories.co
     OrganizationFormComponent,
     MembersFormComponent,
     OrganizationComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    NewsListEditComponent
   ],
   exports: [
     ActivityFormComponent,
