@@ -74,7 +74,6 @@ export class MembersFormComponent implements OnInit {
   }
 
   public handleSubmit(e: Event): void {
-    e.preventDefault();
     this.isSubmitted = true;
     this.form.value.image = this.base64;
     
@@ -82,18 +81,20 @@ export class MembersFormComponent implements OnInit {
       return;
     }
     
-    this.isAddMode ? this.membersService.addMember(this.form.value).pipe(first())
+    this.isAddMode ? this.membersService.addMember(this.form.value)
+    .pipe(first())
     .subscribe({
       next: () => {
         this.router.navigate(['../'], { relativeTo: this.route });
       }
     })
   
-    : this.membersService.editMember(this.id, this.form.value).pipe(first())
-      .subscribe({
-        next: () => {
-          this.router.navigate(['../'], { relativeTo: this.route });
-        }
+    : this.membersService.editMember(this.id, this.form.value)
+    .pipe(first())
+    .subscribe({
+      next: () => {
+        this.router.navigate(['../'], { relativeTo: this.route });
+      }
     });
   }
 }
