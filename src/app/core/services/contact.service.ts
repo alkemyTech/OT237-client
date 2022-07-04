@@ -18,6 +18,10 @@ export class ContactService {
     return this.http.put(`${this.API_URI}/${id}`, contact)
   }
 
+  public getAllContact() {
+    return this.http.get(`${this.API_URI}`)
+  }
+
   public getContact(id: number) {
     return this.http.get(`${this.API_URI}/${id}`);
   }
