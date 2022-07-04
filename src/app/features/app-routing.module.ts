@@ -1,3 +1,4 @@
+import { HomeComponent } from './pages/home/home.component';
 import { UserFormComponent } from './pages/users/user-form/user-form.component';
 import { SlidesFormComponent } from './pages/slides/slides-form/slides-form.component';
 import { ActivityFormComponent } from "./pages/activities/activity-form/activity-form.component";
@@ -12,12 +13,22 @@ import { OrganizationFormComponent } from "./pages/backoffice/organization-form/
 import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
 import { ContactFormComponent } from "./pages/contribute/contact-form/contact-form.component";
 import { MembersFormComponent } from "./pages/members/members-form/members-form.component";
+
+import { NewsComponent } from "./pages/news/news/news.component";
+
+import { OrganizationComponent } from "./pages/backoffice/organization/organization.component";
+
 import { ContactComponent } from "./pages/contact/contact/contact.component";
 import { MembersListComponent } from "./pages/members/members-list/members-list.component";
 import { CategoriesComponent } from "./pages/categories/categories/categories.component";
 import { ActivitySectionComponent } from "./pages/activities/activity-section/activity-section.component";
 
 const routes: Routes = [
+  
+  {
+    path: '**',
+    redirectTo: 'login'
+  },
   {
     path: "login", 
     component: LoginFormComponent
@@ -30,11 +41,10 @@ const routes: Routes = [
     path: "editar-testimonio/:id",
     component: TestimonialFormComponent
   },
-{
+  {
     path: "actividades", 
-
-    component: ActivitySectionComponent },
-  
+    component: ActivitySectionComponent
+  },
   { 
     path: "categorias/crear", 
     component: CategoriesFormComponent 
@@ -48,26 +58,35 @@ const routes: Routes = [
     component: SlidesFormComponent
   },
   { 
-      path: "backoffice/categories", 
-     component: CategoriesComponent
-     },
-
+    path: "backoffice/categories", 
+    component: CategoriesComponent
+  },
   { 
     path: "registro", 
     component: RegisterFormComponent
   },
-
   {
     path: "backoffice/organization/edit",
     component: OrganizationFormComponent
   },
   {
+    path: "novedades",
+    component: NewsComponent
+  },
+  {
+    path: "backoffice/organization/:id",
+    component: OrganizationComponent
+  },
+  {
     path: "contacto",
     component: ContactComponent
-
   },
   {
     path: "backoffice/news",
+    component: NewsFormComponent 
+  },
+  {
+    path: "backoffice/news/:id",
     component: NewsFormComponent 
   },
   {
@@ -79,9 +98,8 @@ const routes: Routes = [
     component: ContactFormComponent
   },
   {
-    path: "",
-    redirectTo: "actividades",
-    pathMatch: "full",
+    path: "Home",
+    component: HomeComponent,
   },
   {
     path: "backoffice/members/create",
@@ -95,10 +113,9 @@ const routes: Routes = [
     path: "backoffice/users",
     component: UserFormComponent
   },
-  {
-    path: "**",
-    redirectTo: "actividades",
-    pathMatch: "full",
+  { 
+    path: "actividades", 
+    component: ActivityFormComponent 
   }
 ];
 
