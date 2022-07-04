@@ -1,27 +1,33 @@
 <form [formGroup]="formNovedades" (ngSubmit)="onSubmit()">
-
     <p>
-        <label for="title">Título</label>
-        <input type="text" id="title" formControlName="title">
+        <label for="title">Título*</label><br>
+        <input type="text" id="title" formControlName="name" placeholder="Min: 4">
     </p>
-
     <p>
-        <label for="content">Contenido</label>
+        <label for="content">Contenido*</label><br>
         <ckeditor [editor]="Editor" data="" id="content" formControlName="content"></ckeditor>
     </p>
-
     <p>
-        <label for="category">Categoría</label>
-        <input type="text" id="category" formControlName="category">
+        <label for="category">Categoría*</label><br>
+        <select id="category" formControlName="category_id">
+            <option *ngFor="let category of categories" [value]="category.id">
+                {{category.name}}
+            </option>
+        </select>
+    </p>
+    <p>
+        <label for="exampleInputEmail1">Imagen* </label>
+        <input  #imageInput 
+                type="file" 
+                (change)="processImage(imageInput.files)"
+                formControlName="image" 
+                accept="image/jpg, image/png">
+        <img *ngIf="imgBool" [src]="base64Image">
     </p>
 
-    <p>
-        <label for="image">Imagen</label>
-        <input type="text" id="image" formControlName="image">
-    </p>
+    <small><strong>(*)Todos los campos son obligatorios</strong></small><br>
 
     <p>
         <button type="submit" [disabled]="!formNovedades.valid">Enviar</button>
     </p>
-    
 </form>

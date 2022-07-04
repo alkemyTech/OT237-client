@@ -35,3 +35,55 @@
     </p>
    
   </form>
+<main class="container">
+    <h1>Edición de datos del Home</h1>
+    <form [formGroup]="form">
+      <div [ngSwitch]="iterator">
+        <div *ngSwitchCase="0" class="input-group">
+          <label>Texto de Bienvenida</label>
+          <textarea
+            class="input {{(checkControl(welcomeText,'required') || checkControl(welcomeText,'minlength')) && 'border-red'}}"
+            placeholder="Texto de bienvenida" formControlName="welcomeText" rows="3">
+          </textarea>
+          <span *ngIf="checkControl(welcomeText,'required')" class="error">
+            Este campo es requerido
+          </span>
+          <span *ngIf="checkControl(welcomeText,'minlength')" class="error">
+            Este campo debe tener como mínimo 20 caracteres
+          </span>
+        </div>
+        <ng-container *ngFor="let i of [1, 2, 3]">
+          <div *ngSwitchCase="i" class="input-group" formGroupName="{{'slide'+i}}">
+            <h2>Slide {{i}}</h2>
+            <label>Texto</label>
+            <input 
+              type="text" 
+              placeholder="Texto del slide" 
+              class="input {{checkControl(textBySlide,'required') && 'border-red' }}"
+              formControlName="text"
+            >
+            <span *ngIf="checkControl(textBySlide,'required')" class="error">Este campo es requerido</span>
+            <label>Imagen</label>
+            <input 
+              type="text" 
+              placeholder="URL de la imagen" 
+              class="input {{(checkControl(imageBySlide,'required') || checkControl(imageBySlide,'pattern')) && 'border-red' }}"
+              formControlName="image"
+            >
+            <span *ngIf="checkControl(imageBySlide,'required')" class="error">Este campo es requerido</span>
+            <span *ngIf="checkControl(imageBySlide,'pattern')" class="error">Debe ingresar una url de imagen válida</span>
+            <p class="preview">Vista Previa</p>
+            <img [src]="imageBySlide?.value" alt="img-slide">
+          </div>
+        </ng-container>
+      </div>
+      <div class="btn-group-right">
+        <button class="btn-back" *ngIf="iterator!=0" (click)="onPrevPage()">
+          Atrás
+        </button>
+        <button class="btn-next" (click)="onNextPage()">
+          {{iterator == pages.length - 1 ? 'Enviar':'Siguiente'}}
+        </button>
+      </div>
+    </form>
+  </main>

@@ -2,35 +2,34 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Member } from "src/app/features/interfaces";
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: "root",
 })
 export class MembersService {
 
-  URL: string = 'https://ongapi.alkemy.org/api';
-
   constructor(private http: HttpClient) {
   }
 
   getAllMembers(): Observable<any> {
-    return this.http.get<Member[]>(this.URL + '/members');
+    return this.http.get<Member[]>(environment.url + 'members');
   }
 
   getMember(id: number): Observable<any> {
-    return this.http.get<Member>(this.URL + '/members/' + id);
+    return this.http.get<Member>(environment.url + id);
   }
 
   addMember(member: Member): Observable<any> {
-    return this.http.post<Member>(this.URL + '/members', member);
+    return this.http.post<Member>(environment.url + 'members', member);
   }
 
   editMember(id: number, member: Member): Observable<any> {
-    return this.http.put<Member>(this.URL + '/members/' + id, member);
+    return this.http.put<Member>(environment.url + 'members/' + id, member);
   }
 
   deleteMember(id: number){
-    return this.http.delete<Member>(this.URL + '/members/' + id);
+    return this.http.delete<Member>(environment.url + 'members/' + id);
   }
 
 }
