@@ -21,13 +21,10 @@ import { OrganizationComponent } from "./pages/backoffice/organization/organizat
 import { ContactComponent } from "./pages/contact/contact/contact.component";
 import { MembersListComponent } from "./pages/members/members-list/members-list.component";
 import { CategoriesComponent } from "./pages/categories/categories/categories.component";
+import { NewDetailComponent } from '../views/news/detail/new-detail.component';
 
 const routes: Routes = [
   
-  {
-    path: '**',
-    redirectTo: 'login'
-  },
   {
     path: "login", 
     component: LoginFormComponent
@@ -73,6 +70,10 @@ const routes: Routes = [
     component: NewsComponent
   },
   {
+    path: "novedades/:id",
+    component: NewDetailComponent
+  },
+  {
     path: "backoffice/organization/:id",
     component: OrganizationComponent
   },
@@ -115,6 +116,10 @@ const routes: Routes = [
   { 
     path: "actividades", 
     component: ActivityFormComponent 
+  },
+  {
+    path: '**',
+    redirectTo: 'login'
   }
 ];
 
