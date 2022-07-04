@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Novedad } from 'src/app/features/interfaces';
 import { NewsService } from 'src/app/core/services/news.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-news-list-edit',
@@ -10,11 +11,14 @@ import { NewsService } from 'src/app/core/services/news.service';
 export class NewsListEditComponent implements OnInit {
 
   novedades!: Novedad[];
+  token!: string;
 
-  constructor(private api: NewsService) { }
+  constructor(private api: NewsService, private router: Router) { }
 
   ngOnInit(): void {
     this.getNovedades();
+    //this.token = JSON.parse(localStorage.loginToken).data.token;
+    
   }
 
   getNovedades(): void {
@@ -22,11 +26,11 @@ export class NewsListEditComponent implements OnInit {
   }
 
   editN(id: number): void {
-
+    this.router.navigate([`/backoffice/news/${id}`]);
   }
 
   deleteN(id: number): void {
-
+    this.api.deleteNovedad(id).subscribe(()=>this.getNovedades());
   }
 
 }
