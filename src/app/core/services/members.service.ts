@@ -21,11 +21,11 @@ export class MembersService {
   }
 
   addMember(member: Member): Observable<any> {
-    return this.httpService.post<Member>(environment.url + 'members', false, member);
+    return this.httpService.post<Member>(environment.url + 'members', member);
   }
 
   editMember(id: number, member: Member): Observable<any>{
-    return this.httpService.put<Member>(environment.url + 'members/' + id, false, member);
+    return this.httpService.put<Member>(environment.url + 'members/' + id, member);
   }
 
   deleteMember(id: number): Observable<any>{
