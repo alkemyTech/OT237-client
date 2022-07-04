@@ -15,6 +15,7 @@ import { MembersFormComponent } from "./pages/members/members-form/members-form.
 import { ContactComponent } from "./pages/contact/contact/contact.component";
 import { MembersListComponent } from "./pages/members/members-list/members-list.component";
 import { CategoriesComponent } from "./pages/categories/categories/categories.component";
+import { ActivityDetailComponent } from './pages/views/activities/detail/activity-detail/activity-detail.component';
 
 const routes: Routes = [
   {
@@ -29,11 +30,15 @@ const routes: Routes = [
     path: "editar-testimonio/:id",
     component: TestimonialFormComponent
   },
-{
+  {
     path: "actividades", 
 
-    component: ActivityFormComponent },
-  
+    component: ActivityFormComponent
+  },
+  {
+    path: "actividades/:id",
+    component: ActivityDetailComponent
+  },
   { 
     path: "categorias/crear", 
     component: CategoriesFormComponent 
