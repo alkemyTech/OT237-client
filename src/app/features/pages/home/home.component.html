@@ -17,17 +17,22 @@
         </div>
     </header>
     <main>
+        <section class="slides" *ngIf="slides.length > 0">
+            <app-slider [items]="slides"></app-slider>
+        </section>
         <section class="front-page">
             <div class="left">
                 <h2>Hola! Bienvenido(a)</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing dignissim ac et eleifend lacus, rhoncus, dignissim sagittis. Tellus ac a, elementum ut. Tellus a morbi tincidunt ultricies malesuada eget turpis. Lacus enim non enim, velit hac turpis interdum arcu. Suspendisse at vel ultrices amet orci enim lectus porttitor ut.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing dignissim ac et eleifend lacus,
+                    rhoncus, dignissim sagittis. Tellus ac a, elementum ut. Tellus a morbi tincidunt ultricies malesuada
+                    eget turpis. Lacus enim non enim, velit hac turpis interdum arcu. Suspendisse at vel ultrices amet
+                    orci enim lectus porttitor ut.</p>
                 <button>Contáctanos</button>
             </div>
             <div class="rigth">
                 <img src="assets/front-page.png" alt="img-front-page">
             </div>
         </section>
-        <section class="slides"></section>
         <section class="staff"></section>
         <section class="testimonials"></section>
         <section class="news"></section>

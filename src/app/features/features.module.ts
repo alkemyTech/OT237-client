@@ -1,3 +1,4 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from "@angular/router";
 import { SharedModule } from '../shared/shared.module'
 import { CommonModule } from "@angular/common";
@@ -7,6 +8,7 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
+import { SliderComponent } from './pages/home/slider/slider.component';
 import { ActivityFormComponent } from "./pages/activities/activity-form/activity-form.component";
 import { LoginFormComponent } from "./pages/auth/login-form/login-form.component";
 import { RegisterFormComponent } from "./pages/auth/register-form/register-form.component";
@@ -43,6 +45,7 @@ import { CategoriesComponent } from './pages/categories/categories/categories.co
     NewsComponent,
     NewCardComponent,
     HomeComponent,
+    SliderComponent
     ContactComponent,
     ContactFormComponent,
     MembersListComponent,
@@ -60,7 +63,7 @@ import { CategoriesComponent } from './pages/categories/categories/categories.co
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
-    RouterModule
+    RouterModule,
   ],
   imports: [
     CommonModule, 
