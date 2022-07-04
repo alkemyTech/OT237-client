@@ -21,6 +21,7 @@ import { OrganizationComponent } from "./pages/backoffice/organization/organizat
 import { ContactComponent } from "./pages/contact/contact/contact.component";
 import { MembersListComponent } from "./pages/members/members-list/members-list.component";
 import { CategoriesComponent } from "./pages/categories/categories/categories.component";
+import { ActivitySectionComponent } from "./pages/activities/activity-section/activity-section.component";
 
 const routes: Routes = [
   
@@ -42,8 +43,8 @@ const routes: Routes = [
   },
   {
     path: "actividades", 
-    component: ActivityFormComponent 
-   },
+    component: ActivitySectionComponent
+  },
   { 
     path: "categorias/crear", 
     component: CategoriesFormComponent 
