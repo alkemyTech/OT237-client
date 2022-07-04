@@ -33,4 +33,8 @@ export class NewsListEditComponent implements OnInit {
     this.api.deleteNovedad(id).subscribe(()=>this.getNovedades());
   }
 
+  createN(): void {
+    this.router.navigate([`/backoffice/news/create`]);
+  }
+
 }
