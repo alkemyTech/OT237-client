@@ -1,7 +1,7 @@
-import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Member } from "src/app/features/interfaces";
+import { HttpService } from './http.service';
 import { environment } from '../../../environments/environment';
 
 @Injectable({
@@ -9,27 +9,27 @@ import { environment } from '../../../environments/environment';
 })
 export class MembersService {
 
-  constructor(private http: HttpClient) {
+  constructor(private httpService: HttpService) {
   }
 
   getAllMembers(): Observable<any> {
-    return this.http.get<Member[]>(environment.url + 'members');
+    return this.httpService.get<Member[]>(environment.url + 'members');
   }
 
   getMember(id: number): Observable<any> {
-    return this.http.get<Member>(environment.url + id);
+    return this.httpService.get<Member>(environment.url + 'members/' + id);
   }
 
   addMember(member: Member): Observable<any> {
-    return this.http.post<Member>(environment.url + 'members', member);
+    return this.httpService.post<Member>(environment.url + 'members', member);
   }
 
-  editMember(id: number, member: Member): Observable<any> {
-    return this.http.put<Member>(environment.url + 'members/' + id, member);
+  editMember(id: number, member: Member): Observable<any>{
+    return this.httpService.put<Member>(environment.url + 'members/' + id, member);
   }
 
-  deleteMember(id: number){
-    return this.http.delete<Member>(environment.url + 'members/' + id);
+  deleteMember(id: number): Observable<any>{
+    return this.httpService.delete<Member>(environment.url + 'members/' + id);
   }
 
 }
