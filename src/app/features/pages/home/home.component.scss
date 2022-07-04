@@ -8,6 +8,7 @@
     position: relative;
     margin: 0;
     header {
+        z-index: 100;
         position: fixed;
         top: 0;
         left: 0;
@@ -104,6 +105,11 @@
                     width: auto;
                 }
             }
+        }
+        section.slides {
+            position: relative;
+            width: 80%;
+            margin: 0 auto;
         }
     }
     footer {

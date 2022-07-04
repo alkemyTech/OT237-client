@@ -1,4 +1,5 @@
-import { ReactiveFormsModule } from '@angular/forms';
+import { SliderComponent } from './pages/home/slider/slider.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from "@angular/router";
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
@@ -24,6 +25,7 @@ import { HomeComponent } from './pages/home/home.component';
     TestimonialFormComponent,
     UserFormComponent,
     HomeComponent,
+    SliderComponent
   ],
   exports: [
     ActivityFormComponent,
@@ -34,8 +36,14 @@ import { HomeComponent } from './pages/home/home.component';
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
-    RouterModule
+    RouterModule,
   ],
-  imports: [CommonModule, AppRoutingModule, RouterModule, ReactiveFormsModule],
+  imports: [
+    CommonModule, 
+    AppRoutingModule, 
+    RouterModule, 
+    FormsModule,
+    ReactiveFormsModule,
+  ],
 })
 export class FeaturesModule {}
