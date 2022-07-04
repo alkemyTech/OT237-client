@@ -24,10 +24,6 @@ import { NewsListEditComponent } from './pages/news/news/news-list-edit/news-lis
 const routes: Routes = [
   
   {
-    path: '**',
-    redirectTo: 'login'
-  },
-  {
     path: "login", 
     component: LoginFormComponent
   },
@@ -118,6 +114,10 @@ const routes: Routes = [
   { 
     path: "actividades", 
     component: ActivityFormComponent 
+  },
+  {
+    path: '**',
+    redirectTo: 'login'
   }
 ];
 

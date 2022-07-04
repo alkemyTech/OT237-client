@@ -16,9 +16,7 @@ export class NewsListEditComponent implements OnInit {
   constructor(private api: NewsService, private router: Router) { }
 
   ngOnInit(): void {
-    this.getNovedades();
-    //this.token = JSON.parse(localStorage.loginToken).data.token;
-    
+    this.getNovedades();    
   }
 
   getNovedades(): void {

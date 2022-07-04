@@ -1,6 +1,6 @@
 <div class="container">
     <button (click)="createN()">Crear</button>
-    <table>
+    <table border="1">
         <thead>
             <th>Nombre</th>
             <th>Imagen</th>
@@ -18,7 +18,7 @@
                     </div>
                 </td>
                 <td>
-                    {{novedad.created_at}}
+                    {{novedad.created_at | date}}
                 </td>
                 <td>
                     <button (click)="editN(novedad.id||0)">Editar</button>
