@@ -5,6 +5,7 @@ import { NgModule } from "@angular/core";
 import { AppRoutingModule } from "./app-routing.module";
 import { HttpClientModule } from "@angular/common/http";
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { SliderComponent } from './pages/home/slider/slider.component';
 import { ActivityFormComponent } from "./pages/activities/activity-form/activity-form.component";
@@ -32,6 +33,7 @@ import { NewsListEditComponent } from './pages/news/news/news-list-edit/news-lis
 import { ActivityDetailComponent } from './pages/views/activities/detail/activity-detail/activity-detail.component';
 import { ActivityBoxComponent } from "./pages/activities/activity-box/activity-box.component";
 import { ActivitySectionComponent} from "./pages/activities/activity-section/activity-section.component";
+import { NewDetailComponent } from "./pages/views/news/detail/new-detail.component";
 
 @NgModule({
   declarations: [
@@ -59,7 +61,8 @@ import { ActivitySectionComponent} from "./pages/activities/activity-section/act
     ActivitySectionComponent,
     OrganizationComponent,
     CategoriesComponent,
-    NewsListEditComponent
+    NewsListEditComponent,
+    NewDetailComponent
   ],
   exports: [
     ActivityFormComponent,
