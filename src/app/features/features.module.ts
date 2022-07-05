@@ -21,6 +21,8 @@ import { ContactComponent } from './pages/contact/contact/contact.component';
 import { MembersListComponent } from './pages/members/members-list/members-list.component';
 import { CategoriesComponent } from './pages/categories/categories/categories.component';
 import { ActivityDetailComponent } from './pages/views/activities/detail/activity-detail/activity-detail.component';
+import { ActivityBoxComponent } from "./pages/activities/activity-box/activity-box.component";
+import { ActivitySectionComponent} from "./pages/activities/activity-section/activity-section.component";
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { ActivityDetailComponent } from './pages/views/activities/detail/activit
     OrganizationFormComponent,
     MembersFormComponent,
     CategoriesComponent,
-    ActivityDetailComponent
+    ActivityDetailComponent,
+    ActivityBoxComponent,
+    ActivitySectionComponent
   ],
   exports: [
     ActivityFormComponent,
