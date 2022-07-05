@@ -1,11 +1,12 @@
 import { HttpService } from './http.service';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrganizationService {
-  private API_ORG: string = "https://ongapi.alkemy.org/api/organization";
+  private API_ORG: string = `${environment.url}organization`;
 
   constructor(private http: HttpService) { }
 
