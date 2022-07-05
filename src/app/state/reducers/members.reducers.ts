@@ -13,4 +13,4 @@ export const membersReducer = createReducer(
   on(loadedMembers, (state, {members}) => { 
     return { ... state, loading: false, members }
   })
-);
+); 

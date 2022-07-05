@@ -24,10 +24,10 @@ import { CategoriesComponent } from "./pages/categories/categories/categories.co
 
 const routes: Routes = [
   
-  {
-    path: '**',
-    redirectTo: 'login'
-  },
+  // {
+  //   path: '**',
+  //   redirectTo: 'login'
+  // },
   {
     path: "login", 
     component: LoginFormComponent

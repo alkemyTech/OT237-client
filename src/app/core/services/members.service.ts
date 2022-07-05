@@ -12,7 +12,7 @@ export class MembersService {
 
   constructor(private http: HttpClient) {
   }
-
+ 
   getAllMembers(): Observable<any> {
     return this.http.get<Member[]>(this.URL + '/members');
   }

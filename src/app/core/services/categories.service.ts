@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Category } from 'src/app/features/interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -38,9 +39,11 @@ export class CategoriesService {
     return this.queryPut(`${id}`,categoria)
   }
   
-  public buscarCategorias(id:string){
-    return  this.http.get(`${this.url}categories${id}`).subscribe((data:any)=>{
-      this.enviarCategoriaSubjet.next(data)
-    })}
+  public buscarCategorias(id:string): Observable<any>{
+    return  this.http.get<Category[]>(`${this.url}categories${id}`)}
+   
+    // return  this.http.get(`${this.url}categories${id}`).subscribe((data:any)=>{
+    //   this.enviarCategoriaSubjet.next(data)
+    // })}
   
 }
