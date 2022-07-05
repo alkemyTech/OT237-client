@@ -1,0 +1,56 @@
+<div class="body">
+    <header>
+        <img src="assets/logo.png" alt="img-logo">
+        <div class="left-header">
+            <div class="links">
+                <a href="#" style="font-weight: 900;">Inicio</a>
+                <a href="#">Nosotros</a>
+                <a href="#">Novedades</a>
+                <a href="#">Testimonios</a>
+                <a href="#">Contacto</a>
+                <a href="#">Contribuye</a>
+            </div>
+            <div class="btn-group">
+                <button class="btn-login">Log in</button>
+                <button class="btn-register">Regístrate</button>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section class="slides" *ngIf="slides.length > 0">
+            <app-slider [items]="slides"></app-slider>
+        </section>
+        <section class="front-page">
+            <div class="left">
+                <h2>Hola! Bienvenido(a)</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Adipiscing dignissim ac et eleifend lacus,
+                    rhoncus, dignissim sagittis. Tellus ac a, elementum ut. Tellus a morbi tincidunt ultricies malesuada
+                    eget turpis. Lacus enim non enim, velit hac turpis interdum arcu. Suspendisse at vel ultrices amet
+                    orci enim lectus porttitor ut.</p>
+                <button>Contáctanos</button>
+            </div>
+            <div class="rigth">
+                <img src="assets/front-page.png" alt="img-front-page">
+            </div>
+        </section>
+        <section class="staff"></section>
+        <section class="testimonials"></section>
+        <section class="news"></section>
+    </main>
+    <footer>
+        <div class="top">
+            <div class="line"></div>
+            <img src="assets/logo.png" alt="img-logo">
+            <div class="line"></div>
+        </div>
+        <div class="center">
+            <a href="#">Inicio</a>
+            <a href="#">Nosotros</a>
+            <a href="#">Novedades</a>
+            <a href="#">Testimonios</a>
+            <a href="#">Contacto</a>
+            <a href="#">Contribuye</a>
+        </div>
+        <p>2022 by Alkemy. All Rights Reserved.</p>
+    </footer>
+</div>
