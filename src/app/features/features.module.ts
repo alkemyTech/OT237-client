@@ -30,6 +30,7 @@ import { OrganizationComponent } from './pages/backoffice/organization/organizat
 import { ContactComponent } from './pages/contact/contact/contact.component';
 import { MembersListComponent } from './pages/members/members-list/members-list.component';
 import { CategoriesComponent } from './pages/categories/categories/categories.component';
+import { ActivityDetailComponent } from './pages/views/activities/detail/activity-detail/activity-detail.component';
 import { ActivityBoxComponent } from "./pages/activities/activity-box/activity-box.component";
 import { ActivitySectionComponent} from "./pages/activities/activity-section/activity-section.component";
 
@@ -54,6 +55,7 @@ import { ActivitySectionComponent} from "./pages/activities/activity-section/act
     OrganizationFormComponent,
     MembersFormComponent,
     CategoriesComponent,
+    ActivityDetailComponent,
     ActivityBoxComponent,
     ActivitySectionComponent
     OrganizationComponent,
