@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Novedad } from 'src/app/features/interfaces';
 import { NewsService } from 'src/app/core/services/news.service';
 import { Router } from '@angular/router';
+import { CREDENTIALS } from 'src/app/features/features-variables';
 
 @Component({
   selector: 'app-news-list-edit',
@@ -12,11 +13,12 @@ export class NewsListEditComponent implements OnInit {
 
   novedades!: Novedad[];
   token!: string;
+  isAdmin: boolean = JSON.parse(localStorage.loginToken).data.user.role_id === CREDENTIALS.ADMIN;
 
   constructor(private api: NewsService, private router: Router) { }
 
   ngOnInit(): void {
-    this.getNovedades();    
+    this.getNovedades(); 
   }
 
   getNovedades(): void {

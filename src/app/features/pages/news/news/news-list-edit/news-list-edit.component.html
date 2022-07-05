@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" *ngIf="isAdmin; else isStandard">
     <button (click)="createN()">Crear</button>
     <table border="1">
         <thead>
@@ -28,3 +28,7 @@
         </tbody>
     </table>
 </div>
+
+<ng-template #isStandard>
+    <p>Acceso no autorizado</p>
+</ng-template>
