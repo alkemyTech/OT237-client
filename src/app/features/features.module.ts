@@ -1,4 +1,3 @@
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from "@angular/router";
 import { SharedModule } from '../shared/shared.module'
 import { CommonModule } from "@angular/common";
@@ -48,7 +47,7 @@ import { ActivitySectionComponent} from "./pages/activities/activity-section/act
     NewsComponent,
     NewCardComponent,
     HomeComponent,
-    SliderComponent
+    SliderComponent,
     ContactComponent,
     ContactFormComponent,
     MembersListComponent,
@@ -57,7 +56,7 @@ import { ActivitySectionComponent} from "./pages/activities/activity-section/act
     CategoriesComponent,
     ActivityDetailComponent,
     ActivityBoxComponent,
-    ActivitySectionComponent
+    ActivitySectionComponent,
     OrganizationComponent,
     CategoriesComponent
   ],
