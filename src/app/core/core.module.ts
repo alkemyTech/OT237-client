@@ -1,3 +1,4 @@
+import { OrganizationService } from './services/organization.service';
 import { SlideService } from './services/slide.service';
 import { RoleService } from './services/role.service';
 import { UserService } from './services/user.service';
@@ -11,6 +12,6 @@ import { HttpService } from "./services/http.service";
 @NgModule({
   declarations: [],
   imports: [CommonModule, HttpClientModule],
-  providers: [HttpService, UserService, RoleService, SlideService],
+  providers: [HttpService, UserService, RoleService, SlideService, OrganizationService],
 })
 export class CoreModule {}
