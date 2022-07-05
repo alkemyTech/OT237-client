@@ -1,12 +1,13 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from "@angular/router";
 import { SharedModule } from '../shared/shared.module'
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { AppRoutingModule } from "./app-routing.module";
-import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
+import { SliderComponent } from './pages/home/slider/slider.component';
 import { ActivityFormComponent } from "./pages/activities/activity-form/activity-form.component";
 import { LoginFormComponent } from "./pages/auth/login-form/login-form.component";
 import { RegisterFormComponent } from "./pages/auth/register-form/register-form.component";
@@ -29,6 +30,9 @@ import { ContactComponent } from './pages/contact/contact/contact.component';
 import { MembersListComponent } from './pages/members/members-list/members-list.component';
 import { CategoriesComponent } from './pages/categories/categories/categories.component';
 import { NewsListEditComponent } from './pages/news/news/news-list-edit/news-list-edit.component';
+import { ActivityDetailComponent } from './pages/views/activities/detail/activity-detail/activity-detail.component';
+import { ActivityBoxComponent } from "./pages/activities/activity-box/activity-box.component";
+import { ActivitySectionComponent} from "./pages/activities/activity-section/activity-section.component";
 
 @NgModule({
   declarations: [
@@ -44,11 +48,16 @@ import { NewsListEditComponent } from './pages/news/news/news-list-edit/news-lis
     NewsComponent,
     NewCardComponent,
     HomeComponent,
+    SliderComponent,
     ContactComponent,
     ContactFormComponent,
     MembersListComponent,
     OrganizationFormComponent,
     MembersFormComponent,
+    CategoriesComponent,
+    ActivityDetailComponent,
+    ActivityBoxComponent,
+    ActivitySectionComponent,
     OrganizationComponent,
     CategoriesComponent,
     NewsListEditComponent
@@ -62,7 +71,7 @@ import { NewsListEditComponent } from './pages/news/news/news-list-edit/news-lis
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
-    RouterModule
+    RouterModule,
   ],
   imports: [
     CommonModule, 

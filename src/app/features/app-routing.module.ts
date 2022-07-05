@@ -20,6 +20,8 @@ import { ContactComponent } from "./pages/contact/contact/contact.component";
 import { MembersListComponent } from "./pages/members/members-list/members-list.component";
 import { CategoriesComponent } from "./pages/categories/categories/categories.component";
 import { NewsListEditComponent } from './pages/news/news/news-list-edit/news-list-edit.component';
+import { ActivityDetailComponent } from './pages/views/activities/detail/activity-detail/activity-detail.component';
+import { ActivitySectionComponent } from "./pages/activities/activity-section/activity-section.component";
 
 const routes: Routes = [
   
@@ -36,9 +38,13 @@ const routes: Routes = [
     component: TestimonialFormComponent
   },
   {
-    path: "actividades", 
-    component: ActivityFormComponent 
-   },
+    path: "actividades",
+    component: ActivitySectionComponent
+  },
+  {
+    path: "actividades/:id",
+    component: ActivityDetailComponent
+  },
   { 
     path: "categorias/crear", 
     component: CategoriesFormComponent 
