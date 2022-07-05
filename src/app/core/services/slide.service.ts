@@ -28,5 +28,5 @@ export class SlideService {
   delete(id: number) {
     return this.http.delete(`${this.api_slides}/${id}`);
   }
-
+  
 }
