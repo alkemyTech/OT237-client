@@ -22,7 +22,6 @@ export class ActivityDetailComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.id = this.activatedRoute.snapshot.params.id;
-		console.log(this.id);
 		this.activitiesService.getActivity(this.id).subscribe({
 			next: (response :any) => {
 				this.title = response.data.name;
@@ -30,7 +29,7 @@ export class ActivityDetailComponent implements OnInit {
 				this.desc = response.data.description;
 			},
 			error: () => {
-				//this.router.navigate(["/"]);
+				this.router.navigate(["/"]);
 			}
 		});
 		
