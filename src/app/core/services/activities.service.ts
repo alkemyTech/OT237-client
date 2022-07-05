@@ -9,7 +9,10 @@ export class ActivitiesService {
 	private activitiesURL = "https://ongapi.alkemy.org/api/activities";
 	constructor(private http :HttpClient) {}
 
-	getActivities() {
+	public getActivities() {
 		return this.http.get(this.activitiesURL);
-	} 
+	}
+	public getActivity(id :number) {
+		return this.http.get(this.activitiesURL + "/" + id);
+	}
 }
