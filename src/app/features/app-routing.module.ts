@@ -22,6 +22,7 @@ import { CategoriesComponent } from "./pages/categories/categories/categories.co
 import { NewsListEditComponent } from './pages/news/news/news-list-edit/news-list-edit.component';
 import { ActivityDetailComponent } from './pages/views/activities/detail/activity-detail/activity-detail.component';
 import { ActivitySectionComponent } from "./pages/activities/activity-section/activity-section.component";
+import { NewDetailComponent } from "./pages/views/news/detail/new-detail.component";
 
 const routes: Routes = [
   
@@ -72,6 +73,10 @@ const routes: Routes = [
   {
     path: "novedades",
     component: NewsComponent
+  },
+  {
+    path: "novedades/:id",
+    component: NewDetailComponent
   },
   {
     path: "backoffice/organization/:id",
