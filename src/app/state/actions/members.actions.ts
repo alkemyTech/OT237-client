@@ -6,6 +6,8 @@ export const loadMembers = createAction(
 );
 
 export const loadedMembers = createAction(
-  '[Member List/API] Retrieve Members Success',
+
+  '[Member List] Retrieve members Success',
   props<{ members: Member[] }>()
-);
+); 
+

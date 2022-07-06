@@ -49,7 +49,7 @@ export class CategoriesService {
     return this.httpService.delete<Category>(environment.url + 'categories/' + id);}
 
   public crearCategoria(categoria:Category): Observable<any>{
-   return this.httpService.post<Category>(environment.url + 'categories', false,categoria);} 
+   return this.httpService.post<Category>(environment.url + 'categories', categoria);} 
 
   public editarCategoria(id:number,categoria:any){
     return this.httpService.put<Category>(environment.url + 'categories/' + id, categoria);
