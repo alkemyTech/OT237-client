@@ -5,10 +5,12 @@ import { categoriesReducer } from "./reducers/categories.reducers";
 
 export interface AppState {
     members: MembersState,
-    categories:CategoriesState
+    categories:CategoriesState,
+
 }
 
 export const ROOT_REDUCERS: ActionReducerMap<AppState> = {
     members: membersReducer,
     categories: categoriesReducer,
+    
 }

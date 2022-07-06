@@ -8,4 +8,5 @@ export interface MembersState {
 export interface CategoriesState {
     loading: boolean,
     categories: ReadonlyArray<Category>;
+   
 }

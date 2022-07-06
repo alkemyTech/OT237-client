@@ -12,3 +12,4 @@ export const selectLoading = createSelector(
     selectCategoriesFeature,
     (state: CategoriesState) => state.loading
 );
+

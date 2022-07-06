@@ -1,5 +1,3 @@
-{{loading$ | async}}
-
 <table >
     <thead>
       <tr>
@@ -11,7 +9,6 @@
     </thead>
     <tbody>
       <tr *ngFor="let categoria of categorias">
-      
         <th >{{categoria.name}}</th>
         <td>{{categoria.created_at| date:'shortDate'}}</td>
         <td><button (click)="buscarCategoriaId(categoria.id)">Editar</button></td>
