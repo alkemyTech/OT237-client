@@ -1,6 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MembersService } from '../../../../core/services/members.service';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { MembersService } from 'src/app/core/services/members.service';
+import { loadMembers } from 'src/app/state/actions/members.actions';
+import { AppState } from 'src/app/state/app.state';
+import { selectMembersList, selectLoading } from 'src/app/state/selectors/members.selectors';
+import { Member } from '../../../interfaces';
+
 
 @Component({
   selector: 'app-members-list',
@@ -9,27 +16,32 @@ import { MembersService } from '../../../../core/services/members.service';
 })
 export class MembersListComponent implements OnInit {
 
-  memberList!: any;
+  public members: Member[] = [];
+  public loading$: Observable<boolean> = new Observable()
 
-  constructor(private router: Router, private membersService: MembersService) { 
-  }
+  constructor(
+    private store: Store<AppState>,
+    private router: Router, 
+    private membersService: MembersService
+  ) {}
 
   ngOnInit(): void {
-    this.memberList = [];
-    this.getAllMembers();
+    this.store.dispatch(loadMembers())
+    this.loading$ = this.store.select(selectLoading)
+    this.store.select(selectMembersList).subscribe((members: any) => {
+      this.members = members.data
+    })
   }
 
   getAllMembers() {
-    this.membersService.getAllMembers().subscribe(response => {
-      this.memberList = response.data;
-    });
+    this.membersService.getAllMembers();
   }
 
-  editMember(id: number){
+  editMember(id: any){
     this.router.navigate(['backoffice/members/edit/' + id]);
   }
 
-  deleteMember(id: number){
+  deleteMember(id: any){
     this.membersService.deleteMember(id)
     .subscribe(
       data =>{

@@ -3,6 +3,12 @@ import { CoreModule } from './core/core.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
+import { StoreModule } from "@ngrx/store";
+import { EffectsModule } from '@ngrx/effects';
+import { MemberEffects } from './state/effects/members.effects';
+import { ROOT_REDUCERS } from './state/app.state';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -11,7 +17,10 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule,
     CoreModule,
-    FeaturesModule
+    FeaturesModule,
+    StoreModule.forRoot(ROOT_REDUCERS),
+    EffectsModule.forRoot([MemberEffects]),
+    StoreDevtoolsModule.instrument({ name:'TEST' })
   ],
   providers: [],
   bootstrap: [AppComponent]
