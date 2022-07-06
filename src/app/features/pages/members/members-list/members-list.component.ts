@@ -60,9 +60,9 @@ export class MembersListComponent implements OnInit {
       })
   }
 
-  searchMemberByValue(value: string){
+  searchMembersByValue(value: string){
     if(value.length > 2){
-      this.membersService.searchMemberByValue(value)
+      this.membersService.searchMembersByValue(value)
       .pipe(
         filter(Boolean),
         debounceTime(150),
@@ -83,8 +83,5 @@ export class MembersListComponent implements OnInit {
         this.members = members.data
       });
     }
-  }
-
-  onSubmit() {
   }
 }
