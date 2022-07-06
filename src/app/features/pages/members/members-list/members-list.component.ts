@@ -1,25 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-<<<<<<< HEAD
-import { Observable } from 'rxjs';
-import { loadedMembers } from 'src/app/state/actions/members.actions';
-import { loadMembers } from 'src/app/state/actions/members.actions';
-import { MembersService } from '../../../../core/services/members.service';
-import { selectLoading, selectMembersList } from '../../../../state/selectors/members.selectors';
-import { Member } from '../../../interfaces';
-import { AppState } from '../../../../state/app.state';
-=======
 import { Observable, Subject } from 'rxjs';
 import { MembersService } from 'src/app/core/services/members.service';
-import { loadMembers } from 'src/app/state/actions/members.actions';
+import { loadedMembers, loadMembers } from 'src/app/state/actions/members.actions';
 import { AppState } from 'src/app/state/app.state';
 import { selectMembersList, selectLoading } from 'src/app/state/selectors/members.selectors';
 import { Member } from '../../../interfaces';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { filter } from 'rxjs/operators';
->>>>>>> Develop
 
 @Component({
   selector: 'app-members-list',
@@ -28,19 +18,6 @@ import { filter } from 'rxjs/operators';
 })
 export class MembersListComponent implements OnInit {
 
-<<<<<<< HEAD
-  loading$: Observable<boolean> = new Observable()
-  members$: Observable<any> = new Observable()
-
-  constructor(private store: Store<AppState>, private router: Router, private membersService: MembersService) { 
-  }
-
-  ngOnInit(): void {
-    this.loading$ = this.store.select(selectLoading);
-    this.members$ = this.store.select(selectMembersList);
-    this.store.dispatch(loadMembers());
-    this.getAllMembers();
-=======
   public members: Member[] = [];
   public loading$: Observable<boolean> = new Observable();
 
@@ -63,37 +40,26 @@ export class MembersListComponent implements OnInit {
     this.store.select(selectMembersList).subscribe((members: any) => {
       this.members = members.data
     })
->>>>>>> Develop
+
   }
 
   get f() { return this.form.controls; }
 
   getAllMembers() {
-<<<<<<< HEAD
     this.membersService.getAllMembers()
     .subscribe((response: Member[]) => {
       this.store.dispatch(loadedMembers(
         { members: response }
       ));
     });
-=======
-    this.membersService.getAllMembers();
->>>>>>> Develop
+
   }
 
   editMember(id: any){
     this.router.navigate(['backoffice/members/edit/' + id]);
   }
 
-<<<<<<< HEAD
-  // deleteMember(id: number){
-  //   this.membersService.deleteMember(id)
-  //   .subscribe(
-  //     data =>{
-  //       this.getAllMembers();
-  //     })
-  //   }
-=======
+
   deleteMember(id: any){
     this.membersService.deleteMember(id)
     .subscribe(
@@ -126,5 +92,5 @@ export class MembersListComponent implements OnInit {
       });
     }
   }
->>>>>>> Develop
+
 }

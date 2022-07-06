@@ -35,11 +35,9 @@
         </tr>
     </thead>
     <tbody>
-<<<<<<< HEAD
-        <tr *ngFor="let member of members$ | async">
-=======
+
         <tr *ngFor="let member of this.members">
->>>>>>> Develop
+
             <td><b>{{ member.name }}</b></td>
             <td><img src={{member.image}} /></td>
             <td><button class="btn-sm btn-info" (click)="editMember(member.id)">Editar</button>
