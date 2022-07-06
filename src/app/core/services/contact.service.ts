@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Contact } from "src/app/features/interfaces";
@@ -35,5 +36,4 @@ export class ContactService {
   deleteContact(id: number): Observable<any>{
     return this.httpService.delete<Contact>(environment.url + 'contacts/' + id);
   }
-
 }
