@@ -20,6 +20,10 @@ export class MembersService {
     return this.httpService.get<Member>(environment.url + 'members/' + id);
   }
 
+  searchMembersByValue(value: string): Observable<any> {
+    return this.httpService.get<Member[]>(`${environment.url}members?search=${value}`);
+  }
+
   addMember(member: Member): Observable<any> {
     return this.httpService.post<Member>(environment.url + 'members', member);
   }

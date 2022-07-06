@@ -2,6 +2,22 @@
     <a routerLink="/backoffice/members/create" routerLinkActive="active">Crear Nuevo Miembro</a>
 </div>
 <br>
+<div>
+    <form [formGroup]="form">
+        <div class="row" style="display: flex;">
+            <div class="search">
+                <b>Buscar Miembros por nombre: </b>
+                <input class="searchTerm" type="text" formControlName="searchTerm" class="form-control" 
+                [(ngModel)]="searchTerm" (input)="searchMembersByValue(searchTerm)" />
+            </div>
+            <div class="form-group">
+                <button>
+                    Search
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
 <table>
     <thead>
         <tr>
