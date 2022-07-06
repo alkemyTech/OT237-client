@@ -30,4 +30,5 @@ export class HttpService {
   public delete<T>(url: string, activateHeader:boolean = false, id?: any):Observable<T> {
     return this.http.delete<T>(url, activateHeader ? { headers: this._headers }: {});
   }
+  
 }
