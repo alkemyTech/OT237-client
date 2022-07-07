@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ContactService } from 'src/app/core/services/contact.service';
 
 @Component({
   selector: 'app-contact-form',
@@ -9,7 +10,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class ContactFormComponent {
   public contactForm!: FormGroup;
 
-  constructor() {
+  constructor( private contactService: ContactService) {
     this.buildForm()
   }
 
@@ -25,7 +26,11 @@ export class ContactFormComponent {
       phone: this.f.phone.value,
       message: this.f.message.value
     };
-    // TODO: http POST contactObject to API
+    this.contactService.addContact(contactObject)
+      .subscribe({
+        next: data => console.log(data),
+        error: e => console.log(e)
+      })
   }
 
   private buildForm(): void {

@@ -36,6 +36,17 @@ export interface Member {
     deleted_at?: Date|string
 }
 
+export interface Contact {
+    id?: number,
+    name?: string,
+    email?: string,
+    phone?: string,
+    message?: string,
+    deleted_at?: Date|string,
+    created_at?: Date|string,
+    updated_at?: Date|string
+}
+
 export interface ResponseObject {
     success: boolean,
     data: Novedad,
