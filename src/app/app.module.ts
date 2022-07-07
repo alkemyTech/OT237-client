@@ -7,6 +7,7 @@ import { StoreModule } from "@ngrx/store";
 import { EffectsModule } from '@ngrx/effects';
 import { MemberEffects } from './state/effects/members.effects';
 import { ROOT_REDUCERS } from './state/app.state';
+import { CategoriaEffects } from './state/effects/categories.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 
@@ -19,7 +20,8 @@ import { environment } from '../environments/environment';
     CoreModule,
     FeaturesModule,
     StoreModule.forRoot(ROOT_REDUCERS),
-    EffectsModule.forRoot([MemberEffects]),
+    EffectsModule.forRoot([MemberEffects,
+                           CategoriaEffects]),
     StoreDevtoolsModule.instrument({ name:'TEST' })
   ],
   providers: [],

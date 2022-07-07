@@ -26,6 +26,7 @@ import { NewDetailComponent } from "./pages/views/news/detail/new-detail.compone
 
 const routes: Routes = [
   
+
   {
     path: "login", 
     component: LoginFormComponent
