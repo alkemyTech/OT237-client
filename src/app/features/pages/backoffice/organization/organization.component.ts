@@ -26,7 +26,7 @@ export class OrganizationComponent implements OnInit {
 
 	ngOnInit(): void {
 		this.id = this.activatedRoute.snapshot.params.id
-		this.organizationService.getOrg(this.id).subscribe({
+		this.organizationService.getOne(this.id).subscribe({
 			next: (responseData :any) => {
 				this.name = responseData.data.name;
 				this.shortDesc = responseData.data.short_description;
