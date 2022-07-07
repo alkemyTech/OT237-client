@@ -9,6 +9,7 @@ import { MemberEffects } from './state/effects/members.effects';
 import { ROOT_REDUCERS } from './state/app.state';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { environment } from '../environments/environment';
     FeaturesModule,
     StoreModule.forRoot(ROOT_REDUCERS),
     EffectsModule.forRoot([MemberEffects]),
-    StoreDevtoolsModule.instrument({ name:'TEST' })
+    StoreDevtoolsModule.instrument({ name:'TEST' }),
+    LeafletModule
   ],
   providers: [],
   bootstrap: [AppComponent]
