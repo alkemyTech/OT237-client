@@ -1,13 +1,14 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpService } from './http.service';
+import { environment } from 'src/environments/environment';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  api_users: string = 'https://ongapi.alkemy.org/api/users';
+  api_users: string = `${environment.url}users`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpService) { }
   
   getAllUsers() {
     return this.http.get(this.api_users);
