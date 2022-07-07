@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, Subject } from 'rxjs';
 import { MembersService } from 'src/app/core/services/members.service';
-import { loadMembers } from 'src/app/state/actions/members.actions';
+import { loadedMembers, loadMembers } from 'src/app/state/actions/members.actions';
 import { AppState } from 'src/app/state/app.state';
 import { selectMembersList, selectLoading } from 'src/app/state/selectors/members.selectors';
 import { Member } from '../../../interfaces';
@@ -40,17 +40,25 @@ export class MembersListComponent implements OnInit {
     this.store.select(selectMembersList).subscribe((members: any) => {
       this.members = members.data
     })
+
   }
 
   get f() { return this.form.controls; }
 
   getAllMembers() {
-    this.membersService.getAllMembers();
+    this.membersService.getAllMembers()
+    .subscribe((response: Member[]) => {
+      this.store.dispatch(loadedMembers(
+        { members: response }
+      ));
+    });
+
   }
 
   editMember(id: any){
     this.router.navigate(['backoffice/members/edit/' + id]);
   }
+
 
   deleteMember(id: any){
     this.membersService.deleteMember(id)
@@ -84,4 +92,5 @@ export class MembersListComponent implements OnInit {
       });
     }
   }
+
 }

@@ -12,7 +12,6 @@ import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/
 import { LoginFormComponent } from "./pages/auth/login-form/login-form.component";
 import { OrganizationFormComponent } from "./pages/backoffice/organization-form/organization-form.component";
 import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
-import { ContactFormComponent } from "./pages/contribute/contact-form/contact-form.component";
 import { MembersFormComponent } from "./pages/members/members-form/members-form.component";
 import { NewsComponent } from "./pages/news/news/news.component";
 import { OrganizationComponent } from "./pages/backoffice/organization/organization.component";
@@ -26,6 +25,7 @@ import { NewDetailComponent } from "./pages/views/news/detail/new-detail.compone
 
 const routes: Routes = [
   
+
   {
     path: "login", 
     component: LoginFormComponent
@@ -104,7 +104,7 @@ const routes: Routes = [
   },
   {
     path: "contribuir",
-    component: ContactFormComponent
+    component: ContactComponent
   },
   {
     path: "Home",

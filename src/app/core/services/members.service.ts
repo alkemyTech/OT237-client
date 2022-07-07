@@ -11,7 +11,7 @@ export class MembersService {
 
   constructor(private httpService: HttpService) {
   }
-
+ 
   getAllMembers(): Observable<any> {
     return this.httpService.get<Member[]>(environment.url + 'members');
   }
