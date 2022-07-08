@@ -12,6 +12,7 @@ import { debounceTime, distinctUntilChanged, filter, map, tap } from 'rxjs/opera
 })
 export class ListUsersComponent implements OnInit {
   users: any[] = [];
+  usersFilter: any[] = [];
   search: FormControl = new FormControl('');
   isLoading: boolean = false;
 
@@ -26,21 +27,27 @@ export class ListUsersComponent implements OnInit {
       map(search => search.toLowerCase().trim()),
       debounceTime(500),
       distinctUntilChanged(),
-      filter(search => search.length > 2),
       tap(search => {
-        this.isLoading = true;
-        this.userSvc.searchByName(search)
-        .subscribe((res: any) => {
-          console.log(res);
-          this.isLoading = false;
-        });
+        if(search.length > 0) {
+          this.isLoading = true;
+          this.userSvc.searchByName(search)
+          .subscribe((res: any) => {
+            this.usersFilter = res.data;
+            this.isLoading = false;
+          });
+        }else this.usersFilter = this.users;
       })
     ).subscribe();
   }
 
   private listar() {
+    this.isLoading = true;
     this.userSvc.getAllUsers(100).subscribe({
-      next: (res: any) => this.users = res.data,
+      next: (res: any) => {
+        this.users = res.data;
+        this.usersFilter = res.data;
+        this.isLoading = false;
+      },
       error: (err) => console.log(err)
     });
   }
