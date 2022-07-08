@@ -21,12 +21,9 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     CoreModule,
     FeaturesModule,
     StoreModule.forRoot(ROOT_REDUCERS),
-    EffectsModule.forRoot([MemberEffects]),
+    EffectsModule.forRoot([MemberEffects, CategoriaEffects]),
     StoreDevtoolsModule.instrument({ name:'TEST' }),
     LeafletModule,
-    EffectsModule.forRoot([MemberEffects,
-                           CategoriaEffects]),
-    StoreDevtoolsModule.instrument({ name:'TEST' })
   ],
   providers: [],
   bootstrap: [AppComponent]
