@@ -10,6 +10,7 @@ export class OrganizationService {
 
   constructor(private http: HttpService) { }
 
+ 
   get() {
     return this.http.get(this.API_ORG);
   }
