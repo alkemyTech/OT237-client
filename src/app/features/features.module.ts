@@ -19,13 +19,9 @@ import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { HomeComponent } from './pages/home/home.component';
 import { OrganizationFormComponent } from "./pages/backoffice/organization-form/organization-form.component";
 import { MembersFormComponent } from './pages/members/members-form/members-form.component';
-
 import { NewsComponent } from './pages/news/news/news.component';
 import { NewCardComponent } from './pages/news/news/new-card/new-card.component';
-import { ContactFormComponent } from './pages/contribute/contact-form/contact-form.component';
-
 import { OrganizationComponent } from './pages/backoffice/organization/organization.component';
-
 import { ContactComponent } from './pages/contact/contact/contact.component';
 import { MembersListComponent } from './pages/members/members-list/members-list.component';
 import { CategoriesComponent } from './pages/categories/categories/categories.component';
@@ -51,7 +47,7 @@ import { NewDetailComponent } from "./pages/views/news/detail/new-detail.compone
     HomeComponent,
     SliderComponent,
     ContactComponent,
-    ContactFormComponent,
+    //ContactFormComponent,
     MembersListComponent,
     OrganizationFormComponent,
     MembersFormComponent,

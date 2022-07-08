@@ -6,7 +6,6 @@ import { PageTitleComponent } from './components/page-title/page-title.component
 import { ContactPhonePipe } from './pipes/contact-phone.pipe';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 
-
 @NgModule({
   declarations: [
     LinksInputComponent,
