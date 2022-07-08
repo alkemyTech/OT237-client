@@ -1,0 +1,68 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+main {
+    margin: 1rem 0;
+    h1 {
+        text-align: center;
+    }
+    .filters {
+        display: flex;
+        justify-content: space-between;
+        padding: 1.2rem;
+        .btn-create {
+            cursor: pointer;
+            padding: 15px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            background-color: aquamarine;
+        }
+        input {
+            outline: none;
+            border: none;
+            padding: 15px;
+            border-radius: 15px;
+            font-size: 15px;
+            border: 1px solid gray;
+        }
+    }
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+        padding: 8px;
+        .btn-edit {
+            cursor: pointer;
+            margin-right: .5rem;
+            padding: 10px;
+            font-size: .9rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            background-color: aqua;
+        }
+        .btn-delete {
+            cursor: pointer;
+            padding: 10px;
+            font-size: .9rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            background-color: #f66d6d;
+        }
+    }
+    section.table {
+        max-height: 411px;
+        margin: 0 auto;
+        width: 920px;
+        overflow-y: auto;
+        overflow-x: hidden;
+        table {
+            width: 920px;
+        }
+    }
+}

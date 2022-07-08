@@ -1,0 +1,41 @@
+<main>
+    <h1>Lista de Usuarios</h1>
+    <div class="filters">
+        <button class="btn-create" (click)="onAction('create')">
+            <i class="fa-solid fa-user-plus"></i>
+            Crear usuario
+        </button>
+        <input 
+            type="text"
+            placeholder="Buscar por nombre"
+            [formControl]="search"
+        >
+    </div>
+    <section class="table">
+        <table>
+            <thead>
+                <th>Nro</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Acciones</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users; let i=index">
+                    <td>{{i+1}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td>
+                        <button class="btn-edit" (click)="onAction('update', user)">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                            Editar
+                        </button>
+                        <button class="btn-delete" (click)="deleteUser(user)">
+                            <i class="fa-solid fa-trash"></i>
+                            Eliminar
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</main>

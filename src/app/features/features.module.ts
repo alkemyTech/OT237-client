@@ -13,6 +13,7 @@ import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.comp
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { HomeComponent } from './pages/home/home.component';
+import { ListUsersComponent } from './pages/backoffice/list-users/list-users.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { HomeComponent } from './pages/home/home.component';
     TestimonialFormComponent,
     UserFormComponent,
     HomeComponent,
-    SliderComponent
+    SliderComponent,
+    ListUsersComponent
   ],
   exports: [
     ActivityFormComponent,

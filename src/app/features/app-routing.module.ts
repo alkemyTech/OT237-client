@@ -1,3 +1,4 @@
+import { ListUsersComponent } from './pages/backoffice/list-users/list-users.component';
 import { HomeComponent } from './pages/home/home.component';
 import { UserFormComponent } from './pages/users/user-form/user-form.component';
 import { ActivityFormComponent } from "./pages/activities/activity-form/activity-form.component";
@@ -12,6 +13,10 @@ const routes: Routes = [
   },
   {
     path: "backoffice/users",
+    component: ListUsersComponent
+  },
+  {
+    path: "backoffice/users/create",
     component: UserFormComponent
   },
   { 

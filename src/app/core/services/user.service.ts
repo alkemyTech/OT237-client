@@ -10,8 +10,8 @@ export class UserService {
 
   constructor(private http: HttpService) { }
   
-  getAllUsers() {
-    return this.http.get(this.api_users);
+  getAllUsers(limit: number) {
+    return this.http.get(`${this.api_users}?limit=${limit}`);
   }
 
   getUser(id: number) {
@@ -28,5 +28,9 @@ export class UserService {
 
   delete(id: number) {
     return this.http.delete(`${this.api_users}/${id}`);
+  }
+
+  searchByName(name: string) {
+    return this.http.get(`${this.api_users}?search=${name}`);
   }
 }
