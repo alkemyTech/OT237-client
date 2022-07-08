@@ -47,7 +47,6 @@ import { NewDetailComponent } from "./pages/views/news/detail/new-detail.compone
     HomeComponent,
     SliderComponent,
     ContactComponent,
-    //ContactFormComponent,
     MembersListComponent,
     OrganizationFormComponent,
     MembersFormComponent,
