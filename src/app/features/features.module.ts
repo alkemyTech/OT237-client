@@ -22,7 +22,6 @@ import { MembersFormComponent } from './pages/members/members-form/members-form.
 
 import { NewsComponent } from './pages/news/news/news.component';
 import { NewCardComponent } from './pages/news/news/new-card/new-card.component';
-import { ContactFormComponent } from './pages/contribute/contact-form/contact-form.component';
 
 import { OrganizationComponent } from './pages/backoffice/organization/organization.component';
 
@@ -52,7 +51,6 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     HomeComponent,
     SliderComponent,
     ContactComponent,
-    ContactFormComponent,
     MembersListComponent,
     OrganizationFormComponent,
     MembersFormComponent,

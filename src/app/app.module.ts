@@ -23,7 +23,7 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     StoreModule.forRoot(ROOT_REDUCERS),
     EffectsModule.forRoot([MemberEffects]),
     StoreDevtoolsModule.instrument({ name:'TEST' }),
-    LeafletModule
+    LeafletModule,
     EffectsModule.forRoot([MemberEffects,
                            CategoriaEffects]),
     StoreDevtoolsModule.instrument({ name:'TEST' })
