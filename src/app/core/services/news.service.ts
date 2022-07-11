@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { Observable } from "rxjs";
 import { Novedad, ResponseObject, ResponseObjectArray } from "src/app/features/interfaces";
 import { HttpService } from "./http.service";
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NewsService {
 
-  url: string = `https://ongapi.alkemy.org/api/news`;
+  url: string = `${environment.url}news`;
 
   constructor(private http: HttpService) { }
 
@@ -21,7 +22,7 @@ export class NewsService {
   }
 
   public getCategories(): Observable<ResponseObjectArray> {
-    return this.http.get<ResponseObjectArray>(`https://ongapi.alkemy.org/api/categories`);
+    return this.http.get<ResponseObjectArray>(`${environment.url}categories`);
   }
 
   public modifyNovedad(id: number, params: object): Observable<any> {
