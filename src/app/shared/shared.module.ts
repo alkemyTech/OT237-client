@@ -5,6 +5,8 @@ import { LinksInputComponent } from './components/links-input/links-input.compon
 import { PageTitleComponent } from './components/page-title/page-title.component';
 import { ContactPhonePipe } from './pipes/contact-phone.pipe';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
+import { DialogComponent } from './components/dialog/dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -12,7 +14,8 @@ import { ContactFormComponent } from './components/contact-form/contact-form.com
     LinksInputComponent,
     PageTitleComponent,
     ContactFormComponent,
-    ContactPhonePipe
+    ContactPhonePipe,
+    DialogComponent,
   ],
   exports: [
 	  LinksInputComponent,
@@ -23,7 +26,8 @@ import { ContactFormComponent } from './components/contact-form/contact-form.com
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule
   ]
 })
 export class SharedModule { }
