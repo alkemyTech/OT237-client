@@ -1,9 +1,8 @@
 <div class="container">
     <app-page-title [title]="novedad.name||''"></app-page-title>
     <div class="img">
-        <img [src]="novedad.image" alt="">
+        <app-lazy-load [image]="novedad.image||''"></app-lazy-load>
     </div>
     <div class="p" [innerHTML]="novedad.content">
     </div>
-
 </div>
