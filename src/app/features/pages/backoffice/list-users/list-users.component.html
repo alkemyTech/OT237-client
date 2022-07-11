@@ -11,13 +11,13 @@
             [formControl]="search"
         >
     </div>
-    <ng-container *ngIf="isLoading; else resultsContainer">
+    <ng-container *ngIf="(loading$ | async) || isLoading; else resultsContainer">
         <div class="loader-container">
           <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div>
     </ng-container>
     <ng-template #resultsContainer>
-        <ng-container *ngIf="usersFilter.length == 0; else resultsFound">
+        <ng-container *ngIf="usersFilter?.length == 0; else resultsFound">
             <div class="container-image-no-data">
               <img src="assets/no-data.svg" alt="no-results-found" />
               <h3>Ningún resultado encontrado.</h3>
