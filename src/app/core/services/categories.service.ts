@@ -53,7 +53,10 @@ export class CategoriesService {
 
   public editarCategoria(id:number,categoria:any){
     return this.httpService.put<Category>(environment.url + 'categories/' + id, categoria);
-    return this.queryPut(`${id}`,categoria)
+  }
+
+  public searchCategoriesByValue(term:string){
+    return this.httpService.get(`${environment.url}categories?search=${term}`);
   }
   
  
