@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 
+import { ListUsersComponent } from './pages/backoffice/list-users/list-users.component';
 import { HomeComponent } from './pages/home/home.component';
 import { UserFormComponent } from './pages/users/user-form/user-form.component';
 import { SlidesFormComponent } from './pages/slides/slides-form/slides-form.component';
@@ -25,8 +26,6 @@ import { NewDetailComponent } from "./pages/views/news/detail/new-detail.compone
 import { ContactFormComponent } from "../shared/components/contact-form/contact-form.component";
 
 const routes: Routes = [
-  
-
   {
     path: "login", 
     component: LoginFormComponent
@@ -121,6 +120,10 @@ const routes: Routes = [
   },
   {
     path: "backoffice/users",
+    component: ListUsersComponent
+  },
+  {
+    path: "backoffice/users/create",
     component: UserFormComponent
   },
   { 
