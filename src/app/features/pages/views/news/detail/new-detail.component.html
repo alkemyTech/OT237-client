@@ -1,0 +1,8 @@
+<div class="container">
+    <app-page-title [title]="novedad.name||''"></app-page-title>
+    <div class="img">
+        <img [src]="novedad.image" alt="">
+    </div>
+    <div class="p" [innerHTML]="novedad.content">
+    </div>
+</div>
