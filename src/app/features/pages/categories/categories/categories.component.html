@@ -1,3 +1,18 @@
+<form [formGroup]="form">
+  <div class="row" style="display: flex;">
+      <div class="search">
+          <b>Buscar categorias por titulo: </b>
+          <input type="text" formControlName="searchTerm" class="form-control"
+          [(ngModel)]="searchTerm" (input)="searchCategoriesByValue(searchTerm)" />
+      </div>
+      <div class="form-group">
+          <button>
+              Search
+          </button>
+      </div>
+  </div>
+</form>
+
 <table >
     <thead>
       <tr>
