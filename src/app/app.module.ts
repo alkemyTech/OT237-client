@@ -24,12 +24,12 @@ import { CommonModule, CurrencyPipe } from '@angular/common';
     CoreModule,
     FeaturesModule,
     StoreModule.forRoot(ROOT_REDUCERS),
-    EffectsModule.forRoot([MemberEffects]),
-    StoreDevtoolsModule.instrument({ name: 'TEST' }),
-    LeafletModule,
     BrowserAnimationsModule,
     MatDialogModule,
     CommonModule
+    EffectsModule.forRoot([MemberEffects, CategoriaEffects]),
+    StoreDevtoolsModule.instrument({ name:'TEST' }),
+    LeafletModule,
   ],
   providers: [CurrencyPipe],
   bootstrap: [AppComponent]

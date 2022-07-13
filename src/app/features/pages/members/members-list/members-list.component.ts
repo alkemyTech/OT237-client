@@ -77,6 +77,7 @@ export class MembersListComponent implements OnInit {
       )
       .subscribe((members: any) => {
         this.members = members.data
+        console.log(value)
       })
     }
     else{

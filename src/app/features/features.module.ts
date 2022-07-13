@@ -17,6 +17,8 @@ import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.comp
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { HomeComponent } from './pages/home/home.component';
+
+import { ListUsersComponent } from './pages/backoffice/list-users/list-users.component';
 import { OrganizationFormComponent } from "./pages/backoffice/organization-form/organization-form.component";
 import { MembersFormComponent } from './pages/members/members-form/members-form.component';
 import { NewsComponent } from './pages/news/news/news.component';
@@ -49,6 +51,7 @@ import { ThanksComponent } from './pages/thanks/thanks.component';
     NewCardComponent,
     HomeComponent,
     SliderComponent,
+    ListUsersComponent
     ContactComponent,
     MembersListComponent,
     OrganizationFormComponent,
