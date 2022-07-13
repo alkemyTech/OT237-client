@@ -130,10 +130,10 @@ const routes: Routes = [
     path: "actividades", 
     component: ActivityFormComponent 
   },
-  // {
-  //   path: '**',
-  //   redirectTo: 'login'
-  // }
+  {
+    path: '**',
+    redirectTo: 'login'
+  }
 ];
 
 @NgModule({

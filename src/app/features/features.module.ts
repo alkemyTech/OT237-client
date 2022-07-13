@@ -49,7 +49,7 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     NewCardComponent,
     HomeComponent,
     SliderComponent,
-    ListUsersComponent
+    ListUsersComponent,
     ContactComponent,
     MembersListComponent,
     OrganizationFormComponent,
