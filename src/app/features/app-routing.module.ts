@@ -25,8 +25,6 @@ import { ActivitySectionComponent } from "./pages/activities/activity-section/ac
 import { NewDetailComponent } from "./pages/views/news/detail/new-detail.component";
 
 const routes: Routes = [
-  
-
   {
     path: "login", 
     component: LoginFormComponent
