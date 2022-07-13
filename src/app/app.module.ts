@@ -10,6 +10,7 @@ import { ROOT_REDUCERS } from './state/app.state';
 import { CategoriaEffects } from './state/effects/categories.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { environment } from '../environments/environment';
     StoreModule.forRoot(ROOT_REDUCERS),
     EffectsModule.forRoot([MemberEffects,
                            CategoriaEffects]),
-    StoreDevtoolsModule.instrument({ name:'TEST' })
+    StoreDevtoolsModule.instrument({ name:'TEST' }),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
