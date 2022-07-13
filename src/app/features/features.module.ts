@@ -14,6 +14,7 @@ import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { HomeComponent } from './pages/home/home.component';
 import { ListUsersComponent } from './pages/backoffice/list-users/list-users.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { ListUsersComponent } from './pages/backoffice/list-users/list-users.com
     RouterModule, 
     FormsModule,
     ReactiveFormsModule,
+    SharedModule
   ],
 })
 export class FeaturesModule {}

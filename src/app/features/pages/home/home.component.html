@@ -1,21 +1,5 @@
 <div class="body">
-    <header>
-        <img src="assets/logo.png" alt="img-logo">
-        <div class="left-header">
-            <div class="links">
-                <a href="#" style="font-weight: 900;">Inicio</a>
-                <a href="#">Nosotros</a>
-                <a href="#">Novedades</a>
-                <a href="#">Testimonios</a>
-                <a href="#">Contacto</a>
-                <a href="#">Contribuye</a>
-            </div>
-            <div class="btn-group">
-                <button class="btn-login">Log in</button>
-                <button class="btn-register">Regístrate</button>
-            </div>
-        </div>
-    </header>
+    <app-navbar [items]="items" [isLogged]="false"></app-navbar>
     <main>
         <section class="slides" *ngIf="slides.length > 0">
             <app-slider [items]="slides"></app-slider>
