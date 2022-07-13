@@ -6,6 +6,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { HttpClientModule } from "@angular/common/http";
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { SliderComponent } from './pages/home/slider/slider.component';
 import { ActivityFormComponent } from "./pages/activities/activity-form/activity-form.component";
@@ -78,7 +79,8 @@ import { NewDetailComponent } from "./pages/views/news/detail/new-detail.compone
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    MatDialogModule
   ]
 })
 export class FeaturesModule {}

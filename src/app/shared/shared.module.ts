@@ -5,13 +5,15 @@ import { LinksInputComponent } from './components/links-input/links-input.compon
 import { PageTitleComponent } from './components/page-title/page-title.component';
 import { ContactPhonePipe } from './pipes/contact-phone.pipe';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
+import { DialogComponent } from './components/dialog/dialog.component';
 
 @NgModule({
   declarations: [
     LinksInputComponent,
     PageTitleComponent,
     ContactFormComponent,
-    ContactPhonePipe
+    ContactPhonePipe,
+    DialogComponent
   ],
   exports: [
 	  LinksInputComponent,

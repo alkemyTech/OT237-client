@@ -4,6 +4,8 @@ import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { NewsService } from 'src/app/core/services/news.service';
 import { Novedad, Category } from 'src/app/features/interfaces';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from 'src/app/shared/components/dialog/dialog.component';
 
 @Component({
   selector: 'app-news-form',
@@ -20,6 +22,8 @@ export class NewsFormComponent implements OnInit {
   public base64Image!: string;
   public editMode: boolean = false;
   public editId!: number;
+
+  public dialog!: MatDialog;
 
   constructor(
     private api: NewsService, 
@@ -43,26 +47,32 @@ export class NewsFormComponent implements OnInit {
 
   /* API methods */
   getCategories(): void {
-    this.api.getCategories().subscribe(categories => {
-      this.categories = categories.data;
+    this.api.getCategories().subscribe({
+      next: categories => this.categories = categories.data,
+      error: e => this.openDialog(e.message)
     });
   }
 
   getNovedadById(id: number): void {
-    this.api.getNovedadById(id).subscribe(novedad => {
-      this.novedad = novedad.data;
+    this.api.getNovedadById(id).subscribe({
+      next: novedad => this.novedad = novedad.data,
+      error: e => this.openDialog(e.message)
     });
   }
 
   postNovedad(novedad: Novedad): void {
-    this.api.postNovedad(novedad).subscribe(()=>{
-      window.location.reload();
+    this.api.postNovedad(novedad).subscribe({
+      next: () => window.location.reload(),
+      error: e => this.openDialog(e.message)
     });
   }
 
   modifyNovedad(id: number, params: object): void {
-    this.api.modifyNovedad(id, params).subscribe(()=>{
-      this.router.navigate(["/backoffice/news"]);
+    this.api.modifyNovedad(id, params).subscribe({
+      next: ()=>{
+        this.router.navigate(["/backoffice/news"]);
+      },
+      error: e => this.openDialog(e.message)
     });
   }
 
@@ -122,6 +132,11 @@ export class NewsFormComponent implements OnInit {
   private _handleReaderLoaded(readerEvt: any): void {
     var binaryString = readerEvt.target.result;
     this.base64Image = btoa(binaryString);
+  }
+
+  /* Dialog method */
+  openDialog(error: string){
+    this.dialog.open(DialogComponent, { data: error });
   }
 
 }
