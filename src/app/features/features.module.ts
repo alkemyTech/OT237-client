@@ -30,6 +30,7 @@ import { ActivityDetailComponent } from './pages/views/activities/detail/activit
 import { ActivityBoxComponent } from "./pages/activities/activity-box/activity-box.component";
 import { ActivitySectionComponent} from "./pages/activities/activity-section/activity-section.component";
 import { NewDetailComponent } from "./pages/views/news/detail/new-detail.component";
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,6 @@ import { NewDetailComponent } from "./pages/views/news/detail/new-detail.compone
     HomeComponent,
     SliderComponent,
     ContactComponent,
-    //ContactFormComponent,
     MembersListComponent,
     OrganizationFormComponent,
     MembersFormComponent,
@@ -79,7 +79,8 @@ import { NewDetailComponent } from "./pages/views/news/detail/new-detail.compone
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    SharedModule
+    SharedModule,
+    LeafletModule
   ]
 })
 export class FeaturesModule {}
