@@ -34,6 +34,8 @@ import { ActivityBoxComponent } from "./pages/activities/activity-box/activity-b
 import { ActivitySectionComponent} from "./pages/activities/activity-section/activity-section.component";
 import { NewDetailComponent } from "./pages/views/news/detail/new-detail.component";
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { DonationComponent } from './pages/donation/donation.component';
+import { ThanksComponent } from './pages/thanks/thanks.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +63,9 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     OrganizationComponent,
     CategoriesComponent,
     NewsListEditComponent,
-    NewDetailComponent
+    NewDetailComponent,
+    DonationComponent,
+    ThanksComponent
   ],
   exports: [
     ActivityFormComponent,

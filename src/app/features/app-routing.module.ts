@@ -23,6 +23,8 @@ import { ActivityDetailComponent } from './pages/views/activities/detail/activit
 import { ActivitySectionComponent } from "./pages/activities/activity-section/activity-section.component";
 import { NewDetailComponent } from "./pages/views/news/detail/new-detail.component";
 import { ContactFormComponent } from "../shared/components/contact-form/contact-form.component";
+import { DonationComponent } from "./pages/donation/donation.component";
+import { ThanksComponent } from "./pages/thanks/thanks.component";
 
 const routes: Routes = [
   
@@ -30,6 +32,14 @@ const routes: Routes = [
   {
     path: "login", 
     component: LoginFormComponent
+  },
+  {
+    path: "donar",
+    component: DonationComponent
+  },
+  {
+    path: "gracias",
+    component: ThanksComponent
   },
   {
     path: "nuevo-testimonio",
@@ -127,10 +137,11 @@ const routes: Routes = [
     path: "actividades", 
     component: ActivityFormComponent 
   },
-  // {
-  //   path: '**',
-  //   redirectTo: 'login'
-  // }
+  {
+    path: '**',
+    redirectTo: 'login'
+  } 
+
 ];
 
 @NgModule({
