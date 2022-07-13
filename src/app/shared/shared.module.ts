@@ -8,7 +8,6 @@ import { ContactFormComponent } from './components/contact-form/contact-form.com
 import { DialogComponent } from './components/dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
 
-
 @NgModule({
   declarations: [
     LinksInputComponent,
