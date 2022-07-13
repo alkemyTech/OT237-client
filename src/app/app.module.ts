@@ -11,6 +11,8 @@ import { CategoriaEffects } from './state/effects/categories.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
     CoreModule,
     FeaturesModule,
     StoreModule.forRoot(ROOT_REDUCERS),
+    BrowserAnimationsModule,
+    MatDialogModule,
     EffectsModule.forRoot([MemberEffects, CategoriaEffects]),
     StoreDevtoolsModule.instrument({ name:'TEST' }),
     LeafletModule,
