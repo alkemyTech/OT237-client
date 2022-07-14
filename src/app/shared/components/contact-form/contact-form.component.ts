@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ContactService } from 'src/app/core/services/contact.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
+import { ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-contact-form',
@@ -8,10 +12,19 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class ContactFormComponent {
   public contactForm!: FormGroup;
+  error!: string;
 
-  constructor() {
+  constructor(
+    private contactService: ContactService, 
+    public dialog: MatDialog, ) {
     this.buildForm()
   }
+
+  ngOnInit() {
+  }
+
+  @ViewChild(DialogComponent)
+
 
   get f() { return this.contactForm.controls; }
 
@@ -25,7 +38,11 @@ export class ContactFormComponent {
       phone: this.f.phone.value,
       message: this.f.message.value
     };
-    // TODO: http POST contactObject to API
+    this.contactService.addContact(contactObject)
+      .subscribe({
+        next: data => console.log(data),
+        error: e => this.openDialog(e.message)
+      })
   }
 
   private buildForm(): void {
@@ -36,4 +53,9 @@ export class ContactFormComponent {
       message: new FormControl('', [Validators.required])
     });
   }
+
+  openDialog(error: string){
+    this.dialog.open(DialogComponent, { data: error });
+  }
+
 }

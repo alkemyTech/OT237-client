@@ -1,0 +1,56 @@
+<main>
+    <h1>Lista de Usuarios</h1>
+    <div class="filters">
+        <button class="btn-create" (click)="onAction('create')">
+            <i class="fa-solid fa-user-plus"></i>
+            Crear usuario
+        </button>
+        <input 
+            type="text"
+            placeholder="Buscar por nombre"
+            [formControl]="search"
+        >
+    </div>
+    <ng-container *ngIf="(loading$ | async) || isLoading; else resultsContainer">
+        <div class="loader-container">
+          <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        </div>
+    </ng-container>
+    <ng-template #resultsContainer>
+        <ng-container *ngIf="usersFilter?.length == 0; else resultsFound">
+            <div class="container-image-no-data">
+              <img src="assets/no-data.svg" alt="no-results-found" />
+              <h3>Ningún resultado encontrado.</h3>
+            </div>
+        </ng-container>
+        <ng-template #resultsFound>
+            <section class="table">
+                <table>
+                    <thead>
+                        <th>Nro</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Acciones</th>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of usersFilter; let i=index">
+                            <td>{{i+1}}</td>
+                            <td>{{user.name}}</td>
+                            <td>{{user.email}}</td>
+                            <td>
+                                <button class="btn-edit" (click)="onAction('update', user)">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                    Editar
+                                </button>
+                                <button class="btn-delete" (click)="deleteUser(user)">
+                                    <i class="fa-solid fa-trash"></i>
+                                    Eliminar
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </ng-template>
+    </ng-template>  
+</main>

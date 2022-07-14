@@ -3,3 +3,9 @@
 <p>Instagram: {{instagram}}</p>
 <p>Facebook: {{facebook}}</p>
 <p>Teléfono: {{phone | contactPhone}}</p>
+
+<div class="map"
+  leaflet
+  [leafletOptions]="options"
+  [leafletLayersControl]="layersControl">
+</div>

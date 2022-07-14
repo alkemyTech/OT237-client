@@ -3,11 +3,11 @@ import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { HomeComponent } from './pages/home/home.component';
 import { SlidesFormComponent } from './pages/slides/slides-form/slides-form.component';
-import { ContactFormComponent } from "./pages/contribute/contact-form/contact-form.component";
 import { ContactComponent } from "./pages/contact/contact/contact.component";
-
+import { ContactFormComponent } from "../shared/components/contact-form/contact-form.component";
 
 const routes: Routes = [
+
   {
     path: "backoffice/home",
     component: SlidesFormComponent
@@ -51,6 +51,7 @@ const routes: Routes = [
   {
     path: "actividades",
     loadChildren:() => import('./pages/activities/activities.module').then(m => m.ActivitiesModule)
+
   },
   {
     path: "categories",
@@ -62,7 +63,6 @@ const routes: Routes = [
   }
 
 ];
-
 @NgModule({
   declarations: [],
   imports: [CommonModule, RouterModule.forRoot(routes)],
