@@ -26,7 +26,7 @@ import { CommonModule, CurrencyPipe } from '@angular/common';
     StoreModule.forRoot(ROOT_REDUCERS),
     BrowserAnimationsModule,
     MatDialogModule,
-    CommonModule
+    CommonModule,
     EffectsModule.forRoot([MemberEffects, CategoriaEffects]),
     StoreDevtoolsModule.instrument({ name:'TEST' }),
     LeafletModule,
