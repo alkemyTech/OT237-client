@@ -67,7 +67,7 @@ export interface Contact {
 
 export interface ResponseObject {
     success: boolean,
-    data: Novedad|User,
+    data: Novedad,
     message: string
 }
 
