@@ -1,3 +1,5 @@
+import { UserEffects } from './state/effects/users.effect';
+import { ROOT_REDUCERS } from './state/app.state';
 import { FeaturesModule } from './features/features.module';
 import { CoreModule } from './core/core.module';
 import { NgModule } from '@angular/core';
@@ -6,7 +8,6 @@ import { AppComponent } from './app.component';
 import { StoreModule } from "@ngrx/store";
 import { EffectsModule } from '@ngrx/effects';
 import { MemberEffects } from './state/effects/members.effects';
-import { ROOT_REDUCERS } from './state/app.state';
 import { CategoriaEffects } from './state/effects/categories.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
@@ -23,6 +24,12 @@ import { CommonModule, CurrencyPipe } from '@angular/common';
     CoreModule,
     FeaturesModule,
     StoreModule.forRoot(ROOT_REDUCERS),
+    EffectsModule.forRoot([
+      MemberEffects,
+      CategoriaEffects,
+      UserEffects
+    ]),
+    StoreDevtoolsModule.instrument({ name:'TEST' }),
     BrowserAnimationsModule,
     MatDialogModule,
     CommonModule,
