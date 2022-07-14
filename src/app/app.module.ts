@@ -30,11 +30,11 @@ import { CommonModule, CurrencyPipe } from '@angular/common';
       MemberEffects,
       CategoriaEffects,
       UserEffects
-    ])
+    ]),
+    StoreDevtoolsModule.instrument({ name:'TEST' }),
     BrowserAnimationsModule,
     MatDialogModule,
-    CommonModule,
-    StoreDevtoolsModule.instrument({ name:'TEST' }),
+    CommonModule
     LeafletModule,
   ],
   providers: [CurrencyPipe],

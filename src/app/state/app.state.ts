@@ -12,6 +12,6 @@ export interface AppState {
 
 export const ROOT_REDUCERS: ActionReducerMap<AppState> = {
     members: membersReducer,
-    categories: categoriesReducer,
+    categories: categoriesReducer,  
     users: usersReducer
 }
