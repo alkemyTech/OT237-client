@@ -13,6 +13,7 @@ import { environment } from '../environments/environment';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -25,11 +26,12 @@ import { MatDialogModule } from '@angular/material/dialog';
     StoreModule.forRoot(ROOT_REDUCERS),
     BrowserAnimationsModule,
     MatDialogModule,
+    CommonModule
     EffectsModule.forRoot([MemberEffects, CategoriaEffects]),
     StoreDevtoolsModule.instrument({ name:'TEST' }),
     LeafletModule,
   ],
-  providers: [],
+  providers: [CurrencyPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
