@@ -52,7 +52,6 @@ export class MembersListComponent implements OnInit {
         { members: response }
       ));
     });
-
   }
 
   editMember(id: any){
