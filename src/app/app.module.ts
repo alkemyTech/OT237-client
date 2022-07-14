@@ -13,6 +13,9 @@ import { CategoriaEffects } from './state/effects/categories.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CommonModule, CurrencyPipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -29,9 +32,12 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
       UsersEffects
     ]),
     StoreDevtoolsModule.instrument({ name:'TEST' })
+    BrowserAnimationsModule,
+    MatDialogModule,
+    CommonModule
     LeafletModule,
   ],
-  providers: [],
+  providers: [CurrencyPipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

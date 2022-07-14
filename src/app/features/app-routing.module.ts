@@ -23,11 +23,22 @@ import { NewsListEditComponent } from './pages/news/news/news-list-edit/news-lis
 import { ActivityDetailComponent } from './pages/views/activities/detail/activity-detail/activity-detail.component';
 import { ActivitySectionComponent } from "./pages/activities/activity-section/activity-section.component";
 import { NewDetailComponent } from "./pages/views/news/detail/new-detail.component";
+import { ContactFormComponent } from "../shared/components/contact-form/contact-form.component";
+import { DonationComponent } from "./pages/donation/donation.component";
+import { ThanksComponent } from "./pages/thanks/thanks.component";
 
 const routes: Routes = [
   {
     path: "login", 
     component: LoginFormComponent
+  },
+  {
+    path: "donar",
+    component: DonationComponent
+  },
+  {
+    path: "gracias",
+    component: ThanksComponent
   },
   {
     path: "nuevo-testimonio",
@@ -50,7 +61,7 @@ const routes: Routes = [
     component: CategoriesFormComponent 
   },
   { 
-     path: "categorias/crear/:id", 
+    path: "categorias/crear/:id", 
     component: CategoriesFormComponent 
   },
   {
@@ -103,7 +114,7 @@ const routes: Routes = [
   },
   {
     path: "contribuir",
-    component: ContactComponent
+    component: ContactFormComponent
   },
   {
     path: "Home",
@@ -132,7 +143,7 @@ const routes: Routes = [
   {
     path: '**',
     redirectTo: 'login'
-  }
+  } 
 ];
 
 @NgModule({
