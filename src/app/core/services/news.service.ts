@@ -1,28 +1,28 @@
-import { HttpClient } from "@angular/common/http";
 import { Injectable } from '@angular/core';
 import { Observable } from "rxjs";
 import { Novedad, ResponseObject, ResponseObjectArray } from "src/app/features/interfaces";
+import { HttpService } from "./http.service";
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class NewsService {
 
-  urlBase: string = `https://ongapi.alkemy.org/api`;
-  url: string = `${this.urlBase}/news`;
+  url: string = `${environment.url}news`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpService) { }
 
   public getNovedades(): Observable<ResponseObjectArray> {
     return this.http.get<ResponseObjectArray>(this.url);
   }
 
-  public getCategories(): Observable<ResponseObjectArray> {
-    return this.http.get<ResponseObjectArray>(`${this.urlBase}/categories`);
-  }
-
   public getNovedadById(id: number): Observable<ResponseObject> {
     return this.http.get<ResponseObject>(`${this.url}/${id}`);
+  }
+
+  public getCategories(): Observable<ResponseObjectArray> {
+    return this.http.get<ResponseObjectArray>(`${environment.url}categories`);
   }
 
   public modifyNovedad(id: number, params: object): Observable<any> {

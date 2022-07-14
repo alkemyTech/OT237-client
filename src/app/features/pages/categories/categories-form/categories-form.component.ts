@@ -4,6 +4,9 @@ import { FormBuilder, FormGroup, FormsModule, Validators ,FormControl} from '@an
 import { CategoriesService } from 'src/app/core/services/categories.service';
 import { Categoria } from './categorie.model';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/state/app.state';
+
 
 @Component({
   selector: 'app-categories-form',
@@ -22,7 +25,7 @@ export class CategoriesFormComponent implements OnInit {
   public imgBool:boolean=true
   public boton:boolean=true
   
-  constructor(private builder:FormBuilder,private categoriasService : CategoriesService,private activatedRoute:ActivatedRoute, private router: Router) { 
+  constructor(private builder:FormBuilder,private categoriasService : CategoriesService,private activatedRoute:ActivatedRoute, private router: Router,private store:Store<AppState>) { 
     this.crearFormulario(this.categoria);
   }
 
@@ -31,8 +34,11 @@ export class CategoriesFormComponent implements OnInit {
     if (params.id) {
       this.boton=false
       this.categoriaId = params.id;
+
       this.buscarCategoriaId(params.id);
     }}
+
+
 
   get f() { return this.categoriaForm.controls; }
   private crearFormulario(categoria:any): void {

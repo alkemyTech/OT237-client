@@ -1,28 +1,31 @@
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
+import { RouterModule, Routes } from "@angular/router";
+
+import { ListUsersComponent } from './pages/backoffice/list-users/list-users.component';
 import { HomeComponent } from './pages/home/home.component';
 import { UserFormComponent } from './pages/users/user-form/user-form.component';
 import { SlidesFormComponent } from './pages/slides/slides-form/slides-form.component';
 import { RegisterFormComponent } from "./pages/auth/register-form/register-form.component";
-import { NgModule } from "@angular/core";
-import { CommonModule } from "@angular/common";
-import { RouterModule, Routes } from "@angular/router";
 import { CategoriesFormComponent } from "./pages/categories/categories-form/categories-form.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { LoginFormComponent } from "./pages/auth/login-form/login-form.component";
 import { OrganizationFormComponent } from "./pages/backoffice/organization-form/organization-form.component";
 import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
-import { ContactFormComponent } from "./pages/contribute/contact-form/contact-form.component";
 import { MembersFormComponent } from "./pages/members/members-form/members-form.component";
-
 import { NewsComponent } from "./pages/news/news/news.component";
-
 import { OrganizationComponent } from "./pages/backoffice/organization/organization.component";
-
 import { ContactComponent } from "./pages/contact/contact/contact.component";
 import { MembersListComponent } from "./pages/members/members-list/members-list.component";
 import { CategoriesComponent } from "./pages/categories/categories/categories.component";
+import { NewsListEditComponent } from './pages/news/news/news-list-edit/news-list-edit.component';
 import { ActivityDetailComponent } from './pages/views/activities/detail/activity-detail/activity-detail.component';
 import { ActivitySectionComponent } from "./pages/activities/activity-section/activity-section.component";
 import { ActivityFormComponent} from "./pages/backoffice/activity-form/activity-form.component";
+import { NewDetailComponent } from "./pages/views/news/detail/new-detail.component";
+import { ContactFormComponent } from "../shared/components/contact-form/contact-form.component";
+import { DonationComponent } from "./pages/donation/donation.component";
+import { ThanksComponent } from "./pages/thanks/thanks.component";
 
 
 const routes: Routes = [
@@ -33,6 +36,14 @@ const routes: Routes = [
   {
     path: "login", 
     component: LoginFormComponent
+  },
+  {
+    path: "donar",
+    component: DonationComponent
+  },
+  {
+    path: "gracias",
+    component: ThanksComponent
   },
   {
     path: "nuevo-testimonio",
@@ -55,7 +66,7 @@ const routes: Routes = [
     component: CategoriesFormComponent 
   },
   { 
-     path: "categorias/crear/:id", 
+    path: "categorias/crear/:id", 
     component: CategoriesFormComponent 
   },
   {
@@ -79,6 +90,10 @@ const routes: Routes = [
     component: NewsComponent
   },
   {
+    path: "novedades/:id",
+    component: NewDetailComponent
+  },
+  {
     path: "backoffice/organization/:id",
     component: OrganizationComponent
   },
@@ -88,6 +103,10 @@ const routes: Routes = [
   },
   {
     path: "backoffice/news",
+    component: NewsListEditComponent
+  },
+  {
+    path: "backoffice/news/create",
     component: NewsFormComponent 
   },
   {
@@ -116,16 +135,20 @@ const routes: Routes = [
   },
   {
     path: "backoffice/users",
+    component: ListUsersComponent
+  },
+  {
+    path: "backoffice/users/create",
     component: UserFormComponent
   },
   { 
     path: "actividades", 
     component: ActivityFormComponent 
   },
-  { 
+  {
     path: '**',
     redirectTo: 'login'
-  },
+  } 
 ];
 
 @NgModule({

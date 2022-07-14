@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map } from 'rxjs/operators'
+import { environment } from 'src/environments/environment';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class TestimonialsService {
-
-  API_URI = 'https://ongapi.alkemy.org/api/testimonials'
+  API_URI: string = `${environment.url}testimonials`
 
   constructor(private http: HttpClient) { }
 

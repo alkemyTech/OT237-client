@@ -1,16 +1,17 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpService } from './http.service';
+import { environment } from 'src/environments/environment';
 import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  api_users: string = 'https://ongapi.alkemy.org/api/users';
+  api_users: string = `${environment.url}users`;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpService) { }
   
-  getAllUsers() {
-    return this.http.get(this.api_users);
+  getAllUsers(limit: number) {
+    return this.http.get(`${this.api_users}?limit=${limit}`);
   }
 
   getUser(id: number) {
@@ -27,5 +28,9 @@ export class UserService {
 
   delete(id: number) {
     return this.http.delete(`${this.api_users}/${id}`);
+  }
+
+  searchByName(name: string) {
+    return this.http.get(`${this.api_users}?search=${name}`);
   }
 }
