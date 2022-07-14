@@ -15,4 +15,10 @@ export class ActivitiesService {
 	public getActivity(id :number) {
 		return this.http.get(this.activitiesURL + "/" + id);
 	}
+	public postActivity(activity :any) {
+		return this.http.post(this.activitiesURL, activity);
+	}
+	public putActivity(activity :any, id :number) {
+		return this.http.put(this.activitiesURL + "/" + id, activity);
+	}
 }

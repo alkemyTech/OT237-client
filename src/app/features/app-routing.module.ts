@@ -6,7 +6,6 @@ import { ListUsersComponent } from './pages/backoffice/list-users/list-users.com
 import { HomeComponent } from './pages/home/home.component';
 import { UserFormComponent } from './pages/users/user-form/user-form.component';
 import { SlidesFormComponent } from './pages/slides/slides-form/slides-form.component';
-import { ActivityFormComponent } from "./pages/activities/activity-form/activity-form.component";
 import { RegisterFormComponent } from "./pages/auth/register-form/register-form.component";
 import { CategoriesFormComponent } from "./pages/categories/categories-form/categories-form.component";
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
@@ -22,12 +21,18 @@ import { CategoriesComponent } from "./pages/categories/categories/categories.co
 import { NewsListEditComponent } from './pages/news/news/news-list-edit/news-list-edit.component';
 import { ActivityDetailComponent } from './pages/views/activities/detail/activity-detail/activity-detail.component';
 import { ActivitySectionComponent } from "./pages/activities/activity-section/activity-section.component";
+import { ActivityFormComponent} from "./pages/backoffice/activity-form/activity-form.component";
 import { NewDetailComponent } from "./pages/views/news/detail/new-detail.component";
 import { ContactFormComponent } from "../shared/components/contact-form/contact-form.component";
 import { DonationComponent } from "./pages/donation/donation.component";
 import { ThanksComponent } from "./pages/thanks/thanks.component";
 
+
 const routes: Routes = [
+  {
+    path: "backoffice/actividades/form/:id",
+    component: ActivityFormComponent
+  },
   {
     path: "login", 
     component: LoginFormComponent

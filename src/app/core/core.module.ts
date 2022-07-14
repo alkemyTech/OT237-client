@@ -1,5 +1,8 @@
+<<<<<<< HEAD
+=======
 import { OrganizationService } from './services/organization.service';
 import { SlideService } from './services/slide.service';
+>>>>>>> Develop
 import { RoleService } from './services/role.service';
 import { UserService } from './services/user.service';
 import { CommonModule } from "@angular/common";
