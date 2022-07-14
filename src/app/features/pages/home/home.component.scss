@@ -7,61 +7,6 @@
 .body {
     position: relative;
     margin: 0;
-    header {
-        z-index: 100;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-        padding: 15px 10px;
-        background: #ffffff;
-        font-size: 18px;
-        img {
-            height: 60px;
-        }
-        .left-header {
-            display: flex;
-            gap: 1rem;
-            .links {
-                display: flex;
-                align-items: center;
-                gap: .5rem;
-                a {
-                    text-decoration: none;
-                    color: black;
-                    margin: 0 .5rem;
-                }
-            }
-            .btn-group {
-                display: flex;
-                gap: .5rem;
-                .btn-login {
-                    background: #ffffff;
-                    color: #000000;
-                    border: 1px solid #000000;
-                    padding: .5rem 1rem;
-                    border-radius: 10px;
-                    font-size: 17px;
-                    font-weight: bold;
-                    cursor: pointer;
-                }
-                .btn-register {
-                    background: #ff0000;
-                    border: none;
-                    color: #ffffff;
-                    padding: .5rem 1rem;
-                    border-radius: 10px;
-                    font-size: 17px;
-                    font-weight: bold;
-                    cursor: pointer;
-                }
-            }
-        }
-    }
     main {
         margin-top: 100px;
         padding-bottom: 150px;

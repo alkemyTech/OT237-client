@@ -85,8 +85,8 @@ import { ThanksComponent } from './pages/thanks/thanks.component';
     CKEditorModule, 
     FormsModule,
     ReactiveFormsModule,
+    SharedModule
     HttpClientModule,
-    SharedModule,
     LeafletModule
   ]
 })

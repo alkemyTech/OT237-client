@@ -29,9 +29,9 @@ import { CommonModule, CurrencyPipe } from '@angular/common';
     EffectsModule.forRoot([
       MemberEffects,
       CategoriaEffects,
-      UsersEffects
+      UserEffects
     ]),
-    StoreDevtoolsModule.instrument({ name:'TEST' })
+    StoreDevtoolsModule.instrument({ name:'TEST' }),
     BrowserAnimationsModule,
     MatDialogModule,
     CommonModule
