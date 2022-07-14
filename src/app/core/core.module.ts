@@ -1,4 +1,3 @@
-import { SlideService } from './services/slide.service';
 import { RoleService } from './services/role.service';
 import { UserService } from './services/user.service';
 import { SlideService } from './services/slide.service';

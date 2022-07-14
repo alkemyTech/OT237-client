@@ -1,7 +1,6 @@
 import { HomeComponent } from './pages/home/home.component';
 import { UserFormComponent } from './pages/users/user-form/user-form.component';
 import { SlidesFormComponent } from './pages/slides/slides-form/slides-form.component';
-import { ActivityFormComponent } from "./pages/activities/activity-form/activity-form.component";
 import { RegisterFormComponent } from "./pages/auth/register-form/register-form.component";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
@@ -23,12 +22,13 @@ import { MembersListComponent } from "./pages/members/members-list/members-list.
 import { CategoriesComponent } from "./pages/categories/categories/categories.component";
 import { ActivityDetailComponent } from './pages/views/activities/detail/activity-detail/activity-detail.component';
 import { ActivitySectionComponent } from "./pages/activities/activity-section/activity-section.component";
+import { ActivityFormComponent} from "./pages/backoffice/activity-form/activity-form.component";
+
 
 const routes: Routes = [
-  
   {
-    path: '**',
-    redirectTo: 'login'
+    path: "backoffice/actividades/form/:id",
+    component: ActivityFormComponent
   },
   {
     path: "login", 
@@ -121,7 +121,11 @@ const routes: Routes = [
   { 
     path: "actividades", 
     component: ActivityFormComponent 
-  }
+  },
+  { 
+    path: '**',
+    redirectTo: 'login'
+  },
 ];
 
 @NgModule({
