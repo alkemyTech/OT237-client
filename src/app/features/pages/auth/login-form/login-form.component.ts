@@ -3,12 +3,13 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, ValidationErrors, ValidatorFn, FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
-  selector: 'app-login-form',
-  templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.scss']
+	selector: 'app-login-form',
+	templateUrl: './login-form.component.html',
+	styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
-  private passwordValidator() :ValidatorFn{
+
+	private passwordValidator() :ValidatorFn{
 		return (control :AbstractControl): ValidationErrors | null => {
 			const value = control.value;
 			if(/[a-zA-Z]/.test(value) && /\d/.test(value) && /\W/.test(value)) {
