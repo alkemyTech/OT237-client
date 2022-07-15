@@ -16,7 +16,9 @@
             <small *ngIf="imgNoValido">Se espera una imagen con formato PNG o JPG </small>
             <img  *ngIf="imgBool" [src]="base64Image" > 
         </div>
+ 
         <button *ngIf="boton" type="submit" [disabled]="( imgNoValido || descripcionNoValido || nombreNoValido)">Crear</button>
-        <button *ngIf="!boton" type="submit" [disabled]="( imgNoValido || descripcionNoValido || nombreNoValido)">editar</button>
+        
+    <button *ngIf="!boton" type="submit" [disabled]="( imgNoValido || descripcionNoValido || nombreNoValido)">editar</button>
     </div>  
 </form>

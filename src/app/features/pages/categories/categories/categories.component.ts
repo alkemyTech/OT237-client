@@ -37,9 +37,7 @@ export class CategoriesComponent implements OnInit {
     this.store.select(selectCategoriesList).subscribe((data:any)=>{
       this.categorias=data.data
     })
-
   }
-
   buscarCategoriaId(id:any){
     this.router.navigate([`categories/crear/${id}`])
   }
