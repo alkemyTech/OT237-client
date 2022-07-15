@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { fromEvent, Observable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, filter, switchMap } from 'rxjs/operators';
 import { CategoriesService } from 'src/app/core/services/categories.service';
 import { Category } from 'src/app/features/interfaces';
+import { DialogComponent } from 'src/app/shared/components/dialog/dialog.component';
 import { loadCategories, loadedCategories } from 'src/app/state/actions/categories.actions';
 import { AppState } from 'src/app/state/app.state';
 import {  selectCategoriesList,selectLoading } from 'src/app/state/selectors/categories.selectors';
@@ -23,7 +25,7 @@ export class CategoriesComponent implements OnInit {
   public form!:FormGroup
   public categories$:any
   
-  constructor(private categoriasService : CategoriesService, private router: Router,private store:Store<AppState>,private formBuilder: FormBuilder) { 
+  constructor(private categoriasService : CategoriesService, private router: Router,private store:Store<AppState>,private formBuilder: FormBuilder, private dialog: MatDialog) { 
   }
 
   ngOnInit(): void {
@@ -39,12 +41,12 @@ export class CategoriesComponent implements OnInit {
   }
 
   buscarCategoriaId(id:any){
-    this.router.navigate([`categorias/crear/${id}`])
+    this.router.navigate([`categories/crear/${id}`])
   }
   borrarCategoria(id:any){
     this.categoriasService.DeleteCategoria(id).subscribe(data=>{
-      this.categoriasService.buscarCategorias("")
-    })
+    this.categoriasService.buscarCategorias("").subscribe((data:any)=>{this.categorias=data.data}, error => this.openDialog(error.message))
+    }, error => this.openDialog(error.message))
   }
 
 
@@ -58,8 +60,7 @@ export class CategoriesComponent implements OnInit {
       )
       .subscribe((data: any) => {
         this.categorias = data.data
-        console.log(value)
-      })
+      }, error => this.openDialog(error.message))
     }
     else{
       this.categoriasService.buscarCategorias("")
@@ -73,5 +74,7 @@ export class CategoriesComponent implements OnInit {
       });
     }
   }
-
+  openDialog(error: string){
+    this.dialog.open(DialogComponent, { data: error });
+  }
 }

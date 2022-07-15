@@ -6,6 +6,8 @@ import { Categoria } from './categorie.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/state/app.state';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from 'src/app/shared/components/dialog/dialog.component';
 
 
 @Component({
@@ -25,7 +27,7 @@ export class CategoriesFormComponent implements OnInit {
   public imgBool:boolean=true
   public boton:boolean=true
   
-  constructor(private builder:FormBuilder,private categoriasService : CategoriesService,private activatedRoute:ActivatedRoute, private router: Router,private store:Store<AppState>) { 
+  constructor(private builder:FormBuilder,private categoriasService : CategoriesService,private activatedRoute:ActivatedRoute, private router: Router,private store:Store<AppState>, private dialog: MatDialog) { 
     this.crearFormulario(this.categoria);
   }
 
@@ -112,10 +114,12 @@ export class CategoriesFormComponent implements OnInit {
         }
         this.router.navigate(["/"])
         this.categoriasService.editarCategoria(this.categoriaId, editCategoriaObject)
-        .subscribe(()=> this.buscarCategoriaId(this.categoriaId))
+        .subscribe(()=> this.buscarCategoriaId(this.categoriaId), error => this.openDialog(error.message))
         
         return 
       }
     }
-    
+    openDialog(error: string){
+      this.dialog.open(DialogComponent, { data: error });
+    }
  }
