@@ -1,3 +1,4 @@
+import { SharedModule } from './shared/shared.module';
 import { UserEffects } from './state/effects/users.effect';
 import { ROOT_REDUCERS } from './state/app.state';
 import { FeaturesModule } from './features/features.module';
@@ -22,7 +23,8 @@ import { EffectsModule } from '@ngrx/effects';
     StoreDevtoolsModule.instrument({ name: 'TEST' }),
     EffectsModule.forRoot([
       UserEffects
-    ])
+    ]),
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
