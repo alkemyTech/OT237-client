@@ -11,7 +11,6 @@ import { HttpService } from './http.service';
 export class CategoriesService {
   url:string= environment.url
   
-  
   enviarCategoriaSubjet= new Subject<[]>();
   enviarCategoriaObservables = this.enviarCategoriaSubjet.asObservable();
  
@@ -25,20 +24,8 @@ export class CategoriesService {
 
   public queryPut(id:string ,categoria:any): Observable<any>{
     return  this.http.put(`${this.url}categories/${id}`,categoria)}
-  
-  
 
-
-    // addMember(member: Member): Observable<any> {
-    //   return this.httpService.post<Member>(environment.url + 'members', member);
-    // }
-   
     
-    // crearCategoria(categoria: object): Observable<any> {
-    //   return this.httpService.post<Category>(environment.url + 'categories', false,categoria);
-    // }
-
-
   public buscarCategorias(id:string): Observable<any>{
     return this.httpService.get<Category[]>(environment.url + 'categories');}
 
@@ -58,8 +45,5 @@ export class CategoriesService {
   public searchCategoriesByValue(term:string){
     return this.httpService.get(`${environment.url}categories?search=${term}`);
   }
-  
- 
-    
 
 }
