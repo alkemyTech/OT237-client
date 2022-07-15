@@ -1,3 +1,4 @@
+import { LoginFormComponent } from './pages/auth/login-form/login-form.component';
 import { ListUsersComponent } from './pages/backoffice/list-users/list-users.component';
 import { HomeComponent } from './pages/home/home.component';
 import { UserFormComponent } from './pages/users/user-form/user-form.component';
@@ -10,6 +11,10 @@ const routes: Routes = [
   {
     path: "",
     component: HomeComponent,
+  },
+  {
+    path: "login", 
+    component: LoginFormComponent
   },
   {
     path: "backoffice/users",
