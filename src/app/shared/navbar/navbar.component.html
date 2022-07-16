@@ -1,0 +1,19 @@
+<header>
+    <img src="assets/logo.png" alt="img-logo">
+    <div class="left-header">
+        <div class="links">
+            <a [routerLink]="item.route" routerLinkActive="f-bold" *ngFor="let item of items">
+                {{item.name}}
+            </a>
+        </div>
+        <div class="btn-group" *ngIf="!isLogged; else logged">
+            <button class="btn-login">Log in</button>
+            <button class="btn-register">Regístrate</button>
+        </div>
+        <ng-template #logged>
+            <div class="btn-group">
+                <button class="btn-register">Cerrar sesión</button>
+            </div>
+        </ng-template>
+    </div>
+</header>

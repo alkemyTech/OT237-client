@@ -1,9 +1,8 @@
-import { usersReducer } from './reducers/users.reducer';
-
-import { CategoriesState, MembersState, UsersState } from "../state/members.state";
+import { CategoriesState, MembersState, UsersState } from "./members.state";
 import { ActionReducerMap } from "@ngrx/store";
 import { membersReducer } from './reducers/members.reducers';
 import { categoriesReducer } from "./reducers/categories.reducers";
+import { usersReducer } from './reducers/users.reducer';
 
 export interface AppState {
     members: MembersState,

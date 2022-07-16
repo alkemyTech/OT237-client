@@ -1,116 +1,20 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
-
-import { ListUsersComponent } from './pages/backoffice/list-users/list-users.component';
 import { HomeComponent } from './pages/home/home.component';
-import { UserFormComponent } from './pages/users/user-form/user-form.component';
 import { SlidesFormComponent } from './pages/slides/slides-form/slides-form.component';
-import { ActivityFormComponent } from "./pages/activities/activity-form/activity-form.component";
-import { RegisterFormComponent } from "./pages/auth/register-form/register-form.component";
-import { CategoriesFormComponent } from "./pages/categories/categories-form/categories-form.component";
-import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
-import { LoginFormComponent } from "./pages/auth/login-form/login-form.component";
-import { OrganizationFormComponent } from "./pages/backoffice/organization-form/organization-form.component";
-import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
-import { MembersFormComponent } from "./pages/members/members-form/members-form.component";
-import { NewsComponent } from "./pages/news/news/news.component";
-import { OrganizationComponent } from "./pages/backoffice/organization/organization.component";
 import { ContactComponent } from "./pages/contact/contact/contact.component";
-import { MembersListComponent } from "./pages/members/members-list/members-list.component";
-import { CategoriesComponent } from "./pages/categories/categories/categories.component";
-import { NewsListEditComponent } from './pages/news/news/news-list-edit/news-list-edit.component';
-import { ActivityDetailComponent } from './pages/views/activities/detail/activity-detail/activity-detail.component';
-import { ActivitySectionComponent } from "./pages/activities/activity-section/activity-section.component";
-import { NewDetailComponent } from "./pages/views/news/detail/new-detail.component";
 import { ContactFormComponent } from "../shared/components/contact-form/contact-form.component";
-import { DonationComponent } from "./pages/donation/donation.component";
-import { ThanksComponent } from "./pages/thanks/thanks.component";
 
 const routes: Routes = [
-  {
-    path: "login", 
-    component: LoginFormComponent
-  },
-  {
-    path: "donar",
-    component: DonationComponent
-  },
-  {
-    path: "gracias",
-    component: ThanksComponent
-  },
-  {
-    path: "nuevo-testimonio",
-    component: TestimonialFormComponent
-  },
-  {
-    path: "editar-testimonio/:id",
-    component: TestimonialFormComponent
-  },
-  {
-    path: "actividades",
-    component: ActivitySectionComponent
-  },
-  {
-    path: "actividades/:id",
-    component: ActivityDetailComponent
-  },
-  { 
-    path: "categorias/crear", 
-    component: CategoriesFormComponent 
-  },
-  { 
-    path: "categorias/crear/:id", 
-    component: CategoriesFormComponent 
-  },
+
   {
     path: "backoffice/home",
     component: SlidesFormComponent
   },
-  { 
-    path: "backoffice/categories", 
-    component: CategoriesComponent
-  },
-  { 
-    path: "registro", 
-    component: RegisterFormComponent
-  },
-  {
-    path: "backoffice/organization/edit",
-    component: OrganizationFormComponent
-  },
-  {
-    path: "novedades",
-    component: NewsComponent
-  },
-  {
-    path: "novedades/:id",
-    component: NewDetailComponent
-  },
-  {
-    path: "backoffice/organization/:id",
-    component: OrganizationComponent
-  },
   {
     path: "contacto",
     component: ContactComponent
-  },
-  {
-    path: "backoffice/news",
-    component: NewsListEditComponent
-  },
-  {
-    path: "backoffice/news/create",
-    component: NewsFormComponent 
-  },
-  {
-    path: "backoffice/news/:id",
-    component: NewsFormComponent 
-  },
-  {
-    path: "backoffice/members",
-    component: MembersListComponent
   },
   {
     path: "contribuir",
@@ -121,28 +25,41 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: "backoffice/members/create",
-    component: MembersFormComponent
-  },
-  { 
-    path: "backoffice/members/edit/:id", 
-    component: MembersFormComponent 
+    path: "auth",
+    loadChildren:() => import('./pages/auth/auth.module').then(m => m.AuthModule)
   },
   {
-    path: "backoffice/users",
-    component: ListUsersComponent
+    path: "users",
+    loadChildren:() => import('./pages/users/users.module').then(m => m.UsersModule)
   },
   {
-    path: "backoffice/users/create",
-    component: UserFormComponent
+    path: "organization",
+    loadChildren:() => import('./pages/backoffice/organization.module').then(m => m.OrganizationModule)
   },
-  { 
-    path: "actividades", 
-    component: ActivityFormComponent 
+  {
+    path: "testimonio",
+    loadChildren:() => import('./pages/testimonials/testimonials.module').then(m => m.TestimonialsModule)
+  },
+  {
+    path: "novedades",
+    loadChildren:() => import('./pages/news/news.module').then(m => m.NewsModule)
+  },
+  {
+    path: "members",
+    loadChildren:() => import('./pages/members/members.module').then(m => m.MembersModule)
+  },
+  {
+    path: "actividades",
+    loadChildren:() => import('./pages/activities/activities.module').then(m => m.ActivitiesModule)
+
+  },
+  {
+    path: "categories",
+    loadChildren:() => import('./pages/categories/categories.module').then(m => m.CategoriesModule)
   },
   {
     path: '**',
-    redirectTo: 'login'
+    redirectTo: 'auth/login'
   }
 ];
 
