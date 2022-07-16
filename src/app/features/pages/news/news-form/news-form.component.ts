@@ -99,7 +99,7 @@ export class NewsFormComponent implements OnInit {
 
   fillForm(id: number): void {
     this.editId = id;
-    this.api.getNovedadById(id).subscribe(novedad => {
+    this.api.getNovedadById(id).subscribe((novedad:any )=> {
       this.formNovedades = this.formBuilder.group({
         name: [novedad.data.name, [Validators.required, Validators.minLength(4)]],
         content: [novedad.data.content, [Validators.required]],
