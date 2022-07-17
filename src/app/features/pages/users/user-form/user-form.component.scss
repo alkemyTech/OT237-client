@@ -64,5 +64,27 @@
                 color: #ff0000;
             }
         }
+
+        .terms {
+            display: flex;
+            align-items: center;
+            gap: .8rem;
+
+            label {
+                font-size: 16px;
+                span {
+                    color: blue;
+                    cursor: pointer;
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+
+            input {
+                height: 15px;
+                width: 15px;
+            }
+        }
     }
 }
