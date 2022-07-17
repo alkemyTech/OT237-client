@@ -1,50 +1,50 @@
-<div>
-    <a routerLink="/backoffice/members/create" routerLinkActive="active">Crear Nuevo Miembro</a>
-</div>
-<br>
-<div>
-    <form [formGroup]="form">
-        <div class="row" style="display: flex;">
-            <div class="search">
-                <b>Buscar Miembros por nombre: </b>
-                <input class="searchTerm" type="text" formControlName="searchTerm" class="form-control" 
-                [(ngModel)]="searchTerm" (input)="searchMembersByValue(searchTerm)" />
-            </div>
+<div class="container">
+    <div class="form-group">
+        <a mat-raised-button color="warn" routerLink="/backoffice/members/create"
+            routerLinkActive="active">Crear Nuevo Miembro</a>
+    </div>
+
+    <div>
+        <form class="form" [formGroup]="form">
+            <h1><b>Buscar Miembros por Nombre: </b></h1>
             <div class="form-group">
-                <button>
-                    Search
-                </button>
+                <div class="row">
+                    <mat-form-field class="full-width" appearance="fill">
+                        <input matInput class="searchTerm" type="text" formControlName="searchTerm" class="form-control"
+                        [(ngModel)]="searchTerm" (input)="searchMembersByValue(searchTerm)" placeholder="Nombre..."/>
+                    </mat-form-field>
+                    <div class="form-group">
+                        <button class="searchButton" mat-raised-button color="primary">
+                            Buscar
+                        </button>
+                    </div>
+                </div>
             </div>
-        </div>
-    </form>
+        </form>
+    </div>
+    <table id="members">
+        <thead>
+            <tr>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Imagen
+                </th>
+                <th>
+                    Acciones
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let member of this.members">
+                <td id="first"><b>{{ member.name }}</b></td>
+                <td id="second"><img src={{member.image}} /></td>
+                <td id="third">
+                    <a mat-raised-button color="primary" (click)="editMember(member.id)">Editar</a>
+                    <a mat-raised-button color="warn" (click)="deleteMember(member.id)">Eliminar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>
-<table>
-    <thead>
-        <tr>
-            <th>
-                Miembros
-            </th>
-        </tr>
-        <tr>
-            <th>
-                Nombre
-            </th>
-            <th>
-                Imagen
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-
-        <tr *ngFor="let member of this.members">
-
-            <td><b>{{ member.name }}</b></td>
-            <td><img src={{member.image}} /></td>
-            <td><button class="btn-sm btn-info" (click)="editMember(member.id)">Editar</button>
-            </td>
-            <td>
-                <button class="btn-sm btn-danger" (click)="deleteMember(member.id)">Eliminar</button>
-            </td>
-        </tr>
-    </tbody>
-</table>

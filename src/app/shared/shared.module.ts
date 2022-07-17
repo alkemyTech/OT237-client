@@ -9,6 +9,10 @@ import { ContactPhonePipe } from './pipes/contact-phone.pipe';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     ContactFormComponent,
     ContactPhonePipe,
     DialogComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   exports: [
 	  LinksInputComponent,
@@ -31,7 +35,11 @@ import { MatDialogModule } from '@angular/material/dialog';
     FormsModule,
     ReactiveFormsModule,
     MatDialogModule,
-    RouterModule
+    RouterModule,
+    MatButtonModule,
+    MatDividerModule,
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class SharedModule { }
