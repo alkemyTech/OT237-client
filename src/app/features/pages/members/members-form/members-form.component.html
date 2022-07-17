@@ -1,0 +1,83 @@
+<h1 *ngIf="isAddMode">Crear Miembro</h1>
+<h1 *ngIf="!isAddMode">Editar Miembro</h1>
+<form [formGroup]="form" (ngSubmit)="handleSubmit($event)">
+  <div class="form-group">
+    <label for="name">Nombre </label>
+    <input
+      type="text"
+      formControlName="name"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': isSubmitted && f.name.errors }"
+    />
+    <div *ngIf="isSubmitted && f.name.errors" class="invalid-feedback">
+      <div *ngIf="f.name.errors.required">
+        "Nombre" es un campo obligatorio.
+      </div>
+      <div *ngIf="f.name.errors.minlength">El nombre debe tener una longitud mínima de 4 caracteres.</div>
+    </div>
+  </div>
+
+<div class="form-group">
+    <label for="image">Imagen </label>
+    <img *ngIf="!isAddMode" src="{{member?.image}}" alt="">
+    <input #imageInput type="file" (change)="processImage(imageInput.files)" formControlName="image"
+        accept="image/jpg, image/png">
+    <div *ngIf="isSubmitted && f.image.errors" class="invalid-feedback">
+        <div *ngIf="f.image.errors.required">Debe seleccionar una imagen.</div>
+    </div>
+</div>
+
+  <div class="form-group">
+    <label for="description">Descripción </label>
+    <ckeditor formControlName="description" [editor]="Editor" data="{{f.description.value}}">
+    </ckeditor>
+    <div *ngIf="isSubmitted && f.description.errors" class="invalid-feedback">
+      <div *ngIf="f.description.errors.required">
+        "Descripción" es un campo obligatorio.
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="facebookUrl">Facebook URL </label>
+    <input
+      type="text"
+      formControlName="facebookUrl"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': isSubmitted && f.facebookUrl.errors }"
+    />
+    <div
+      *ngIf="isSubmitted && f.facebookUrl.errors"
+      class="invalid-feedback"
+    >
+      <div *ngIf="f.facebookUrl.errors.required">
+        "Facebook URL" es un campo obligatorio.
+      </div>
+      <div *ngIf="f.facebookUrl.errors.pattern">La URL debe tener un formato válido. Ejemplo: https://www.facebook.com/username.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="linkedinUrl">LinkedIn URL </label>
+    <input
+      type="text"
+      formControlName="linkedinUrl"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': isSubmitted && f.linkedinUrl.errors }"
+    />
+    <div
+      *ngIf="isSubmitted && f.linkedinUrl.errors"
+      class="invalid-feedback"
+    >
+      <div *ngIf="f.linkedinUrl.errors.required">
+        "LinkedIn URL" es un campo obligatorio.
+      </div>
+      <div *ngIf="f.linkedinUrl.errors.pattern">La URL debe tener un formato válido. Ejemplo: https://www.linkedin.com/in/username.</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <button>Confirmar</button>
+    <a routerLink="../../"> Cancelar </a>
+  </div>
+</form>

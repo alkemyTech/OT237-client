@@ -10,7 +10,9 @@ export class HttpService {
   private _headers!: HttpHeaders;
 
   constructor(private http: HttpClient) {
-    this._headers = new HttpHeaders({ Group: this._groupId });
+    this._headers = new HttpHeaders({ 
+      Group: this._groupId
+    });
   }
 
   public get<T>(url: string, activateHeader:boolean = false ):Observable<T> {
@@ -28,5 +30,5 @@ export class HttpService {
   public delete<T>(url: string, activateHeader:boolean = false, id?: any):Observable<T> {
     return this.http.delete<T>(url, activateHeader ? { headers: this._headers }: {});
   }
+  
 }
-

@@ -1,0 +1,13 @@
+<div class="show-in-rows">
+	<div>
+		<input [(ngModel)]="urlInput" type="text">
+		<button (click)="addToList()" type="button">Add Link</button>
+	</div>
+	<span *ngIf="urlIsInvalid() && !inputIsEmpty()" class="invalid-text">*Debe ingresar una url</span>
+	<ul>
+		<li *ngFor="let url of getList()">
+			<span>{{url}}</span>
+			<button (click)="removeFromList(url)" type="button">Remove</button>
+		</li>
+	</ul>
+</div>
