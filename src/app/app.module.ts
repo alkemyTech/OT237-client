@@ -1,5 +1,4 @@
 import { UserEffects } from './state/effects/users.effect';
-import { ROOT_REDUCERS } from './state/app.state';
 import { FeaturesModule } from './features/features.module';
 import { CoreModule } from './core/core.module';
 import { NgModule } from '@angular/core';
@@ -10,7 +9,6 @@ import { EffectsModule } from '@ngrx/effects';
 import { MemberEffects } from './state/effects/members.effects';
 import { CategoriaEffects } from './state/effects/categories.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../environments/environment';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';

@@ -3,6 +3,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule , ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
+
 import { LinksInputComponent } from './components/links-input/links-input.component';
 import { PageTitleComponent } from './components/page-title/page-title.component';
 import { ContactPhonePipe } from './pipes/contact-phone.pipe';
@@ -22,13 +24,15 @@ import { MatInputModule } from '@angular/material/input';
     ContactPhonePipe,
     DialogComponent,
     NavbarComponent,
+    FooterComponent
   ],
   exports: [
 	  LinksInputComponent,
     PageTitleComponent,
     ContactFormComponent,
     ContactPhonePipe,
-    NavbarComponent
+    NavbarComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
