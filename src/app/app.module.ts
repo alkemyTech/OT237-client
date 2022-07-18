@@ -7,10 +7,8 @@ import { AppComponent } from './app.component';
 import { StoreModule } from "@ngrx/store";
 import { EffectsModule } from '@ngrx/effects';
 import { MemberEffects } from './state/effects/members.effects';
-import { ROOT_REDUCERS } from './state/app.state';
 import { CategoriaEffects } from './state/effects/categories.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { environment } from '../environments/environment';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -34,7 +32,7 @@ import { CommonModule, CurrencyPipe } from '@angular/common';
     BrowserAnimationsModule,
     MatDialogModule,
     CommonModule,
-    LeafletModule,
+    LeafletModule
   ],
   providers: [CurrencyPipe],
   bootstrap: [AppComponent]

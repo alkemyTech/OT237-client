@@ -61,8 +61,8 @@ const routes: Routes = [
     path: '**',
     redirectTo: 'auth/login'
   }
-
 ];
+
 @NgModule({
   declarations: [],
   imports: [CommonModule, RouterModule.forRoot(routes)],
