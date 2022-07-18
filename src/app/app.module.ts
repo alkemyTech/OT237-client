@@ -1,5 +1,4 @@
 import { UserEffects } from './state/effects/users.effect';
-import { ROOT_REDUCERS } from './state/app.state';
 import { FeaturesModule } from './features/features.module';
 import { CoreModule } from './core/core.module';
 import { NgModule } from '@angular/core';
@@ -33,8 +32,11 @@ import { CommonModule, CurrencyPipe } from '@angular/common';
     BrowserAnimationsModule,
     MatDialogModule,
     CommonModule,
+<<<<<<< HEAD
     EffectsModule.forRoot([MemberEffects, CategoriaEffects]),
     StoreDevtoolsModule.instrument({ name:'TEST' }),
+=======
+>>>>>>> 6905ed0f571407ee54f7901f7d7325975271947c
     LeafletModule,
   ],
   providers: [CurrencyPipe],

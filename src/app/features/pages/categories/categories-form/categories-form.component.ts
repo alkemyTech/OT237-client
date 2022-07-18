@@ -6,6 +6,10 @@ import { Categoria } from './categorie.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/state/app.state';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogComponent } from 'src/app/shared/components/dialog/dialog.component';
+import { selectCategoriesList } from 'src/app/state/selectors/categories.selectors';
+import { loadCategories } from 'src/app/state/actions/categories.actions';
 
 
 @Component({
@@ -25,7 +29,7 @@ export class CategoriesFormComponent implements OnInit {
   public imgBool:boolean=true
   public boton:boolean=true
   
-  constructor(private builder:FormBuilder,private categoriasService : CategoriesService,private activatedRoute:ActivatedRoute, private router: Router,private store:Store<AppState>) { 
+  constructor(private builder:FormBuilder,private categoriasService : CategoriesService,private activatedRoute:ActivatedRoute, private router: Router,private store:Store<AppState>, private dialog: MatDialog) { 
     this.crearFormulario(this.categoria);
   }
 
@@ -63,13 +67,13 @@ export class CategoriesFormComponent implements OnInit {
           description: this.categoriaForm.controls.descripcion.value,
           image: `data:imagen/jpeg;base64,${this.base64Image}`
             }
-            this.categoriasService.crearCategoria(categoriaObjeto).subscribe()
+            this.categoriasService.crearCategoria(categoriaObjeto).subscribe(data=>{this.router.navigate([`categories/backoffice`])}, error => this.openDialog(error.message))
             if (this.categoriaForm.invalid) {
               return Object.values(this.categoriaForm.controls).forEach(control =>{
                 control.markAsTouched();
               });
             }
-          
+            
           }
 
   public procesarImage(files: FileList | null = null): void {
@@ -110,12 +114,14 @@ export class CategoriesFormComponent implements OnInit {
         if (this.categoriaForm.get('imagen')?.touched) {
           editCategoriaObject.image = `data:image/jpeg;base64,${this.base64Image}`;
         }
-        this.router.navigate(["/"])
+        
         this.categoriasService.editarCategoria(this.categoriaId, editCategoriaObject)
-        .subscribe(()=> this.buscarCategoriaId(this.categoriaId))
+        .subscribe((data)=>{this.buscarCategoriaId(this.categoriaId); this.router.navigate([`categories/backoffice`])}, error => this.openDialog(error.message))
         
         return 
       }
     }
-    
+    openDialog(error: string){
+      this.dialog.open(DialogComponent, { data: error });
+    }
  }

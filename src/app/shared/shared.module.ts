@@ -1,6 +1,8 @@
+import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule , ReactiveFormsModule } from '@angular/forms';
+import { NavbarComponent } from './navbar/navbar.component';
 import { LinksInputComponent } from './components/links-input/links-input.component';
 import { PageTitleComponent } from './components/page-title/page-title.component';
 import { ContactPhonePipe } from './pipes/contact-phone.pipe';
@@ -15,18 +17,21 @@ import { MatDialogModule } from '@angular/material/dialog';
     ContactFormComponent,
     ContactPhonePipe,
     DialogComponent,
+    NavbarComponent
   ],
   exports: [
 	  LinksInputComponent,
     PageTitleComponent,
     ContactFormComponent,
-    ContactPhonePipe
+    ContactPhonePipe,
+    NavbarComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    MatDialogModule
+    MatDialogModule,
+    RouterModule
   ]
 })
 export class SharedModule { }
