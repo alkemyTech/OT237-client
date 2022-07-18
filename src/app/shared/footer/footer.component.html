@@ -1,0 +1,21 @@
+<footer>
+    <div class="top">
+        <div class="line"></div>
+        <img src="assets/logo.png" alt="img-logo">
+        <div class="line"></div>
+    </div>
+    <div class="center">
+        <a href="#">Inicio</a>
+        <a href="#">Nosotros</a>
+        <a href="#">Novedades</a>
+        <a href="#">Testimonios</a>
+        <a href="#">Contacto</a>
+        <a href="#">Contribuye</a>
+    </div>
+    <div class="bottom">
+        <a [href]="social.url" target="_blank" *ngFor="let social of social_media">
+            <i [class]="social.icon"></i>
+        </a>
+    </div>
+    <p>2022 by Alkemy. All Rights Reserved.</p>
+</footer>
