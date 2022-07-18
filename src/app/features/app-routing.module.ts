@@ -5,12 +5,28 @@ import { HomeComponent } from './pages/home/home.component';
 import { SlidesFormComponent } from './pages/slides/slides-form/slides-form.component';
 import { ContactComponent } from "./pages/contact/contact/contact.component";
 import { ContactFormComponent } from "../shared/components/contact-form/contact-form.component";
+import { NewsComponent } from "./pages/news/news/news.component";
+import { NewDetailComponent } from "./pages/views/news/detail/new-detail.component";
+import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
+import { NewsListEditComponent } from "./pages/news/news/news-list-edit/news-list-edit.component";
 
 const routes: Routes = [
 
   {
     path: "backoffice/home",
     component: SlidesFormComponent
+  },
+  {
+    path: "backoffice/news",
+    component: NewsListEditComponent
+  },
+  {
+    path: "backoffice/news/create",
+    component: NewsFormComponent 
+  },
+  {
+    path: "backoffice/news/:id",
+    component: NewsFormComponent 
   },
   {
     path: "contacto",
@@ -24,6 +40,15 @@ const routes: Routes = [
     path: "Home",
     component: HomeComponent,
   },
+  {
+    path: "novedades",
+    component: NewsComponent
+  },
+  {
+    path: "novedades/:id",
+    component: NewDetailComponent
+  },
+  
   {
     path: "auth",
     loadChildren:() => import('./pages/auth/auth.module').then(m => m.AuthModule)
@@ -51,7 +76,6 @@ const routes: Routes = [
   {
     path: "actividades",
     loadChildren:() => import('./pages/activities/activities.module').then(m => m.ActivitiesModule)
-
   },
   {
     path: "categories",
@@ -59,14 +83,8 @@ const routes: Routes = [
   },
   {
     path: '**',
-<<<<<<< HEAD
-    redirectTo: 'login'
-  }
-];
-=======
     redirectTo: 'auth/login'
   }
->>>>>>> 6905ed0f571407ee54f7901f7d7325975271947c
 
 ];
 @NgModule({

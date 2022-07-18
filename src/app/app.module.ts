@@ -13,6 +13,7 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CommonModule, CurrencyPipe } from '@angular/common';
+import { ROOT_REDUCERS } from './state/app.state';
 
 @NgModule({
   declarations: [
@@ -32,12 +33,7 @@ import { CommonModule, CurrencyPipe } from '@angular/common';
     BrowserAnimationsModule,
     MatDialogModule,
     CommonModule,
-<<<<<<< HEAD
-    EffectsModule.forRoot([MemberEffects, CategoriaEffects]),
-    StoreDevtoolsModule.instrument({ name:'TEST' }),
-=======
->>>>>>> 6905ed0f571407ee54f7901f7d7325975271947c
-    LeafletModule,
+    LeafletModule
   ],
   providers: [CurrencyPipe],
   bootstrap: [AppComponent]

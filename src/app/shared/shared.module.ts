@@ -9,6 +9,8 @@ import { ContactPhonePipe } from './pipes/contact-phone.pipe';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { DialogComponent } from './components/dialog/dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'; 
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -17,21 +19,24 @@ import { MatDialogModule } from '@angular/material/dialog';
     ContactFormComponent,
     ContactPhonePipe,
     DialogComponent,
-    NavbarComponent
+    NavbarComponent,
+    SpinnerComponent
   ],
   exports: [
 	  LinksInputComponent,
     PageTitleComponent,
     ContactFormComponent,
     ContactPhonePipe,
-    NavbarComponent
+    NavbarComponent,
+    SpinnerComponent
   ],
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     MatDialogModule,
-    RouterModule
+    RouterModule,
+    MatProgressSpinnerModule
   ]
 })
 export class SharedModule { }
