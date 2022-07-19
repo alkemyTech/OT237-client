@@ -1,7 +1,6 @@
 import { LoginService } from './login.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, ValidatorFn, AbstractControl, ValidationErrors} from '@angular/forms';
-import { LoginService } from './login.service';
+import { AbstractControl, ValidationErrors, ValidatorFn, FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
 	selector: 'app-login-form',
@@ -9,6 +8,7 @@ import { LoginService } from './login.service';
 	styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
+
 	private passwordValidator() :ValidatorFn{
 		return (control :AbstractControl): ValidationErrors | null => {
 			const value = control.value;
