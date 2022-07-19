@@ -1,24 +1,21 @@
-<form [formGroup]="categoriaForm" (ngSubmit)="accion()">
+<form class="container" [formGroup]="categoriaForm" (ngSubmit)="accion()">
     <div>
+        <h3 *ngIf="boton" class="title">Crear categorias</h3>
+        <h3 *ngIf="!boton" class="title">Editar categorias</h3>
         <div>
-            <label for="exampleInputEmail1">Nombre categoria</label>
             <input type="text" placeholder="Nombre" name="nombre" formControlName="nombre" value="{{categoria.name}}">
-            <small *ngIf="nombreNoValido" >Ingrese un min de 4 caracteres</small>
+            <div *ngIf="nombreNoValido" class="error"><small>Ingrese un min de 4 caracteres</small> </div>
+         </div>
+        <div>
+            <div class="ck"><ckeditor formControlName="descripcion" [editor]="Editor" data="{{f.descripcion.value}}"></ckeditor></div>
+            <div *ngIf="descripcionNoValido" class="error"><small>Ingrese un min de 4 caracteres </small></div>
         </div>
         <div>
-            <label for="exampleInputPassword1">Descripcion</label>
-            <ckeditor formControlName="descripcion" [editor]="Editor" data="<p>hola</p>" data="{{f.descripcion.value}}" ></ckeditor>
-            <small *ngIf="descripcionNoValido">Ingrese un min de 4 caracteres </small>
-        </div>
-        <div>
-            <label for="exampleInputEmail1">Imagen formato(PNG o JPG)</label>
-            <input #imageInput type="file"  formControlName="imagen" accept="image/jpg, image/png" (change)="procesarImage(imageInput.files)" imageInput.files="base64Image" >
-            <small *ngIf="imgNoValido">Se espera una imagen con formato PNG o JPG </small>
+            <input #imageInput type="file" id="nuestroinput" formControlName="imagen" accept="image/jpg, image/png" (change)="procesarImage(imageInput.files)" imageInput.files="base64Image" >
+           <div class="error" *ngIf="imgNoValido"><small>Se espera una imagen con formato PNG o JPG </small></div> 
             <img  *ngIf="imgBool" [src]="base64Image" > 
         </div>
- 
-        <button *ngIf="boton" type="submit" [disabled]="( imgNoValido || descripcionNoValido || nombreNoValido)">Crear</button>
-        
-    <button *ngIf="!boton" type="submit" [disabled]="( imgNoValido || descripcionNoValido || nombreNoValido)">editar</button>
+        <button [ngClass]="{'buttonDiseable': ( imgNoValido || descripcionNoValido || nombreNoValido),'button': ( !imgNoValido || !descripcionNoValido || !nombreNoValido)}" *ngIf="boton" type="submit" [disabled]="( imgNoValido || descripcionNoValido || nombreNoValido)">Crear</button>
+        <button [ngClass]="{'buttonDiseable': ( imgNoValido || descripcionNoValido || nombreNoValido),'button': ( !imgNoValido || !descripcionNoValido || !nombreNoValido)}" *ngIf="!boton" type="submit" [disabled]="( imgNoValido || descripcionNoValido || nombreNoValido)">editar</button>
     </div>  
 </form>

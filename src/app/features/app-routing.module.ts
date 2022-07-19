@@ -22,7 +22,7 @@ const routes: Routes = [
     component: ContactFormComponent
   },
   {
-    path: "Home",
+    path: "home",
     component: HomeComponent,
   },
   {
