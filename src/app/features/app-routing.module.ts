@@ -7,7 +7,6 @@ import { ContactComponent } from "./pages/contact/contact/contact.component";
 import { ContactFormComponent } from "../shared/components/contact-form/contact-form.component";
 
 const routes: Routes = [
-
   {
     path: "backoffice/home",
     component: SlidesFormComponent
@@ -59,16 +58,10 @@ const routes: Routes = [
   },
   {
     path: '**',
-<<<<<<< HEAD
-    redirectTo: 'login'
-  }
-];
-=======
     redirectTo: 'auth/login'
   }
->>>>>>> 6905ed0f571407ee54f7901f7d7325975271947c
-
 ];
+
 @NgModule({
   declarations: [],
   imports: [CommonModule, RouterModule.forRoot(routes)],
