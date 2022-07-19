@@ -8,7 +8,6 @@ import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { SliderComponent } from './pages/home/slider/slider.component';
-import { ActivityFormComponent } from "./pages/backoffice/activity-form/activity-form.component";
 import { LoginFormComponent } from "./pages/auth/login-form/login-form.component";
 import { RegisterFormComponent } from "./pages/auth/register-form/register-form.component";
 import { CategoriesFormComponent } from "./pages/categories/categories-form/categories-form.component";
@@ -38,7 +37,6 @@ import { ThanksComponent } from './pages/thanks/thanks.component';
 
 @NgModule({
   declarations: [
-    ActivityFormComponent,
     LoginFormComponent,
     RegisterFormComponent,
     CategoriesFormComponent,
@@ -68,7 +66,6 @@ import { ThanksComponent } from './pages/thanks/thanks.component';
     ThanksComponent
   ],
   exports: [
-    ActivityFormComponent,
     LoginFormComponent,
     RegisterFormComponent,
     CategoriesFormComponent,

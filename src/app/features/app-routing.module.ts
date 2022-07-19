@@ -33,7 +33,7 @@ const routes: Routes = [
     loadChildren:() => import('./pages/users/users.module').then(m => m.UsersModule)
   },
   {
-    path: "organization",
+    path: "backoffice",
     loadChildren:() => import('./pages/backoffice/organization.module').then(m => m.OrganizationModule)
   },
   {
