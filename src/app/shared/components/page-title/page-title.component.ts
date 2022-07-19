@@ -7,10 +7,13 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PageTitleComponent implements OnInit {
   @Input() title!: string
+  @Input() image!: string
+  defaultImage!: string
 
   constructor() { }
 
   ngOnInit(): void {
+    this.defaultImage = '../../../assets/front-page.png';
   }
 
 }
