@@ -44,6 +44,6 @@ import { MatInputModule } from '@angular/material/input';
     MatDividerModule,
     MatFormFieldModule,
     MatInputModule
-  ]
+  ],
 })
 export class SharedModule { }
