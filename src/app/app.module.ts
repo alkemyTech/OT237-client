@@ -33,6 +33,8 @@ import { ROOT_REDUCERS } from './state/app.state';
     BrowserAnimationsModule,
     MatDialogModule,
     CommonModule,
+    EffectsModule.forRoot([MemberEffects, CategoriaEffects]),
+    StoreDevtoolsModule.instrument({ name:'TEST' }),
     LeafletModule
   ],
   providers: [CurrencyPipe],

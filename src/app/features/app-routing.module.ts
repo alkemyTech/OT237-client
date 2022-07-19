@@ -2,32 +2,10 @@ import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { HomeComponent } from './pages/home/home.component';
-import { SlidesFormComponent } from './pages/slides/slides-form/slides-form.component';
 import { ContactComponent } from "./pages/contact/contact/contact.component";
 import { ContactFormComponent } from "../shared/components/contact-form/contact-form.component";
-import { NewsComponent } from "./pages/news/news/news.component";
-import { NewDetailComponent } from "./pages/views/news/detail/new-detail.component";
-import { NewsFormComponent } from "./pages/news/news-form/news-form.component";
-import { NewsListEditComponent } from "./pages/news/news/news-list-edit/news-list-edit.component";
 
 const routes: Routes = [
-
-  {
-    path: "backoffice/home",
-    component: SlidesFormComponent
-  },
-  {
-    path: "backoffice/news",
-    component: NewsListEditComponent
-  },
-  {
-    path: "backoffice/news/create",
-    component: NewsFormComponent 
-  },
-  {
-    path: "backoffice/news/:id",
-    component: NewsFormComponent 
-  },
   {
     path: "contacto",
     component: ContactComponent
@@ -40,15 +18,6 @@ const routes: Routes = [
     path: "Home",
     component: HomeComponent,
   },
-  {
-    path: "novedades",
-    component: NewsComponent
-  },
-  {
-    path: "novedades/:id",
-    component: NewDetailComponent
-  },
-  
   {
     path: "auth",
     loadChildren:() => import('./pages/auth/auth.module').then(m => m.AuthModule)
@@ -70,6 +39,10 @@ const routes: Routes = [
     loadChildren:() => import('./pages/news/news.module').then(m => m.NewsModule)
   },
   {
+    path: "backoffice/news",
+    loadChildren:() => import('./pages/news/backoffice-news.module').then(m => m.BackofficeNewsModule)
+  },
+  {
     path: "members",
     loadChildren:() => import('./pages/members/members.module').then(m => m.MembersModule)
   },
@@ -85,8 +58,8 @@ const routes: Routes = [
     path: '**',
     redirectTo: 'auth/login'
   }
-
 ];
+
 @NgModule({
   declarations: [],
   imports: [CommonModule, RouterModule.forRoot(routes)],
