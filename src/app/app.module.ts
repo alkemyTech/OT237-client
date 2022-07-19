@@ -14,6 +14,7 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
 import { CommonModule, CurrencyPipe } from '@angular/common';
+import { ROOT_REDUCERS } from './state/app.state';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,7 @@ import { CommonModule, CurrencyPipe } from '@angular/common';
     BrowserAnimationsModule,
     MatDialogModule,
     CommonModule,
-    LeafletModule,
+    LeafletModule
   ],
   providers: [CurrencyPipe],
   bootstrap: [AppComponent]

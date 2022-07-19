@@ -26,7 +26,7 @@ export class NewsListEditComponent implements OnInit {
   }
 
   editN(id: number): void {
-    this.router.navigate([`/backoffice/news/${id}`]);
+    this.router.navigate([`backoffice/news/${id}`]);
   }
 
   deleteN(id: number): void {
@@ -34,7 +34,7 @@ export class NewsListEditComponent implements OnInit {
   }
 
   createN(): void {
-    this.router.navigate([`/backoffice/news/create`]);
+    this.router.navigate([`backoffice/news/create`]);
   }
 
 }

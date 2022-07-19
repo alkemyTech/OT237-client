@@ -34,7 +34,8 @@ export class NewsFormComponent implements OnInit {
   }
 
   checkUrl(): void {
-    if("/backoffice/news"!==this.router.url){
+    if("/backoffice/news/create"!==this.router.url){
+      console.log(this.router.url);
       let id: number = parseInt(this.router.url.substring(17));
       this.editMode = true;
       this.fillForm(id);

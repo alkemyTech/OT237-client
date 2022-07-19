@@ -12,12 +12,16 @@ export class NewDetailComponent implements OnInit {
 
   novedad!: Novedad;
   id!: number;
+  loading: boolean = true;
 
   constructor(private api: NewsService, private router: Router) { }
 
   ngOnInit(): void {
     this.id = parseInt(this.router.url.substring(11));
-    this.api.getNovedadById(this.id).subscribe(novedad => this.novedad = novedad.data);
+    this.api.getNovedadById(this.id).subscribe({
+      next: novedad => this.novedad = novedad.data,
+      complete: () => this.loading = false
+    });
   }
 
 }
