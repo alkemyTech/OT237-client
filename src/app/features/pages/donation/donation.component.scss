@@ -1,9 +1,14 @@
-.donate{
-    display:flex; 
-    flex-direction:row; 
-    align-items:center;
+.container{
+  margin-left: 10rem;
+  margin-top: 5rem;
 }
 
-.links{
-    margin-right: 5px;
+.links {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+a{
+  margin-right: 1rem;
 }

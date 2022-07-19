@@ -102,8 +102,8 @@ export class NewsFormComponent implements OnInit {
     this.api.getNovedadById(id).subscribe((novedad:any )=> {
       this.formNovedades = this.formBuilder.group({
         name: [novedad.data.name, [Validators.required, Validators.minLength(4)]],
-        content: [novedad.data.content, [Validators.required]],
-        'category_id': [novedad.data.category_id, [Validators.required]],
+        // content: [novedad.data.content, [Validators.required]],
+        // 'category_id': [novedad.data.category_id, [Validators.required]],
         image: ['', []]
       });
 

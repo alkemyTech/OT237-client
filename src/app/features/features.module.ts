@@ -35,6 +35,12 @@ import { NewDetailComponent } from "./pages/views/news/detail/new-detail.compone
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { DonationComponent } from './pages/donation/donation.component';
 import { ThanksComponent } from './pages/thanks/thanks.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -87,7 +93,13 @@ import { ThanksComponent } from './pages/thanks/thanks.component';
     ReactiveFormsModule,
     SharedModule,
     HttpClientModule,
-    LeafletModule
+    LeafletModule,
+    MatButtonModule,
+    MatDividerModule,
+    MatFormFieldModule,
+    MatDialogModule,
+    MatInputModule,
+    MatTableModule
   ]
 })
 export class FeaturesModule {}

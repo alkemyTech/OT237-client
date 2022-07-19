@@ -35,7 +35,7 @@ import { CommonModule, CurrencyPipe } from '@angular/common';
     BrowserAnimationsModule,
     MatDialogModule,
     CommonModule,
-    LeafletModule
+    LeafletModule,
   ],
   providers: [CurrencyPipe],
   bootstrap: [AppComponent]
