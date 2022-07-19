@@ -12,7 +12,14 @@ import { LinksInputComponent } from './components/links-input/links-input.compon
 import { PageTitleComponent } from './components/page-title/page-title.component';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { DialogComponent } from './components/dialog/dialog.component';
+
 import { SpinnerComponent } from './components/spinner/spinner.component';
+
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
@@ -40,7 +47,11 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     ReactiveFormsModule,
     MatDialogModule,
     RouterModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatButtonModule,
+    MatDividerModule,
+    MatFormFieldModule,
+    MatInputModule
   ]
 })
 export class SharedModule { }

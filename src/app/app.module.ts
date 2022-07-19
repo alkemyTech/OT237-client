@@ -1,3 +1,4 @@
+import { SharedModule } from './shared/shared.module';
 import { UserEffects } from './state/effects/users.effect';
 import { FeaturesModule } from './features/features.module';
 import { CoreModule } from './core/core.module';
@@ -29,12 +30,12 @@ import { ROOT_REDUCERS } from './state/app.state';
       CategoriaEffects,
       UserEffects
     ]),
+    SharedModule,
     StoreDevtoolsModule.instrument({ name:'TEST' }),
+    SharedModule,
     BrowserAnimationsModule,
     MatDialogModule,
     CommonModule,
-    EffectsModule.forRoot([MemberEffects, CategoriaEffects]),
-    StoreDevtoolsModule.instrument({ name:'TEST' }),
     LeafletModule
   ],
   providers: [CurrencyPipe],

@@ -47,7 +47,7 @@ export class MembersFormComponent implements OnInit {
               this.member = data.data
               this.form = this.formBuilder.group({
                 name: [this.member.name || '', [Validators.required, Validators.minLength(4)]],
-                image: [this.base64, [Validators.required]],
+                image: [this.base64],
                 description: [this.member.description || '', [Validators.required]],
                 facebookUrl: [this.member.facebookUrl || '', [Validators.required, Validators.pattern("(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?")]],
                 linkedinUrl: [this.member.linkedinUrl || '', [Validators.required, Validators.pattern("(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?")]],
