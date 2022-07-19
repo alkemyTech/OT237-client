@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { FormControl } from '@angular/forms';
-import { debounceTime, distinctUntilChanged, map, tap } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, map, tap, filter } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/state/app.state';
 
@@ -20,6 +20,7 @@ export class ListUsersComponent implements OnInit {
   users$: Observable<any[]> = new Observable();
   usersFilter!: any[];
   search: FormControl = new FormControl('');
+  rol: FormControl = new FormControl('');
   isLoading: boolean = false;
   public loading$: Observable<boolean> = new Observable();
 
@@ -40,11 +41,45 @@ export class ListUsersComponent implements OnInit {
       tap(search => {
         if(search.length > 0) {
           this.isLoading = true;
-          this.userSvc.searchByName(search)
-          .subscribe((res: any) => {
-            this.usersFilter = res.data;
-            this.isLoading = false;
-          });
+          if(this.rol.value !== 'todos') {
+            this.userSvc.search(search, this.rol.value)
+            .subscribe((res: any) => {
+              this.usersFilter = res.data;
+              this.isLoading = false;
+            });
+          }else {
+            this.userSvc.search(search)
+            .subscribe((res: any) => {
+              this.usersFilter = res.data;
+              this.isLoading = false;
+            });
+          }
+        }else this.users$.subscribe((res) => this.usersFilter = res);
+      })
+    ).subscribe();
+    this.rolChanges();
+  }
+
+  private rolChanges() {
+    this.rol.valueChanges.pipe(
+      debounceTime(500),
+      distinctUntilChanged(),
+      tap(rol => {
+        if(rol !== 'todos') {
+          this.isLoading = true;
+          if(this.search.value.length > 2) {
+            this.userSvc.search(this.search.value, rol)
+            .subscribe((res: any) => {
+              this.usersFilter = res.data;
+              this.isLoading = false;
+            });
+          }else {
+            this.userSvc.search(undefined, rol)
+            .subscribe((res: any) => {
+              this.usersFilter = res.data;
+              this.isLoading = false;
+            });
+          }
         }else this.users$.subscribe((res) => this.usersFilter = res);
       })
     ).subscribe();
