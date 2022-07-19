@@ -9,14 +9,6 @@ import { ICarouselItem } from './slider/slider.component';
 })
 export class HomeComponent implements OnInit {
   slides: ICarouselItem[] = [];
-  items: any[] = [
-    { name: 'Inicio', route: '/' },
-    { name: 'Nosotros', route: '/about' },
-    { name: 'Novedades', route: '/news' },
-    { name: 'Testimonios', route: '/testimonials' },
-    { name: 'Contacto', route: '/contact' },
-    { name: 'Contribuye', route: '/share' }
-  ];
   
   constructor(private slideSvc: SlideService) {
   }

@@ -1,1 +1,7 @@
-<router-outlet></router-outlet>
+<div class="body">
+    <app-navbar [items]="items" [isLogged]="false"></app-navbar>
+    <div class="main">
+        <router-outlet></router-outlet>
+    </div>
+    <app-footer></app-footer>
+</div>

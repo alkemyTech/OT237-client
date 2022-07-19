@@ -37,6 +37,5 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatDialogModule,
     RouterModule
   ],
- 
 })
 export class SharedModule { }

@@ -1,3 +1,4 @@
+import { SharedModule } from './shared/shared.module';
 import { UserEffects } from './state/effects/users.effect';
 import { FeaturesModule } from './features/features.module';
 import { CoreModule } from './core/core.module';
@@ -29,6 +30,7 @@ import { CommonModule, CurrencyPipe } from '@angular/common';
       UserEffects
     ]),
     StoreDevtoolsModule.instrument({ name:'TEST' }),
+    SharedModule,
     BrowserAnimationsModule,
     MatDialogModule,
     CommonModule,
