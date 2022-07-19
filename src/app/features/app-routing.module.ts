@@ -3,6 +3,7 @@ import { CommonModule } from "@angular/common";
 import { RouterModule, Routes } from "@angular/router";
 import { HomeComponent } from './pages/home/home.component';
 import { SlidesFormComponent } from './pages/slides/slides-form/slides-form.component';
+import { ListUsersComponent } from './pages/backoffice/list-users/list-users.component';
 import { ContactComponent } from "./pages/contact/contact/contact.component";
 import { ContactFormComponent } from "../shared/components/contact-form/contact-form.component";
 
@@ -23,6 +24,10 @@ const routes: Routes = [
   {
     path: "Home",
     component: HomeComponent,
+  },
+  {
+    path: "backoffice/users",
+    component: ListUsersComponent
   },
   {
     path: "auth",

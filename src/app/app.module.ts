@@ -29,6 +29,7 @@ import { CommonModule, CurrencyPipe } from '@angular/common';
       CategoriaEffects,
       UserEffects
     ]),
+    SharedModule,
     StoreDevtoolsModule.instrument({ name:'TEST' }),
     SharedModule,
     BrowserAnimationsModule,
