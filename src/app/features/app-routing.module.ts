@@ -4,8 +4,13 @@ import { RouterModule, Routes } from "@angular/router";
 import { HomeComponent } from './pages/home/home.component';
 import { ContactComponent } from "./pages/contact/contact/contact.component";
 import { ContactFormComponent } from "../shared/components/contact-form/contact-form.component";
+import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.component";
 
 const routes: Routes = [
+  {
+    path: "backoffice/home",
+    component: SlidesFormComponent
+  },
   {
     path: "contacto",
     component: ContactComponent
