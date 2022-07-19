@@ -44,13 +44,16 @@ const routes: Routes = [
     loadChildren:() => import('./pages/news/news.module').then(m => m.NewsModule)
   },
   {
+    path: "backoffice/news",
+    loadChildren:() => import('./pages/news/backoffice-news.module').then(m => m.BackofficeNewsModule)
+  },
+  {
     path: "members",
     loadChildren:() => import('./pages/members/members.module').then(m => m.MembersModule)
   },
   {
     path: "actividades",
     loadChildren:() => import('./pages/activities/activities.module').then(m => m.ActivitiesModule)
-
   },
   {
     path: "categories",

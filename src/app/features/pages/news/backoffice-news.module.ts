@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NewsRoutingModule } from './news-routing.module';
+import { BackofficeNewsRoutingModule } from './backoffice-news-routing.module';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    NewsRoutingModule
+    BackofficeNewsRoutingModule
   ]
 })
-export class NewsModule { }
+export class BackofficeNewsModule { }
