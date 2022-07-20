@@ -65,6 +65,10 @@ const routes: Routes = [
     loadChildren:() => import('./pages/categories/categories.module').then(m => m.CategoriesModule)
   },
   {
+    path: "donation",
+    loadChildren:() => import('./pages/donation/donation.module').then(m => m.DonationModule)
+  },
+  {
     path: '**',
     redirectTo: 'auth/login'
   }
