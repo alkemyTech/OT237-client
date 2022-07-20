@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Novedad } from 'src/app/features/interfaces';
-import localeEsAr from '@angular/common/locales/es-AR';
 
 @Component({
   selector: 'app-new-card',
@@ -13,7 +12,6 @@ export class NewCardComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
 }
