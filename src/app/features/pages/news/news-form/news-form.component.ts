@@ -34,7 +34,8 @@ export class NewsFormComponent implements OnInit {
   }
 
   checkUrl(): void {
-    if("/backoffice/news"!==this.router.url){
+    if("/backoffice/news/create"!==this.router.url){
+      console.log(this.router.url);
       let id: number = parseInt(this.router.url.substring(17));
       this.editMode = true;
       this.fillForm(id);
@@ -102,8 +103,8 @@ export class NewsFormComponent implements OnInit {
     this.api.getNovedadById(id).subscribe((novedad:any )=> {
       this.formNovedades = this.formBuilder.group({
         name: [novedad.data.name, [Validators.required, Validators.minLength(4)]],
-        content: [novedad.data.content, [Validators.required]],
-        'category_id': [novedad.data.category_id, [Validators.required]],
+        // content: [novedad.data.content, [Validators.required]],
+        // 'category_id': [novedad.data.category_id, [Validators.required]],
         image: ['', []]
       });
 

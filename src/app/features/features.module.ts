@@ -17,7 +17,6 @@ import { SlidesFormComponent } from "./pages/slides/slides-form/slides-form.comp
 import { TestimonialFormComponent } from "./pages/testimonials/testimonial-form/testimonial-form.component";
 import { UserFormComponent } from "./pages/users/user-form/user-form.component";
 import { HomeComponent } from './pages/home/home.component';
-
 import { ListUsersComponent } from './pages/backoffice/list-users/list-users.component';
 import { OrganizationFormComponent } from "./pages/backoffice/organization-form/organization-form.component";
 import { MembersFormComponent } from './pages/members/members-form/members-form.component';
@@ -35,6 +34,12 @@ import { NewDetailComponent } from "./pages/views/news/detail/new-detail.compone
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { DonationComponent } from './pages/donation/donation/donation.component';
 import { ThanksComponent } from './pages/donation/thanks/thanks.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -87,7 +92,13 @@ import { ThanksComponent } from './pages/donation/thanks/thanks.component';
     ReactiveFormsModule,
     SharedModule,
     HttpClientModule,
-    LeafletModule
+    LeafletModule,
+    MatButtonModule,
+    MatDividerModule,
+    MatFormFieldModule,
+    MatDialogModule,
+    MatInputModule,
+    MatTableModule
   ]
 })
 export class FeaturesModule {}

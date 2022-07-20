@@ -1,5 +1,5 @@
 <header>
-    <img src="assets/logo.png" alt="img-logo">
+    <img src="assets/logo.png" alt="img-logo" (click)="onHome()">
     <div class="left-header">
         <div class="links">
             <a [routerLink]="item.route" routerLinkActive="f-bold" *ngFor="let item of items">
@@ -7,7 +7,7 @@
             </a>
         </div>
         <div class="btn-group" *ngIf="!isLogged; else logged">
-            <button class="btn-login">Log in</button>
+            <button class="btn-login" (click)="onLogin()">Log in</button>
             <button class="btn-register">Regístrate</button>
         </div>
         <ng-template #logged>
