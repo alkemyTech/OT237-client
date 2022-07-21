@@ -5,13 +5,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { SlidesFormComponent } from './pages/slides/slides-form/slides-form.component';
 import { ContactComponent } from "./pages/contact/contact/contact.component";
 import { ContactFormComponent } from "../shared/components/contact-form/contact-form.component";
+import { BackofficeComponent } from "./pages/backoffice/backoffice.component";
 
 const routes: Routes = [
-
-  {
-    path: "backoffice/home",
-    component: SlidesFormComponent
-  },
   {
     path: "contacto",
     component: ContactComponent
@@ -21,46 +17,61 @@ const routes: Routes = [
     component: ContactFormComponent
   },
   {
+    path: "backoffice/slide",
+    component: SlidesFormComponent
+  },
+  {
     path: "home",
     component: HomeComponent,
+  },
+  {
+    path: "backoffice/home",
+    component: SlidesFormComponent
+  },
+  {
+    path: "backoffice",
+    component: BackofficeComponent
   },
   {
     path: "auth",
     loadChildren:() => import('./pages/auth/auth.module').then(m => m.AuthModule)
   },
   {
-    path: "users",
-    loadChildren:() => import('./pages/users/users.module').then(m => m.UsersModule)
+    path: "backoffice/user",
+    loadChildren:() => import('./pages/backoffice//pages/users/users.module').then(m => m.UsersModule)
   },
   {
-    path: "organization",
-    loadChildren:() => import('./pages/backoffice/organization.module').then(m => m.OrganizationModule)
+    path: "backoffice/organization",
+    loadChildren:() => import('./pages/backoffice/pages/organizations/organization.module').then(m => m.OrganizationModule)
   },
   {
-    path: "testimonio",
+    path: "backoffice/testimonio",
     loadChildren:() => import('./pages/testimonials/testimonials.module').then(m => m.TestimonialsModule)
   },
   {
     path: "novedades",
-    loadChildren:() => import('./pages/news/news.module').then(m => m.NewsModule)
+    loadChildren:() => import('./pages/backoffice//pages/news/news.module').then(m => m.NewsModule)
   },
   {
-    path: "members",
-    loadChildren:() => import('./pages/members/members.module').then(m => m.MembersModule)
+    path: "backoffice/news",
+    loadChildren:() => import('./pages/backoffice//pages/news/news.module').then(m => m.NewsModule)
   },
   {
-    path: "actividades",
-    loadChildren:() => import('./pages/activities/activities.module').then(m => m.ActivitiesModule)
-
+    path: "backoffice/members",
+    loadChildren:() => import('./pages/backoffice//pages/members/members.module').then(m => m.MembersModule)
   },
   {
-    path: "categories",
-    loadChildren:() => import('./pages/categories/categories.module').then(m => m.CategoriesModule)
+    path: "backoffice/actividades",
+    loadChildren:() => import('./pages/backoffice/pages/activities/activities.module').then(m => m.ActivitiesModule)
   },
   {
-    path: '**',
-    redirectTo: 'auth/login'
-  }
+    path: "backoffice/categories",
+    loadChildren:() => import('./pages/backoffice/pages/categories/categories.module').then(m => m.CategoriesModule)
+  },
+  // {
+  //   path: '**',
+  //   redirectTo: 'auth/login'
+  // }
 
 ];
 @NgModule({
