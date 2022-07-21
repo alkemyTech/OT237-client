@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { OrganizationService } from 'src/app/core/services/organization.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subscriber } from 'rxjs';
 
 @Component({
 	selector: 'app-organization',
