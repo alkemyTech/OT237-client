@@ -1,6 +1,7 @@
 import { LoginService } from './login.service';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, ValidationErrors, ValidatorFn, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-login-form',
@@ -30,7 +31,10 @@ export class LoginFormComponent implements OnInit {
 			this.passwordValidator()
 		])
 	});
-	constructor(private loginService :LoginService) { }
+	constructor(
+		private router :Router,
+		private loginService :LoginService
+	) { }
 
 	ngOnInit(): void {
 	
@@ -55,15 +59,16 @@ export class LoginFormComponent implements OnInit {
 	}
 	public logInSubmit() {
 		this.loginService.getToken(this.loginForm.get('email')?.value, this.loginForm.get('password')?.value).subscribe({
-		next(response) {
+		next: response => {
 			//localStorage.setItem("token", JSON.stringify(response));
 			if(response.error == "No token") {
 				console.log("The token is invalid");
 			} else {
 				localStorage.setItem("loginToken", JSON.stringify(response));
+				this.router.navigate(['home']);
 			}
 		},
-		error(err) {
+		error: err => {
 			console.error(err);
 		} 
 		});
