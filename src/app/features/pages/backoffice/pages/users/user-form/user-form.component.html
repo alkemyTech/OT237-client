@@ -53,6 +53,13 @@
                 imageInput.files="base64Image"
             >
         </div>
+        <div class="terms" *ngIf="!isEdit">
+            <input type="checkbox" formControlName="terms" />
+            <label>
+                Aceptar
+                <span (click)="onOpenTermsConditions()">Términos y condiciones</span>
+            </label>
+        </div>
         <button type="submit">
             {{ id ? 'Actualizar':'Crear' }}
         </button>

@@ -1,59 +1,68 @@
-<div class="card">
-    <h4 class="card-header">¡Contactate con nosotros!</h4>
-    <div class="card-body">
-        <form novalidate [formGroup]="contactForm" (ngSubmit)="handleSubmit($event)">
-            <div class="form-group">
-                <label for="name">Nombre y apellido</label>
-                <input type="text" 
-                        formControlName="name" 
-                        class="form-control" 
-                        [ngClass]="{ 'is-invalid': f.name.touched && f.name.errors }" />
-                <div *ngIf="f.name.errors && f.name.touched" class="invalid-feedback">
-                    <div *ngIf="f.name.errors.required">"Nombre" es un campo obligatorio.</div>
+<div class="container">
+    <h1><b>¿Queres Contribuir?</b></h1>
+        <div class="form-group">
+            <a mat-raised-button color="warn" routerLink="/donar" target="_blank">
+                Contribuir
+            </a>
+        </div>
+
+        <div>
+            <form class="form" novalidate [formGroup]="contactForm" (ngSubmit)="handleSubmit($event)">
+                <h1><b>¡Contactate con nosotros!</b></h1>
+                <div class="form-group">
+                    <mat-form-field class="full-width" appearance="fill">
+                        <label for="name"></label>
+                        <input matInput type="text" placeholder="Nombre y apellido" formControlName="name"
+                            class="form-control" [ngClass]="{ 'is-invalid': f.name.touched && f.name.errors }" />
+                        <div *ngIf="f.name.errors && f.name.touched" class="invalid-feedback">
+                            <div *ngIf="f.name.errors.required">"Nombre" es un campo obligatorio.</div>
+                        </div>
+                    </mat-form-field>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" 
-                        formControlName="email" 
-                        class="form-control" 
-                        [ngClass]="{ 'is-invalid': f.email.touched && f.email.errors }" />
-                <div *ngIf="f.email.errors && f.email.touched" class="invalid-feedback">
-                    <div *ngIf="f.email.errors.required">"Email" es un campo obligatorio.</div>
-                    <div *ngIf="f.email.errors.email">El formato del email es incorrecto</div>
+
+                <div class="form-group">
+                    <mat-form-field class="full-width" appearance="fill">
+                        <label for="email"></label>
+                        <input matInput type="email" placeholder="Email" formControlName="email" class="form-control"
+                            [ngClass]="{ 'is-invalid': f.email.touched && f.email.errors }" />
+                        <div *ngIf="f.email.errors && f.email.touched" class="invalid-feedback">
+                            <div *ngIf="f.email.errors.required">"Email" es un campo obligatorio.</div>
+                            <div *ngIf="f.email.errors.email">El formato del email es incorrecto</div>
+                        </div>
+                    </mat-form-field>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="phone">Teléfono</label>
-                <input type="text" 
-                        formControlName="phone" 
-                        class="form-control" 
-                        [ngClass]="{ 'is-invalid': f.phone.touched && f.phone.errors }" />
-                <div *ngIf="f.phone.errors && f.phone.touched" class="invalid-feedback">
-                    <div *ngIf="f.phone.errors.required">"Teléfono" es un campo obligatorio.</div>
-                    <div *ngIf="f.phone.errors.minlength">"Teléfono" debe tener al menos 8 números</div>
-                    <div *ngIf="f.phone.errors.pattern">"Teléfono" debe contener sólo números</div>
+                <div class="form-group">
+                    <mat-form-field class="full-width" appearance="fill">
+                        <label for="phone"></label>
+                        <input matInput type="text" placeholder="Teléfono" formControlName="phone" class="form-control"
+                            [ngClass]="{ 'is-invalid': f.phone.touched && f.phone.errors }" />
+                        <div *ngIf="f.phone.errors && f.phone.touched" class="invalid-feedback">
+                            <div *ngIf="f.phone.errors.required">"Teléfono" es un campo obligatorio.</div>
+                            <div *ngIf="f.phone.errors.minlength">"Teléfono" debe tener al menos 8 números</div>
+                            <div *ngIf="f.phone.errors.pattern">"Teléfono" debe contener sólo números</div>
+                        </div>
+                    </mat-form-field>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="message">Escribe tu consulta</label>
-                <textarea type="text" 
-                        formControlName="message" 
-                        class="form-control" 
-                        [ngClass]="{ 'is-invalid': f.message.touched && f.message.errors }">
+                <div class="form-group">
+                    <mat-form-field class="full-width" appearance="fill">
+                        <label for="message"></label>
+                        <textarea matInput type="text" placeholder="Escribe tu consulta..." formControlName="message"
+                            class="form-control" [ngClass]="{ 'is-invalid': f.message.touched && f.message.errors }">
                 </textarea>
-                <div *ngIf="f.message.errors && f.message.touched" class="invalid-feedback">
-                    <div *ngIf="f.message.errors.required">"Consulta" es un campo obligatorio.</div>
+                        <div *ngIf="f.message.errors && f.message.touched" class="invalid-feedback">
+                            <div *ngIf="f.message.errors.required">"Consulta" es un campo obligatorio.</div>
+                        </div>
+                    </mat-form-field>
                 </div>
-            </div>
-            <div class="form-group">
-                <button type="submit">
-                    Enviar Consulta
-                </button>
-                <a routerLink="/">
-                    Ir al inicio
-                </a>
-            </div>
-        </form>
-    </div>
+                <div class="form-group">
+                    <button mat-raised-button color="primary" type="submit">
+                        Enviar Consulta
+                    </button>
+                    <br>
+                    <a mat-raised-button color="accent" routerLink="/Home" target="_blank">
+                        Ir al inicio
+                    </a>
+                </div>
+            </form>
+        </div>
 </div>

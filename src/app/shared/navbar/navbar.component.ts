@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
@@ -9,9 +10,17 @@ export class NavbarComponent implements OnInit {
   @Input() items!: any[];
   @Input() isLogged!: boolean;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  onLogin() {
+    this.router.navigate(['/login']);
+  }
+
+  onHome() {
+    this.router.navigate(['/']);
   }
 
 }

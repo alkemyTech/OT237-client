@@ -30,7 +30,11 @@ export class UserService {
     return this.http.delete(`${this.api_users}/${id}`);
   }
 
-  searchByName(name: string) {
-    return this.http.get(`${this.api_users}?search=${name}`);
+  search(name?: string, role?: string) {
+    if(name && role) {
+      return this.http.get(`${this.api_users}?search=${name}&role=${role}`);
+    }else if(name && !role) {
+      return this.http.get(`${this.api_users}?search=${name}`);
+    }else return this.http.get(`${this.api_users}?role=${role}`);
   }
 }

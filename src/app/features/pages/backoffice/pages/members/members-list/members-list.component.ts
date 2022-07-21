@@ -6,11 +6,11 @@ import { MembersService } from 'src/app/core/services/members.service';
 import { loadedMembers, loadMembers } from 'src/app/state/actions/members.actions';
 import { AppState } from 'src/app/state/app.state';
 import { selectMembersList, selectLoading } from 'src/app/state/selectors/members.selectors';
-
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { filter } from 'rxjs/operators';
 import { Member } from 'src/app/features/interfaces';
+import { ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-members-list',
@@ -39,9 +39,8 @@ export class MembersListComponent implements OnInit {
     this.store.dispatch(loadMembers())
     this.loading$ = this.store.select(selectLoading)
     this.store.select(selectMembersList).subscribe((members: any) => {
-      this.members = members.data
+      this.members = members.data;
     })
-
   }
 
   get f() { return this.form.controls; }
@@ -78,7 +77,6 @@ export class MembersListComponent implements OnInit {
       )
       .subscribe((members: any) => {
         this.members = members.data
-        console.log(value)
       })
     }
     else{

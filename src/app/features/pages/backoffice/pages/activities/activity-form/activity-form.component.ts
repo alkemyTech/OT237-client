@@ -107,7 +107,7 @@ export class ActivityFormComponent implements OnInit {
 	}
 	ngOnInit(): void {
 		let id = this.activatedRoute.snapshot.params.id;
-		if(id == "crear") {
+		if(id == "create") {
 			this.submit = this.post;
 		} else {
 			this.activityService.getActivity(id).subscribe({
