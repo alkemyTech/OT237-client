@@ -19,24 +19,6 @@ export class NewsComponent implements OnInit {
     this.getNovedades();
   }
 
-  /* getNovedades(): void {
-    this.api.getNovedades().subscribe(
-      novedades => {
-        if(novedades.success) {
-          this.novedades = novedades.data;
-          this.novedades.sort(
-            (a, b) => {
-              if(a.updated_at===undefined||b.updated_at===undefined) return 0;
-              return a.updated_at > b.updated_at ? -1: 1;
-            }
-          );
-        }else {
-          this.openDialog('Ha ocurrido un error al obtener las novedades');
-        }
-      }
-    )
-  } */
-
   getNovedades(): void {
     this.api.getNovedades().subscribe(novedades => {
       this.novedades = novedades.data;

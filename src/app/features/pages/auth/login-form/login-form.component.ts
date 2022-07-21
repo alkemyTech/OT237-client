@@ -1,6 +1,8 @@
 import { LoginService } from './login.service';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, ValidationErrors, ValidatorFn, FormGroup, FormControl, Validators } from '@angular/forms';
+import { DialogComponent } from 'src/app/shared/components/dialog/dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
 	selector: 'app-login-form',
@@ -8,6 +10,8 @@ import { AbstractControl, ValidationErrors, ValidatorFn, FormGroup, FormControl,
 	styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
+
+	isLoading: boolean = false;
 
 	private passwordValidator() :ValidatorFn{
 		return (control :AbstractControl): ValidationErrors | null => {
@@ -30,7 +34,7 @@ export class LoginFormComponent implements OnInit {
 			this.passwordValidator()
 		])
 	});
-	constructor(private loginService :LoginService) { }
+	constructor(private loginService :LoginService, private dialog: MatDialog) { }
 
 	ngOnInit(): void {
 	
@@ -54,18 +58,29 @@ export class LoginFormComponent implements OnInit {
 		return this.loginForm.get(input)?.touched;
 	}
 	public logInSubmit() {
+		const that = this;
+
 		this.loginService.getToken(this.loginForm.get('email')?.value, this.loginForm.get('password')?.value).subscribe({
-		next(response) {
-			//localStorage.setItem("token", JSON.stringify(response));
-			if(response.error == "No token") {
-				console.log("The token is invalid");
-			} else {
-				localStorage.setItem("loginToken", JSON.stringify(response));
+			next(response) {
+				/* localStorage.setItem("token", JSON.stringify(response)); */
+				that.isLoading = true;
+				if(response.error == "No token") {
+					console.log("The token is invalid");
+				} else {
+					localStorage.setItem("loginToken", JSON.stringify(response));
+				}
+			},
+			error(err) {
+				/* console.error(err); */
+				that.openDialog(err);
+			},
+			complete() {
+				that.isLoading = false;
 			}
-		},
-		error(err) {
-			console.error(err);
-		} 
 		});
+	}
+
+	openDialog(error: string){
+		this.dialog.open(DialogComponent, { data: error });
 	}
 }
