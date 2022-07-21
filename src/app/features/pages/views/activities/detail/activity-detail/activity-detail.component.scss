@@ -1,0 +1,19 @@
+.content-box {
+	display: flex;
+	margin: 20px 20px 200px 20px;
+	padding: 10px;
+	flex-direction: row;
+	background-color: #9AC9FB;
+	border-radius: 10px;
+	border: 1px solid #288BF6;
+	img {
+		max-height: 50%;
+		border-radius: 10px;
+		object-fit: cover;
+	}
+	.desc {
+		padding: 10px;
+		font-size: 18;
+	}
+
+}
