@@ -1,4 +1,26 @@
-div {
+.content-box {
+	margin-bottom: 80px;
+	padding: 20px 40px 0px 40px;
 	display: flex;
-	flex-wrap: wrap;
+	flex-direction: column;
+	align-items: center;
+	h1 {
+		font-size: 30px;
+		margin-top: 15px;
+	}
+	.shortDesc {
+		width: 500px;
+		font-size: 18;
+	}
+	.activities-grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		@media screen and (min-width: 768px) {
+			grid-template-columns: 1fr 1fr;
+		}
+		@media screen and (min-width: 992px) {
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+	}
 }
+
