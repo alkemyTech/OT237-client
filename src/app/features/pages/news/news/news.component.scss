@@ -1,0 +1,26 @@
+app-new-card {
+    display: inline-block;
+    vertical-align: top;
+    padding: 3px;
+}
+
+h2 {
+    display: block;
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+.spinner-container {
+    width: 256px;
+    margin: auto;
+}
+
+.card-container {
+    margin-bottom: 50px;
+    margin-left: 40px;
+}

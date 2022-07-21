@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="form-group">
+        <a mat-raised-button color="warn" routerLink="/backoffice/members/create"
+            routerLinkActive="active">Crear Nuevo Miembro</a>
+    </div>
+
+    <div>
+        <form class="form" [formGroup]="form">
+            <h1><b>Buscar Miembros por Nombre: </b></h1>
+            <div class="form-group">
+                <div class="row">
+                    <mat-form-field class="full-width" appearance="fill">
+                        <input matInput class="searchTerm" type="text" formControlName="searchTerm" class="form-control"
+                        [(ngModel)]="searchTerm" (input)="searchMembersByValue(searchTerm)" placeholder="Nombre..."/>
+                    </mat-form-field>
+                    <div class="form-group">
+                        <button class="searchButton" mat-raised-button color="primary">
+                            Buscar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <table id="members">
+        <thead>
+            <tr>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Imagen
+                </th>
+                <th>
+                    Acciones
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let member of this.members">
+                <td id="first"><b>{{ member.name }}</b></td>
+                <td id="second"><img src={{member.image}} /></td>
+                <td id="third">
+                    <a mat-raised-button color="primary" (click)="editMember(member.id)">Editar</a>
+                    <a mat-raised-button color="warn" (click)="deleteMember(member.id)">Eliminar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

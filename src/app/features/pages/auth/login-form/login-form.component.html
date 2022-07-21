@@ -1,1 +1,35 @@
-<p>login-form works!</p>
+<main>
+    <div class="left">
+        <p></p>
+        <form [formGroup]="loginForm" (ngSubmit)="logInSubmit()">
+            <div class="title">
+                <p class="welcome">Bienvenido</p>
+                <p class="main-text">Inicia sesión en tu cuenta!</p>
+            </div>
+            <input id="email" type="email" formControlName="email" placeholder="Email">
+            <div *ngIf="touched('email')">
+                <span class="invalid-text" *ngIf="requiredError('email')">*Es te campo es obligatorio</span>
+                <span class="invalid-text" *ngIf="emailError('email')">*Debe ingresar un mail valido</span>
+            </div>
+            <input id="password" type="password" formControlName="password" placeholder="Contraseña">
+            <div *ngIf="touched('password')" class="show-in-row">
+                <span class="invalid-text" *ngIf="requiredError('password')">*Es te campo es obligatorio</span>
+                <span class="invalid-text" *ngIf="minLengthError('password')">*La contraseña debe contener como minimo 6
+                    caracteres</span>
+                <span class="invalid-text" *ngIf="passwordError('password')">*La contraseña debe tener al menos, una
+                    letra, un numero y un simbolo</span>
+            </div>
+            <button type="submit">Inicia sesión</button>
+        </form>
+        <div *ngIf="isLoading">
+            <app-spinner></app-spinner>
+        </div>
+        <p>
+            No tienes una cuenta?
+            <a href="#">Registrate</a>
+        </p>
+    </div>
+    <div class="right">
+        <img src="assets/login.png" alt="">
+    </div>
+</main>

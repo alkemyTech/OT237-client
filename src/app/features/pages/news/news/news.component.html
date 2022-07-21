@@ -1,0 +1,12 @@
+<h2>Novedades</h2>
+<div class="card-container">
+    <div *ngIf="!isLoading; else showSpinner" >
+        <app-new-card *ngFor="let novedad of novedades" [novedad]="novedad"></app-new-card>
+    </div>
+</div>
+
+<ng-template #showSpinner>
+    <div class="spinner-container">
+        <app-spinner></app-spinner>
+    </div>
+</ng-template>

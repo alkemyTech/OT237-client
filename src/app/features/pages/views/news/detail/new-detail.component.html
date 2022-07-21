@@ -1,0 +1,12 @@
+<div class="container">
+    <app-page-title [title]="novedad.name||''"></app-page-title>
+    <div class="img">
+        <app-spinner *ngIf="loading; else loaded"></app-spinner>
+    </div>
+    <div class="p" [innerHTML]="novedad.content">
+    </div>
+</div>
+
+<ng-template #loaded>
+    <img [src]="novedad.image" alt="">
+</ng-template>

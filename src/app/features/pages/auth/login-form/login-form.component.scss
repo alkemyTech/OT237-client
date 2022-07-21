@@ -1,0 +1,93 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+main {
+    margin-top: 92px;
+    display: flex;
+    gap: 1rem;
+
+    .left {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 0;
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            width: 420px;
+
+            .invalid-text {
+                color: red;
+            }
+
+            .show-in-row {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .title {
+                .welcome {
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 24px;
+                }
+
+                .main-text {
+                    font-weight: 500;
+                    font-size: 32px;
+                    line-height: 48px;
+                }
+            }
+
+            input {
+                outline: none;
+                border: none;
+                padding: 15px 10px;
+                font-size: 16px;
+                border: 1px solid #B0B0B0;
+                border-radius: 8px;
+            }
+
+            button {
+                cursor: pointer;
+                outline: none;
+                border: none;
+                font-size: 20px;
+                padding: 10px;
+                font-weight: 600;
+                background: #FF0000;
+                color: white;
+                box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+                border-radius: 8px;
+            }
+        }
+
+        p {
+            font-weight: 400;
+            font-size: 22px;
+            line-height: 26px;
+
+            a {
+                text-decoration: none;
+                color: #FF0000;
+            }
+        }
+    }
+
+    .right {
+        width: 50%;
+        height: calc(100vh - 97px);
+
+        img {
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
