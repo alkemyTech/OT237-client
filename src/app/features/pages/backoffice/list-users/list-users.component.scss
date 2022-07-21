@@ -29,6 +29,23 @@ main {
             font-size: 15px;
             border: 1px solid gray;
         }
+        section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            select {
+                outline: none;
+                border: none;
+                padding: 10px;
+                border-radius: 10px;
+                font-size: 15px;
+                border: 1px solid gray;
+            }
+            label {
+                font-size: 1.1rem;
+                font-weight: bold;
+            }
+        }
     }
     table, th, td {
         border: 1px solid black;
@@ -56,7 +73,7 @@ main {
         }
     }
     section.table {
-        max-height: 411px;
+        max-height: 400px;
         margin: 0 auto;
         max-width: 937px;
         overflow: auto;
