@@ -21,6 +21,9 @@
             </div>
             <button type="submit">Inicia sesión</button>
         </form>
+        <div *ngIf="isLoading">
+            <app-spinner></app-spinner>
+        </div>
         <p>
             No tienes una cuenta?
             <a [routerLink]="['/auth/register']">Registrate</a>

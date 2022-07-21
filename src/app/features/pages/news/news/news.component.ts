@@ -12,6 +12,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class NewsComponent implements OnInit {
 
   novedades!: Novedad[];
+  isLoading: boolean = true;
 
   constructor(private api: NewsService, private dialog: MatDialog) { }
 
@@ -19,29 +20,11 @@ export class NewsComponent implements OnInit {
     this.getNovedades();
   }
 
-  /* getNovedades(): void {
-    this.api.getNovedades().subscribe(
-      novedades => {
-        if(novedades.success) {
-          this.novedades = novedades.data;
-          this.novedades.sort(
-            (a, b) => {
-              if(a.updated_at===undefined||b.updated_at===undefined) return 0;
-              return a.updated_at > b.updated_at ? -1: 1;
-            }
-          );
-        }else {
-          this.openDialog('Ha ocurrido un error al obtener las novedades');
-        }
-      }
-    )
-  } */
-
   getNovedades(): void {
     this.api.getNovedades().subscribe(novedades => {
       this.novedades = novedades.data;
       this.sortNovedades(this.novedades);
-    }, error => this.openDialog(error.message))
+    }, error => this.openDialog(error.message), () => this.isLoading = false);
   }
 
   sortNovedades(novedades: Novedad[]): void {

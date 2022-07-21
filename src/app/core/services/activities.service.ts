@@ -21,4 +21,7 @@ export class ActivitiesService {
 	public putActivity(activity :any, id :number) {
 		return this.http.put(this.activitiesURL + "/" + id, activity);
 	}
+	public delActivity(id:number) {
+		return this.http.delete(this.activitiesURL + "/" + id);
+	}
 }
