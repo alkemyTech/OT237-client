@@ -17,6 +17,9 @@ import { ContactComponent } from './pages/contact/contact/contact.component';
 import { ActivityDetailComponent } from './pages/views/activities/detail/activity-detail/activity-detail.component';
 import { ActivityBoxComponent } from "./pages/backoffice/pages/activities/activity-box/activity-box.component";
 import { ActivitySectionComponent} from "./pages/backoffice/pages/activities/activity-section/activity-section.component";
+import { ActivityBoxBackofficeComponent} from "./pages/backoffice/pages/activities/activity-box-backoffice/activity-box-backoffice.component";
+import { ActivitiesSectionBackofficeComponent} from "./pages/backoffice/pages/activities/activities-section-backoffice/activities-section-backoffice.component";
+import { ActivityFormComponent} from "./pages/backoffice/pages/activities/activity-form/activity-form.component";
 import { NewDetailComponent } from "./pages/views/news/detail/new-detail.component";
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { NewsListEditComponent } from "./pages/backoffice/pages/news/news/news-list-edit/news-list-edit.component";
@@ -67,6 +70,9 @@ import { MatInputModule } from "@angular/material/input";
     NewsListEditComponent,
     NewDetailComponent,
     DonationComponent,
+    ActivityBoxBackofficeComponent,
+    ActivitiesSectionBackofficeComponent,
+    ActivityFormComponent,
     ThanksComponent
   ],
   exports: [
