@@ -71,7 +71,7 @@ export class UserFormComponent implements OnInit {
     if (this.form.status == 'VALID') {
       try {
         if(this.id){
-          this.update(this.form.value)
+          this.update({id: this.id, ...this.form.value})
         }
         else {
           const { name, email, password, role_id } = this.form.value;
