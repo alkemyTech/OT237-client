@@ -7,20 +7,21 @@ import { OrganizationRoutingModule } from './organization-routing.module';
 import { ActivitiesSectionBackofficeComponent } from './activities-section-backoffice/activities-section-backoffice.component';
 import { ActivityBoxBackofficeComponent } from './activity-box-backoffice/activity-box-backoffice.component';
 import { ActivityFormComponent } from './activity-form/activity-form.component';
-
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
   declarations: [
     ActivitiesSectionBackofficeComponent,
     ActivityBoxBackofficeComponent,
-    ActivityFormComponent
+    ActivityFormComponent,
   ],
   imports: [
     CommonModule,
     OrganizationRoutingModule,
     ReactiveFormsModule,
-    CKEditorModule
+    CKEditorModule,
+    SharedModule
   ]
 })
 export class OrganizationModule { }
