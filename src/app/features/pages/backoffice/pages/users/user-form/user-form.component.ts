@@ -1,7 +1,7 @@
-import { RoleService } from './../../../../core/services/role.service';
-import { UserService } from './../../../../core/services/user.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/core/services/user.service';
+import { RoleService } from 'src/app/core/services/role.service';
 import Swal from 'sweetalert2';
 
 export interface UserFormEditNew {

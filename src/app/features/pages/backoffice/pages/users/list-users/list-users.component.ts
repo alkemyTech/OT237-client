@@ -1,8 +1,8 @@
-import { loadedUsers } from './../../../../state/actions/users.action';
-import { selectLoading, selectUsersList } from '../../../../state/selectors/users.selector';
+import { loadedUsers } from '../../../../../../state/actions/users.action';
+import { selectLoading, selectUsersList } from '../../../../../../state/selectors/users.selector';
 import { Observable } from 'rxjs';
-import { loadUsers } from '../../../../state/actions/users.action';
-import { UserService } from '../../../../core/services/user.service';
+import { loadUsers } from '../../../../../../state/actions/users.action';
+import { UserService } from '../../../../../../core/services/user.service';
 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';

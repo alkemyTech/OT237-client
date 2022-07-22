@@ -7,9 +7,10 @@ const routes: Routes = [
 {
   path:"",
   children:[
+    { path: "", component: CategoriesComponent },
     { path: "crear",  component: CategoriesFormComponent },
     { path: "crear/:id", component: CategoriesFormComponent },
-    { path: "backoffice", component: CategoriesComponent },
+
     
   ]
 }

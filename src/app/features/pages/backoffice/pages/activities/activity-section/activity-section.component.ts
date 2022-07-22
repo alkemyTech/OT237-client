@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivitiesService } from 'src/app/core/services/activities.service';
-import { ActivityBoxComponent} from "src/app/features/pages/activities/activity-box/activity-box.component";
-
+ 
 @Component({
   selector: 'app-activity-section',
   templateUrl: './activity-section.component.html',

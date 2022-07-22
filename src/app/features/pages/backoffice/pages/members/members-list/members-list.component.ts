@@ -6,10 +6,10 @@ import { MembersService } from 'src/app/core/services/members.service';
 import { loadedMembers, loadMembers } from 'src/app/state/actions/members.actions';
 import { AppState } from 'src/app/state/app.state';
 import { selectMembersList, selectLoading } from 'src/app/state/selectors/members.selectors';
-import { Member } from '../../../interfaces';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { filter } from 'rxjs/operators';
+import { Member } from 'src/app/features/interfaces';
 import { ViewChild } from '@angular/core';
 
 @Component({

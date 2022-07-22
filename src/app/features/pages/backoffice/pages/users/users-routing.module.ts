@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { UserFormComponent } from './user-form/user-form.component';
 
 const routes: Routes = [
-  {path: "backoffice/users",component: UserFormComponent},
+  {path: "",component: UserFormComponent},
 ];
 
 @NgModule({

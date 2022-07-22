@@ -81,6 +81,19 @@ input{
     padding: 11px;
     font-weight: bold;
 }
+.buttonCrear{
+    background-color: #9ab9fb;
+    border-radius: 5px;
+    padding: 11px;
+    font-weight: bold;
+    display: inline-flex;
+    position: relative;
+    left: 170px;
+}
+.buttonCrear:hover{
+ cursor: pointer;
+ background-color: #7ca2f5;
+}
 .buttonSearch:hover{
  cursor: pointer;
 }

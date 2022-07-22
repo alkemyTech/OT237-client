@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import * as ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { MembersService } from '../../../../core/services/members.service';
 import { first } from 'rxjs/operators';
-import { Member } from '../../../interfaces';
+import { MembersService } from 'src/app/core/services/members.service';
+import { Member } from 'src/app/features/interfaces';
+
 
 @Component({
   selector: 'app-members-form',

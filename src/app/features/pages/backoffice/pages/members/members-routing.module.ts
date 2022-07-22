@@ -7,9 +7,9 @@ const routes: Routes = [
   {
     path:"",
     children:[
-      {path: "backoffice/members",component: MembersListComponent},
-      {path: "backoffice/members/create",component: MembersFormComponent},
-      {path: "backoffice/members/edit/:id",  component: MembersFormComponent },
+      {path: "",component: MembersListComponent},
+      {path: "create",component: MembersFormComponent},
+      {path: "edit/:id",  component: MembersFormComponent },
     ]
   }
 ];
