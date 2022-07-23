@@ -1,5 +1,7 @@
-<h1>Actividades</h1>
-<button (click)="createActivity()">Crear</button>
-<div>
-	<app-activity-box-backoffice (delete)="deleteActivity($event)" *ngFor="let activity of activities" [activity]="activity"></app-activity-box-backoffice>
+<app-page-title [title]="'Actividades'"></app-page-title>
+<div class="content-box">
+	<button class="button" (click)="createActivity()">Crear</button>
+	<div class="activities-grid">
+		<app-activity-box-backoffice (delete)="deleteActivity($event)" *ngFor="let activity of activities" [activity]="activity"></app-activity-box-backoffice>
+	</div>
 </div>

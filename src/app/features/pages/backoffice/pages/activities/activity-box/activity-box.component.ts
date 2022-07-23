@@ -10,12 +10,14 @@ export class ActivityBoxComponent implements OnInit {
 	public title :string = "";
 	public imgUrl :string = "";
 	public desc :string = "";
+	public id :string = "";
 	constructor() { }
 
 	ngOnInit(): void {
 		this.imgUrl = this.activity?.image;
 		this.title = this.activity?.name;
 		this.desc = this.activity?.description;
+		this.id = this.activity?.id;
 	}
 
 }

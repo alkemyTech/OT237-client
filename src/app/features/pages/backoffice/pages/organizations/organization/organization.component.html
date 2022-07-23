@@ -1,5 +1,7 @@
-<button (click)="goToEdit()">Editar</button>
-<h1>{{name}}</h1>
-<img src="{{img}}">
-<h2>Resumen</h2>
-<div [innerHtml]= "shortDesc"></div>
+<div class="content-box">
+	<button class="button" (click)="goToEdit()">Editar</button>
+	<h1>{{name}}</h1>
+	<img src="{{img}}">
+	<h2>Resumen</h2>
+	<div class="shortDesc" [innerHtml]= "shortDesc"></div>
+<div>
