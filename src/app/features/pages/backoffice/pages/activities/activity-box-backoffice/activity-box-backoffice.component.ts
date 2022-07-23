@@ -16,7 +16,7 @@ export class ActivityBoxBackofficeComponent implements OnInit {
 	constructor(private router :Router) { }
 
 	editButton() {
-		this.router.navigate([`backoffice/activities/${this.activity?.id}`])
+		this.router.navigate([`backoffice/activities/edit/${this.activity?.id}`])
 	}
 
 	deleteButton() {
