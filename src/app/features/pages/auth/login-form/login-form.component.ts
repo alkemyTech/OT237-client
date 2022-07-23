@@ -74,7 +74,7 @@ export class LoginFormComponent implements OnInit {
 			that.openDialog(err);
 		} ) 
 	}
-
+	
 	openDialog(error: string){
 		this.dialog.open(DialogComponent, { data: error });
 	}
