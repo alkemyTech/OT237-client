@@ -1,0 +1,24 @@
+<div class="center">
+	<form class="form" [formGroup]="orgEditForm" (ngSubmit)="submit()">
+		<label for="name">Nombre: </label>
+		<input class="input" id="name" type="text" placeholder="Nombre" formControlName="name">
+		<span *ngIf="isSubmitted() && requiredError('name')" class="invalid-text">El campo es obligatorio</span>
+		<h5>Logo: </h5>
+		<label for="file" class="button file-input-label">Subir archivo</label>
+		<input id="file" type="file" formControlName="logo">
+		<div *ngIf="isSubmitted()">
+			<span *ngIf="requiredError('logo')" class="invalid-text">El campo es obligatorio</span>
+			<span *ngIf="fileError('logo') && !requiredError('logo')" class="invalid-text">El archivo debe ser de formato .jpg o .png</span>
+		</div>
+		<h5>Descripción corta: </h5>
+		<ckeditor class="ckeditor" [editor]="shortDescEditor" formControlName="shortDesc"></ckeditor>
+		<span *ngIf="isSubmitted() && requiredError('shortDesc')" class="invalid-text">El campo es obligatorio</span>
+		<h5>Descripción larga: </h5>
+		<ckeditor class="ckeditor" [editor]="longDescEditor" formControlName="longDesc"></ckeditor>
+		<span *ngIf="isSubmitted() && requiredError('longDesc')" class="invalid-text">El campo es obligatorio</span>
+		<label for="linksInput">Links a redes sociales:</label>
+		<app-links-input id="linksInput" formControlName="linksInput"></app-links-input>
+		<span *ngIf="isSubmitted() && requiredError('linksInput')" class="invalid-text">*El campo es obligatorio</span>
+		<button class="button" type="submit">Submit</button>
+	</form>
+</div>

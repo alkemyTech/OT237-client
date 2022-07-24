@@ -1,0 +1,99 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.container{
+    width: 80%;
+    margin: auto;
+    margin-top: 5%;
+}
+th{
+    border: solid 2px black;
+    font-size: 18px;
+    width: 100%;
+}
+tr{
+    background-color: #9AC9FB;
+}
+tbody :hover{
+    background-color: #6daff5;
+    cursor: pointer;
+}
+
+td{
+    text-align: center;
+    border: solid 1px black;
+    border-radius: 5px;
+    width: 100%;
+}
+tbody{
+    width: 80%;
+}
+.buttonEdit{
+    background-color: #9afbc2;
+    width: 75px;
+    border-radius: 5px;
+    padding: 6px;
+    font-weight: bold;
+}
+td .buttonEdit:hover{
+    background-color: #43ff92;
+    width: 75px;
+    border-radius: 5px;
+    padding: 6px;
+    font-weight: bold;
+}
+.buttonDelete{
+    background-color: #ff6b6b;
+    width: 75px;
+    border-radius: 5px;
+    padding: 6px;
+    font-weight: bold;
+}
+td .buttonDelete:hover{
+    background-color: #fd4444;
+    width: 75px;
+    border-radius: 5px;
+    padding: 6px;
+    font-weight: bold;
+}
+form{
+    margin-bottom: 10px;
+    width: 100%;
+}
+input{
+    width: 50%;
+    height: 41px;
+    border:  solid 2px rgb(185, 184, 184) ;
+    border-radius: 5px;
+    margin-top: 8px;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+.search{
+    width: 100%;
+    text-align: center;
+}
+.buttonSearch{
+    background-color: #9afbc2;
+    border-radius: 5px;
+    padding: 11px;
+    font-weight: bold;
+}
+.buttonCrear{
+    background-color: #9ab9fb;
+    border-radius: 5px;
+    padding: 11px;
+    font-weight: bold;
+    display: inline-flex;
+    position: relative;
+    left: 170px;
+}
+.buttonCrear:hover{
+ cursor: pointer;
+ background-color: #7ca2f5;
+}
+.buttonSearch:hover{
+ cursor: pointer;
+}

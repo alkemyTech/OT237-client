@@ -19,14 +19,14 @@
                 <span class="invalid-text" *ngIf="passwordError('password')">*La contraseña debe tener al menos, una
                     letra, un numero y un simbolo</span>
             </div>
-            <button type="submit">Inicia sesión</button>
+            <button type="submit" [disabled]="invalid('email') || invalid('password')">Inicia sesión</button>
         </form>
         <div *ngIf="isLoading">
             <app-spinner></app-spinner>
         </div>
         <p>
             No tienes una cuenta?
-            <a href="#">Registrate</a>
+            <a [routerLink]="['/auth/registro']">Registrate</a>
         </p>
     </div>
     <div class="right">

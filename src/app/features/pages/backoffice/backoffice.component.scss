@@ -1,0 +1,31 @@
+.container{
+    display: inline-flex; 
+    background-color:#9AC9FB;
+    width: 100%;
+    height: 314px;
+}
+.card{
+    background-color: rgb(204, 224, 224);
+    margin: 40px;
+    margin-left: 65px;
+    margin-right: 65px;
+    text-align: center;
+    border: solid black 2px;
+    width: 200px;
+    border-radius: 5px;
+}
+img{
+    display: block;
+    margin: auto;
+}
+button{
+    margin-top: 5px;
+    width: 70px;
+    height: 30px;
+    background-color: #9afbc2;
+    cursor: pointer;
+    border-radius: 5px;
+}
+button:hover{
+    background-color: #43ff92;
+}

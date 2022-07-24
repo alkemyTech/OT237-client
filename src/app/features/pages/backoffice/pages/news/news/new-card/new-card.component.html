@@ -1,0 +1,12 @@
+
+<div class="container-card">
+    <div class="new-card">
+        <div class="cart">
+            <p><span class="fw-bold">Id: </span>{{novedad.id}}</p>
+            <p><span class="fw-bold">Nombre: </span>{{novedad.name}}</p>
+            <p><span class="fw-bold">Contenido: </span>{{novedad.content}}</p>
+            <p><span class="fw-bold">Fecha: </span>{{novedad.updated_at|date:'dd/MM/yyyy'}}</p>
+            <div class="img"><img [src]="novedad.image ? novedad.image : '../../../../../../../../assets/no-img.jpg'" alt=""></div>
+        </div>
+    </div>
+</div>

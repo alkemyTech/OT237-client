@@ -3,8 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { TestimonialFormComponent } from './testimonial-form/testimonial-form.component';
 
 const routes: Routes = [
-  {path: "nuevo-testimonio",component: TestimonialFormComponent},
-  {path: "editar-testimonio/:id",component: TestimonialFormComponent},
+  {path: "",component: TestimonialFormComponent},
+  {path: ":id",component: TestimonialFormComponent},
 ];
 
 @NgModule({

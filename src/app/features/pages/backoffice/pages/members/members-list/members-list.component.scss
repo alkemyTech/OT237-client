@@ -1,0 +1,82 @@
+button,
+a {
+  margin-top: 0.7rem;
+}
+
+.container {
+  margin-left: 10rem;
+  margin-top: 5rem;
+}
+
+.form {
+  margin-top: 5rem;
+  min-width: 15rem;
+  max-width: 30rem;
+  width: 100%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.row {
+  display: flex;
+}
+
+.searchButton {
+  margin-top: 0 !important;
+  margin-left: 1rem;
+  min-width: 5rem;
+  min-height: 3rem;
+}
+
+#members {
+  table-layout: fixed;
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 50rem;
+}
+
+#members td,
+#members th {
+  font-size: large;
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#members tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#members tr:hover {
+  background-color: #ddd;
+}
+
+#members th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #2e0258;
+  color: white;
+}
+
+img {
+  object-fit: cover;
+  display: block;
+  margin: 2rem auto;
+  width: 100%;
+  height: auto;
+  max-width: 20rem;
+  max-height: 20rem;
+}
+
+td a {
+  display: block;
+  margin: 0.5rem auto;
+  max-height: 3rem;
+  max-width: 10rem;
+}
+
+#first {
+  font-size: medium;
+}

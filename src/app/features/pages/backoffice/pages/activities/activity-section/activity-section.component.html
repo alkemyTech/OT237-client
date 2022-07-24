@@ -1,0 +1,7 @@
+
+<app-page-title [title]="'Actividades'"></app-page-title>
+<div class="content-box">
+	<div class="activities-grid">
+		<app-activity-box *ngFor="let activity of activities" [activity]="activity"></app-activity-box>
+	</div>
+</div>
