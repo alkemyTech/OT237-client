@@ -61,8 +61,7 @@ const routes: Routes = [
   
   {
     path: "backoffice/news",
-
-    loadChildren:() => import('./pages/backoffice//pages/news/news.module').then(m => m.NewsModule)
+    loadChildren:() => import('./pages/backoffice//pages/news/backoffice-news.module').then(m => m.BackofficeNewsModule)
   },
   {
     path: "backoffice/members",
