@@ -35,8 +35,6 @@ const routes: Routes = [
   {
     path: "backoffice",
     component: BackofficeComponent
-    // path: "backoffice/users",   TIENE QUE ESTAR EL BACKOFFICE USER
-    // component: ListUsersComponent
   },
   {
     path: "auth",
@@ -87,7 +85,6 @@ const routes: Routes = [
     path: '**',
     redirectTo: 'auth/login'
   }
-
 ];
 
 @NgModule({
