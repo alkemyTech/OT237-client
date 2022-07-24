@@ -84,7 +84,7 @@ import { MatIconModule } from "@angular/material/icon";
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
-    RouterModule,
+    RouterModule
   ],
   imports: [
     CommonModule, 
