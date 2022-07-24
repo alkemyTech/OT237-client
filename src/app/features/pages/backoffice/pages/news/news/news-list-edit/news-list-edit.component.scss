@@ -8,3 +8,24 @@
     height: 100%;
     object-fit: contain;
 }
+
+.text-center {
+    text-align: center;
+}
+
+.but {
+    margin: -2px;
+    border: 1px solid black;
+    position: absolute;
+    top: -44px;
+}
+
+table {
+    margin: auto;
+    margin-top: 144px;
+    position: relative;
+}
+
+button {
+    margin: 2px;
+}
