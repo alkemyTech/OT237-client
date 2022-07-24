@@ -7,16 +7,47 @@ p {
 }
 
 img {
-    width: 100%;
+    width: 250px;
+    height: 250px;
     padding-top: 12px;
+
+}
+
+.img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-size: cover;
 }
 
 .new-card {
-    border: 1px solid black;
-    padding: 12px;
-    width: 256px;
+    -webkit-box-shadow: -11px 10px 30px -4px rgba(0,0,0,0.75);
+    -moz-box-shadow: -11px 10px 30px -4px rgba(0,0,0,0.75);
+    box-shadow: -11px 10px 30px -4px rgba(0,0,0,0.75);
+ 
+    margin: 10px;
+    border-radius: 10px;
+}
+
+
+.cart{
+    margin: 10px;
 }
 
 .fw-bold {
     font-weight: bold;
 }
+
+.container-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.container-card :hover {
+    background-color: #9797D9;
+    transition: 0.3s;
+}
+

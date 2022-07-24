@@ -83,7 +83,7 @@ import { MatInputModule } from "@angular/material/input";
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
-    RouterModule,
+    RouterModule
   ],
   imports: [
     CommonModule, 

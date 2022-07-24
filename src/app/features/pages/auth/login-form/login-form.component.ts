@@ -59,7 +59,7 @@ export class LoginFormComponent implements OnInit {
 		return this.loginForm.get(input)?.touched;
 	}
 
-	public async logInSubmit() {
+	public  logInSubmit() {
 		const that = this;
 		that.isLoading = true;
 		this.loginService.getToken(this.loginForm.get('email')?.value, this.loginForm.get('password')?.value).subscribe( (resp: any) => {
