@@ -59,21 +59,28 @@ export class LoginFormComponent implements OnInit {
 		return this.loginForm.get(input)?.touched;
 	}
 
-	public async logInSubmit() {
-		const that = this;
-		that.isLoading = true;
-		this.loginService.getToken(this.loginForm.get('email')?.value, this.loginForm.get('password')?.value).subscribe( (resp: any) => {
-			if(resp.error == "No token") {
-				console.log("The token is invalid");
-			} else {
-				localStorage.setItem("loginToken", JSON.stringify(resp));
-				this.router.navigateByUrl('home')
-			}
-			that.isLoading = false;
-		},(err: any) => {
-			that.openDialog(err);
-		} ) 
-	}
+public async logInSubmit() {
+        const that = this;
+        that.isLoading = true;
+        this.loginService.getToken(this.loginForm.get('email')?.value, this.loginForm.get('password')?.value).subscribe( (resp: any) => {
+            if(resp.error == "No token") {
+                console.log("The token is invalid");
+            } else {
+				console.log(resp)
+                localStorage.setItem("loginToken", JSON.stringify(resp));
+				console.log(resp)
+                if (resp.data.user.role_id=1) {
+                    this.router.navigateByUrl('home')
+                }
+				if (resp.data.user.role_id=2) {
+                    this.router.navigateByUrl('backoffice')
+				}
+            }
+            that.isLoading = false;
+        },(err: any) => {
+            that.openDialog(err);
+        } ) 
+    }
 	
 	openDialog(error: string){
 		this.dialog.open(DialogComponent, { data: error });
