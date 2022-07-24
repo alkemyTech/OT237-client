@@ -40,6 +40,7 @@ import { MatDividerModule } from "@angular/material/divider";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatInputModule } from "@angular/material/input";
+import { MatIconModule } from "@angular/material/icon";
 
 
 @NgModule({
@@ -83,7 +84,7 @@ import { MatInputModule } from "@angular/material/input";
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
-    RouterModule,
+    RouterModule
   ],
   imports: [
     CommonModule, 
@@ -100,6 +101,7 @@ import { MatInputModule } from "@angular/material/input";
     MatFormFieldModule,
     MatDialogModule,
     MatInputModule,
+    MatIconModule
     // MatTableModule  pregunatr
   ]
 })
