@@ -125,4 +125,8 @@ export class TestimonialFormComponent implements OnInit {
       image: new FormControl('', [Validators.required])
     });
   }
+
+  clean(){
+    this.testimonialsForm.controls.name.setValue('');
+  }
 }

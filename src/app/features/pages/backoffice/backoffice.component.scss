@@ -1,17 +1,18 @@
 .container{
-    display: inline-flex; 
-    background-color:#9AC9FB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
-    height: 314px;
+    flex-wrap: wrap;
 }
 .card{
+    width: 15%;
     background-color: rgb(204, 224, 224);
     margin: 40px;
     margin-left: 65px;
     margin-right: 65px;
     text-align: center;
     border: solid black 2px;
-    width: 200px;
     border-radius: 5px;
 }
 img{
