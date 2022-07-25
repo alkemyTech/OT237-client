@@ -81,7 +81,7 @@ public async logInSubmit() {
             that.openDialog(err);
         } ) 
     }
-	
+
 
 	openDialog(error: string){
 		this.dialog.open(DialogComponent, { data: error });
