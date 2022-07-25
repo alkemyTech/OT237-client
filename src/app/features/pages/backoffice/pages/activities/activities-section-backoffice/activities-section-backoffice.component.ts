@@ -15,7 +15,7 @@ export class ActivitiesSectionBackofficeComponent implements OnInit {
 	) { }
 	
 	public createActivity() :void{
-		this.router.navigate(["backoffice/activities/create"]);
+		this.router.navigate(["backoffice/activities/edit/create"]);
 	}
 	public deleteActivity(id :number) :void {
 		this.activitiesService.delActivity(id).subscribe(res => {
@@ -28,6 +28,7 @@ export class ActivitiesSectionBackofficeComponent implements OnInit {
 		this.activitiesService.getActivities().subscribe({
 			next: (response :any) => {
 				this.activities = response?.data;
+				this.activities.reverse();
 			}
 		})
 	}

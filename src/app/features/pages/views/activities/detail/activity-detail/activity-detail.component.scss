@@ -1,0 +1,21 @@
+.content-box {
+	display: flex;
+	margin: 20px 20px 200px 20px;
+	padding: 10px;
+	flex-direction: row;
+	-webkit-box-shadow: -11px 10px 30px -4px rgba(0,0,0,0.75);
+	-moz-box-shadow: -11px 10px 30px -4px rgba(0,0,0,0.75);
+	box-shadow: -11px 10px 30px -4px rgba(0,0,0,0.75);
+
+	border-radius: 10px;
+	img {
+		max-width: 50%;
+		border-radius: 10px;
+		object-fit: cover;
+	}
+	.desc {
+		padding: 10px;
+		font-size: 18px;
+	}
+
+}

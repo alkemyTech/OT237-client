@@ -1,14 +1,18 @@
-<form class="show-in-row" [formGroup]="activityEditForm" (ngSubmit)="submit()">
-	<label for="name">Nombre: </label>
-	<input id="name" type="text" formControlName="name">
-	<span *ngIf="requiredError('name') && touched('name')" class="invalid-text">El campo es obligatorio</span>
-	<h5>Imagen: </h5>
-	<input type="file" (change)="processImage($event)" formControlName="image">
-	<span *ngIf="requiredError('image') && touched('image')" class="invalid-text">El campo es obligatorio</span>
-	<span *ngIf="fileError('image') && !requiredError('image') && touched('image')" class="invalid-text">El archivo debe ser de formato .jpg o .png</span>
-	<h5>Descripción: </h5>
-	<ckeditor [editor]="descEditor" formControlName="desc"></ckeditor>
-	<span *ngIf="requiredError('desc') && touched('desc')" class="invalid-text">El campo es obligatorio</span>
-	<button [disabled]="activityEditForm.invalid" type="submit">Submit</button>
-</form>
+<div class="center">
+	<form class="form" [formGroup]="activityEditForm" (ngSubmit)="submit()">
+		<label for="name">Nombre: </label>
+		<input class="input" id="name" type="text" formControlName="name">
+		<span *ngIf="requiredError('name') && touched('name')" class="invalid-text">El campo es obligatorio</span>
+		<h5>Imagen: </h5>
 
+		<label for="image" class="button file-input-label">Subir archivo</label>
+		<input id="image" type="file" (change)="processImage($event)" formControlName="image">
+		<img class="image" src="data:image/png;base64,{{image}}">
+		<span *ngIf="requiredError('image') && touched('image')" class="invalid-text">El campo es obligatorio</span>
+		<span *ngIf="fileError('image') && !requiredError('image') && touched('image')" class="invalid-text">El archivo debe ser de formato .jpg o .png</span>
+		<h5>Descripción: </h5>
+		<ckeditor [editor]="descEditor" formControlName="desc"></ckeditor>
+		<span *ngIf="requiredError('desc') && touched('desc')" class="invalid-text">El campo es obligatorio</span>
+		<button class="button submit-button" type="submit">Guardar</button>
+	</form>
+</div>

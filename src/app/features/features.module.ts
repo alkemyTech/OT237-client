@@ -17,6 +17,9 @@ import { ContactComponent } from './pages/contact/contact/contact.component';
 import { ActivityDetailComponent } from './pages/views/activities/detail/activity-detail/activity-detail.component';
 import { ActivityBoxComponent } from "./pages/backoffice/pages/activities/activity-box/activity-box.component";
 import { ActivitySectionComponent} from "./pages/backoffice/pages/activities/activity-section/activity-section.component";
+import { ActivityBoxBackofficeComponent} from "./pages/backoffice/pages/activities/activity-box-backoffice/activity-box-backoffice.component";
+import { ActivitiesSectionBackofficeComponent} from "./pages/backoffice/pages/activities/activities-section-backoffice/activities-section-backoffice.component";
+import { ActivityFormComponent} from "./pages/backoffice/pages/activities/activity-form/activity-form.component";
 import { NewDetailComponent } from "./pages/views/news/detail/new-detail.component";
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { NewsListEditComponent } from "./pages/backoffice/pages/news/news/news-list-edit/news-list-edit.component";
@@ -38,6 +41,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatInputModule } from "@angular/material/input";
 import { MatCardModule } from "@angular/material/card"; 
+import { MatIconModule } from "@angular/material/icon";
 
 
 @NgModule({
@@ -68,6 +72,9 @@ import { MatCardModule } from "@angular/material/card";
     NewsListEditComponent,
     NewDetailComponent,
     DonationComponent,
+    ActivityBoxBackofficeComponent,
+    ActivitiesSectionBackofficeComponent,
+    ActivityFormComponent,
     ThanksComponent
   ],
   exports: [
@@ -78,7 +85,7 @@ import { MatCardModule } from "@angular/material/card";
     SlidesFormComponent,
     TestimonialFormComponent,
     UserFormComponent,
-    RouterModule,
+    RouterModule
   ],
   imports: [
     CommonModule, 
@@ -96,6 +103,7 @@ import { MatCardModule } from "@angular/material/card";
     MatDialogModule,
     MatInputModule,
     MatCardModule,
+    MatIconModule
     // MatTableModule  pregunatr
   ]
 })

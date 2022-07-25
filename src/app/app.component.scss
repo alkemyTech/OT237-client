@@ -4,10 +4,14 @@
     box-sizing: border-box;
 }
 .body {
-    position: relative;
-    margin: 0;
+    height: 100%;
+    box-sizing: content-box;
     .main {
         margin-top: 100px;
-        padding-bottom: 270px;
+    }
+    .footer {
+	    margin-top: 300px;
+	    bottom: 0px;
+	    width: 100%;
     }
 }

@@ -15,7 +15,7 @@ export class ActivityFormComponent implements OnInit {
 	public descEditor = ClassicEditorBuild;
 	public activityEditForm :FormGroup;
 	public submit ?:any;
-	private image :string = "";
+	public image :string = "";
 
 	constructor(
 		private router :Router,
@@ -96,13 +96,25 @@ export class ActivityFormComponent implements OnInit {
 	private put() :void{
 		if(!this.activityEditForm.invalid) {
 			this.activityService.putActivity(this.createActivity(), this.activatedRoute.snapshot.params.id)
-			.subscribe(res => console.log(res));
+			.subscribe((res:any) => {
+				if(res?.success == true) {
+					this.router.navigate(["backoffice/activities/list"])	
+				} else {
+					console.log(res);
+				}
+			});
 		}
 	}
 	private post() :void{
 		if(!this.activityEditForm.invalid) {
 			this.activityService.postActivity(this.createActivity())
-			.subscribe(res => console.log(res));
+			.subscribe((res:any) => {
+				if(res?.success == true) {
+					this.router.navigate(["backoffice/activities/list"])	
+				} else {
+					console.log(res);
+				}
+			});
 		}
 	}
 	ngOnInit(): void {

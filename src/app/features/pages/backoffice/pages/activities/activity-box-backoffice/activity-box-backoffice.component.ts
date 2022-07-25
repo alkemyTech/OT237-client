@@ -1,5 +1,6 @@
 import { Component, Input, Output , OnInit, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
 	selector: 'app-activity-box-backoffice',
@@ -16,11 +17,28 @@ export class ActivityBoxBackofficeComponent implements OnInit {
 	constructor(private router :Router) { }
 
 	editButton() {
-		this.router.navigate([`backoffice/activities/${this.activity?.id}`])
+		this.router.navigate([`backoffice/activities/edit/${this.activity?.id}`])
 	}
 
 	deleteButton() {
-		this.delete.emit(this.activity?.id);
+		Swal.fire({
+			icon: "warning",
+			title: "Esta seguro?",
+			text: "Esta accion eliminara la actividad",
+			confirmButtonText: "Eliminar",
+			showCancelButton: true,
+			reverseButtons: true
+		}).then(res => {
+			if(res.isConfirmed == true) {
+				this.delete.emit(this.activity?.id);
+				Swal.fire({
+					icon: "success",
+					title: "Hecho!",
+					text: "La actividad fue eliminada con exito"
+				})
+			}
+		})
+		
 	}
 
 	ngOnInit(): void {
