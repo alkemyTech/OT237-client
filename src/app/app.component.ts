@@ -7,10 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   items: any[] = [
-    { name: 'Inicio', route: '/' },
+    { name: 'Inicio', route: '/home' },
     // { name: 'Nosotros', route: '/about' },
     { name: 'Novedades', route: '/novedades' },
-    // { name: 'Testimonios', route: '/testimonials' },
+    { name: 'Actividades', route: '/activities' },
     { name: 'Contacto', route: '/contacto' },
     { name: 'Contribuye', route: '/contribuir' }
   ];
