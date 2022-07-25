@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
 
 import { TestimonialsRoutingModule } from './testimonials-routing.module';
 
@@ -8,7 +10,9 @@ import { TestimonialsRoutingModule } from './testimonials-routing.module';
   declarations: [],
   imports: [
     CommonModule,
-    TestimonialsRoutingModule
+    TestimonialsRoutingModule,
+    MatInputModule,
+    MatButtonModule
   ]
 })
 export class TestimonialsModule { }
