@@ -1,6 +1,6 @@
-<div class="container" *ngIf="isAdmin; else isStandard">
-    <button (click)="createN()">Crear</button>
+<div class="container" *ngIf="isAdmin; else isStandard">    
     <table border="1">
+        <button mat-raised-button color="primary" (click)="createN()" class="but">Crear</button>
         <thead>
             <th>Nombre</th>
             <th>Imagen</th>
@@ -17,12 +17,12 @@
                         <img [src]="novedad.image" alt="">
                     </div>
                 </td>
-                <td>
+                <td class="text-center">
                     {{novedad.created_at | date}}
                 </td>
                 <td>
-                    <button (click)="editN(novedad.id||0)">Editar</button>
-                    <button (click)="deleteN(novedad.id||0)">Eliminar</button>
+                    <button mat-raised-button color="primary" (click)="editN(novedad.id||0)">Editar</button>
+                    <button mat-raised-button color="warn" (click)="deleteN(novedad.id||0)">Eliminar</button>
                 </td>
             </tr>
         </tbody>

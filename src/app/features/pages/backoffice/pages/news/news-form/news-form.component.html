@@ -25,9 +25,9 @@
         <img *ngIf="imgBool" [src]="base64Image">
     </p>
 
-    <small><strong>(*)Todos los campos son obligatorios</strong></small><br>
+    <small><strong>(*)Todos los campos son obligatorios</strong></small><br><br>
 
     <p>
-        <button type="submit" [disabled]="!formNovedades.valid">Enviar</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="!formNovedades.valid">Enviar</button>
     </p>
 </form>
