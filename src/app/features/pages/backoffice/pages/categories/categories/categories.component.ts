@@ -39,7 +39,7 @@ export class CategoriesComponent implements OnInit {
     })
   }
   buscarCategoriaId(id:any){
-    this.router.navigate([`categories/crear/${id}`])
+    this.router.navigate([`backoffice/categories/editar/${id}`])
   }
   borrarCategoria(id:any){
     this.categoriasService.DeleteCategoria(id).subscribe(data=>{
