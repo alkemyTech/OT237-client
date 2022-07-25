@@ -9,12 +9,12 @@
         </thead>
         <tbody>
             <tr *ngFor="let novedad of novedades">
-                <td>
+                <td style="text-align: center">
                     {{novedad.name}}
                 </td>
                 <td>
                     <div class="img">
-                        <img [src]="novedad.image" alt="">
+                        <img [src]="novedad.image ? novedad.image : '../../../../../../../../assets/no-img.jpg'" alt="">
                     </div>
                 </td>
                 <td class="text-center">
