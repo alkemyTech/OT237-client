@@ -8,3 +8,30 @@
     height: 100%;
     object-fit: contain;
 }
+
+.text-center {
+    text-align: center;
+}
+
+.but {
+    margin: -2px;
+    position: absolute;
+    top: -44px;
+}
+
+table {
+    margin: auto;
+    margin-top: 144px;
+    position: relative;
+    border-collapse: collapse;
+}
+
+th {
+    background-color: black;
+    color: white;
+    padding: 15px;
+}
+
+button {
+    margin: 2px;
+}
