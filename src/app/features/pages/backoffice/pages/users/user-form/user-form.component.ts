@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/core/services/user.service';
@@ -28,7 +29,8 @@ export class UserFormComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private userSvc: UserService,
-    private roleSvc: RoleService
+    private roleSvc: RoleService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -93,9 +95,19 @@ export class UserFormComponent implements OnInit {
     return this.userSvc.update(form).subscribe({
       next: (res: any) => {
         if (res.success) {
-          console.log('Usuario actualizado!', res.data);
+          Swal.fire({
+            title: 'Usuario actualizado!',
+            text: `El usuario ${form.name} se actualizó correctamente`,
+            icon: 'success',
+          }).then(() => {
+            this.router.navigateByUrl('backoffice/users/list');
+          });
         } else {
-          console.log('Intentelo Nuevamente!');
+          Swal.fire({
+            title: 'Ocurrió un error!',
+            text: 'Intentelo Nuevamente!',
+            icon: 'error',
+          });
         }
       }
     });
@@ -106,10 +118,27 @@ export class UserFormComponent implements OnInit {
     return this.userSvc.save({ ...form, profile_image: imageToBase64 }).subscribe({
       next: (res: any) => {
         if (res.success) {
-          console.log("Usuario grabado!", res.data);
+          Swal.fire({
+            title: 'Usuario creado!',
+            text: `El usuario ${form.name} se creó correctamente`,
+            icon: 'success',
+          }).then(() => {
+            this.router.navigateByUrl('backoffice/users/list');
+          });
         } else {
-          console.log('Intentelo Nuevamente!');
+          Swal.fire({
+            title: 'Ocurrió un error!',
+            text: 'Intentelo Nuevamente!',
+            icon: 'error',
+          });
         }
+      },
+      error: (err) => {
+        Swal.fire({
+          title: 'Ocurrió un error!',
+          text: 'Intentelo Nuevamente!',
+          icon: 'error',
+        });
       }
     });
   }
