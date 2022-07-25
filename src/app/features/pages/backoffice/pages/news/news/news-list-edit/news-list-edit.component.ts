@@ -22,7 +22,7 @@ export class NewsListEditComponent implements OnInit {
   }
 
   getNovedades(): void {
-    this.api.getNovedades().subscribe(novedades => this.novedades = novedades.data);
+    this.api.getNovedades().subscribe(novedades => this.novedades = novedades.data.reverse());
   }
 
   editN(id: number): void {

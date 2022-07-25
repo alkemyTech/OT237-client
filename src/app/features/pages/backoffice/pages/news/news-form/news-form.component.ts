@@ -57,13 +57,13 @@ export class NewsFormComponent implements OnInit {
 
   postNovedad(novedad: Novedad): void {
     this.api.postNovedad(novedad).subscribe(()=>{
-      window.location.reload();
+      this.router.navigate(["/backoffice/news/list"]);
     });
   }
 
   modifyNovedad(id: number, params: object): void {
     this.api.modifyNovedad(id, params).subscribe(()=>{
-      this.router.navigate(["/backoffice/news"]);
+      this.router.navigate(["/backoffice/news/list"]);
     });
   }
 
@@ -103,11 +103,10 @@ export class NewsFormComponent implements OnInit {
     this.api.getNovedadById(id).subscribe((novedad:any )=> {
       this.formNovedades = this.formBuilder.group({
         name: [novedad.data.name, [Validators.required, Validators.minLength(4)]],
-        // content: [novedad.data.content, [Validators.required]],
-        // 'category_id': [novedad.data.category_id, [Validators.required]],
-        image: ['', []]
+        content: [novedad.data.content, [Validators.required]],
+        'category_id': [novedad.data.category_id, [Validators.required]],
+        image: ['', []],
       });
-
     });
   }
 

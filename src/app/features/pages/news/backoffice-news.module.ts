@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+/* import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BackofficeNewsRoutingModule } from './backoffice-news-routing.module';
 
@@ -10,3 +10,4 @@ import { BackofficeNewsRoutingModule } from './backoffice-news-routing.module';
   ]
 })
 export class BackofficeNewsModule { }
+ */

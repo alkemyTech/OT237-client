@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+/* import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NewsFormComponent } from './news-form/news-form.component';
 import { NewsListEditComponent } from './news/news-list-edit/news-list-edit.component';
@@ -19,3 +19,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class BackofficeNewsRoutingModule { }
+ */
