@@ -123,8 +123,8 @@ export class ListUsersComponent implements OnInit {
   }
 
   onAction(type: string, user: any = {}) {
-    type=='update' ? this.router.navigateByUrl('/backoffice/users/create', { state: user }) : 
-    this.router.navigateByUrl('/backoffice/users/create');
+    type=='update' ? this.router.navigateByUrl('backoffice/user/user', { state: user }) : 
+    this.router.navigateByUrl('backoffice/user/user');
   }
 
 }

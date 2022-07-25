@@ -14,6 +14,7 @@ export class ActivitySectionComponent implements OnInit {
   		this.activitiesService.getActivities().subscribe({
 			next: (response :any) => {
 				this.activities = response?.data;
+				this.activities.reverse();
 			}
 		})
 	}

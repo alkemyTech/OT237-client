@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { LoginService } from './login.service';
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, ValidationErrors, ValidatorFn, FormGroup, FormControl, Validators } from '@angular/forms';
@@ -34,7 +35,7 @@ export class LoginFormComponent implements OnInit {
 			this.passwordValidator()
 		])
 	});
-	constructor(private loginService :LoginService, private dialog: MatDialog) { }
+	constructor(private loginService :LoginService, private dialog: MatDialog, public router: Router) { }
 
 	ngOnInit(): void {
 	
@@ -57,28 +58,30 @@ export class LoginFormComponent implements OnInit {
 	public touched(input :string) {
 		return this.loginForm.get(input)?.touched;
 	}
-	public logInSubmit() {
-		const that = this;
 
-		this.loginService.getToken(this.loginForm.get('email')?.value, this.loginForm.get('password')?.value).subscribe({
-			next(response) {
-				/* localStorage.setItem("token", JSON.stringify(response)); */
-				that.isLoading = true;
-				if(response.error == "No token") {
-					console.log("The token is invalid");
-				} else {
-					localStorage.setItem("loginToken", JSON.stringify(response));
+public async logInSubmit() {
+        const that = this;
+        that.isLoading = true;
+        this.loginService.getToken(this.loginForm.get('email')?.value, this.loginForm.get('password')?.value).subscribe( (resp: any) => {
+            if(resp.error == "No token") {
+                console.log("The token is invalid");
+            } else {
+				console.log(resp)
+                localStorage.setItem("loginToken", JSON.stringify(resp));
+				console.log(resp)
+                if (resp.data.user.role_id=1) {
+                    this.router.navigateByUrl('home')
+                }
+				if (resp.data.user.role_id=2) {
+                    this.router.navigateByUrl('backoffice')
 				}
-			},
-			error(err) {
-				/* console.error(err); */
-				that.openDialog(err);
-			},
-			complete() {
-				that.isLoading = false;
-			}
-		});
-	}
+            }
+            that.isLoading = false;
+        },(err: any) => {
+            that.openDialog(err);
+        } ) 
+    }
+
 
 	openDialog(error: string){
 		this.dialog.open(DialogComponent, { data: error });

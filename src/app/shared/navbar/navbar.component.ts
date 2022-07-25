@@ -10,7 +10,7 @@ export class NavbarComponent implements OnInit {
   @Input() items!: any[];
   @Input() isLogged!: boolean;
 
-  constructor(private router: Router) { }
+  constructor(public router: Router) { }
 
   ngOnInit(): void {
   }
@@ -21,6 +21,11 @@ export class NavbarComponent implements OnInit {
 
   onHome() {
     this.router.navigate(['/']);
+  }
+
+  close(){
+    localStorage.clear();
+    this.router.navigate(['/login']);
   }
 
 }

@@ -58,6 +58,7 @@ const routes: Routes = [
     path: "novedades",
     loadChildren:() => import('./pages/backoffice//pages/news/news.module').then(m => m.NewsModule)
   },
+  
   {
     path: "backoffice/news",
 
@@ -68,7 +69,11 @@ const routes: Routes = [
     loadChildren:() => import('./pages/backoffice//pages/members/members.module').then(m => m.MembersModule)
   },
   {
-    path: "backoffice/actividades",
+    path: "activities",
+    loadChildren:() => import('./pages/backoffice/pages/activities/activities.module').then(m => m.ActivitiesModule)
+  },
+  {
+    path: "backoffice/activities",
     loadChildren:() => import('./pages/backoffice/pages/activities/activities.module').then(m => m.ActivitiesModule)
   },
   {

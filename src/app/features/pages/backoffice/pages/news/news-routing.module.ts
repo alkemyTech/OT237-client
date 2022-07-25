@@ -10,8 +10,8 @@ const routes: Routes = [
     path:"",
     children:[
       {path: "",component: NewsComponent},
-      {path: ":id",component: NewDetailComponent},
-      {path: "",component: NewsListEditComponent},
+      {path: "list",component: NewsListEditComponent},
+      {path: "details/:id",component: NewDetailComponent},
       {path: ":id",component: NewsFormComponent},
       {path: "create",component: NewsFormComponent},
     ]
