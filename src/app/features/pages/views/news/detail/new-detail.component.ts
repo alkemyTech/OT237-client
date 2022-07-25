@@ -19,7 +19,7 @@ export class NewDetailComponent implements OnInit {
   constructor(private api: NewsService, private router: Router, private dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.id = parseInt(this.router.url.substring(11));
+    this.id = parseInt(this.router.url.substring(19));
     this.api.getNovedadById(this.id).subscribe({
       next: novedad => this.novedad = novedad.data,
       error: error => this.openDialog(error.message),
