@@ -7,7 +7,7 @@ import { OrganizationComponent } from './organization/organization.component';
 
 const routes: Routes = [
 
-{path: "",component: OrganizationFormComponent},
+{path: "edit",component: OrganizationFormComponent},
 {path: ":id",component: OrganizationComponent},
 
 ];
