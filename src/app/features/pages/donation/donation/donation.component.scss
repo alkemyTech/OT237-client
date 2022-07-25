@@ -1,14 +1,20 @@
 .container{
-  margin-left: 10rem;
-  margin-top: 5rem;
+  min-height: 35vw;
+  text-align: center;
+  justify-items: center;
+  margin-top: 10rem;
 }
 
 .links {
-  display: flex;
   flex-direction: row;
-  justify-content: flex-start;
 }
 
 a{
   margin-right: 1rem;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+h1{
+  font-size: xx-large;
 }
