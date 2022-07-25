@@ -123,7 +123,7 @@ export class UserFormComponent implements OnInit {
             text: `El usuario ${form.name} se creó correctamente`,
             icon: 'success',
           }).then(() => {
-            this.router.navigateByUrl('backoffice/users/list');
+            this.router.navigateByUrl('backoffice/user/list');
           });
         } else {
           Swal.fire({
