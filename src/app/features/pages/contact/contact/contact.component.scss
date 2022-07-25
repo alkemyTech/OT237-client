@@ -1,6 +1,6 @@
 .map {
-    height: 50%;
-    margin: 5rem;
+    height: 45rem;
+    margin: 2rem;
     padding: 0;
 }
 
@@ -9,12 +9,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 60vh;
+    min-height: 30vh;
 }
 
 h1{
     font-weight: bold;
     font-size: x-large;
+}
+
+h2{
+    margin-left: 2rem;
 }
 
 mat-card{
