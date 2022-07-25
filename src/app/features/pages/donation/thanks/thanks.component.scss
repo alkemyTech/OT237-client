@@ -1,10 +1,13 @@
 .container{
-    display: flex;
     position: fixed;
-    align-content: center;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.row{
+    display: flex;
+    align-content: center;
 }
 
 h1{
@@ -14,4 +17,10 @@ h1{
 mat-icon{
     font-size: xx-large;
     margin-bottom: 1rem;
+}
+
+a{
+    font-size: 20px;
+    margin: auto;
+    align-content: center;
 }

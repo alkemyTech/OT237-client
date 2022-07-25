@@ -28,6 +28,7 @@ export class ActivitiesSectionBackofficeComponent implements OnInit {
 		this.activitiesService.getActivities().subscribe({
 			next: (response :any) => {
 				this.activities = response?.data;
+				this.activities.reverse();
 			}
 		})
 	}

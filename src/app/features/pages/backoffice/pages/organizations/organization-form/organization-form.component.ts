@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormControl, Validators, ValidatorFn, AbstractControl, ValidationErrors} from '@angular/forms'
+import { Router } from '@angular/router';
 import * as ClassicEditorBuild from '@ckeditor/ckeditor5-build-classic';
 
 
@@ -13,7 +14,9 @@ export class OrganizationFormComponent implements OnInit {
 	public longDescEditor = ClassicEditorBuild;
 	public orgEditForm :FormGroup;
 	public submitted :boolean;
-	constructor() {
+	constructor(
+		private router :Router
+	) {
 		this.orgEditForm = this.buildForm();
 		this.submitted = false;
 	}
@@ -23,6 +26,9 @@ export class OrganizationFormComponent implements OnInit {
 	}
 	public submit() :void{
 		this.submitted = true;
+		if(!this.orgEditForm.invalid) {
+			this.router.navigate(["backoffice/organization/1"])
+		}
 	}
 	public isSubmitted() :boolean {
 		return this.submitted;
