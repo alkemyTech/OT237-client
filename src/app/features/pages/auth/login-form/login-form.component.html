@@ -19,7 +19,7 @@
                 <span class="invalid-text" *ngIf="passwordError('password')">*La contraseña debe tener al menos, una
                     letra, un numero y un simbolo</span>
             </div>
-            <button type="submit" [disabled]="invalid('email') || invalid('password')">Inicia sesión</button>
+            <button type="submit" [ngClass]="{'buttonDiseable':emailNoValido || passwordNoValido,'button': !emailNoValido || !passwordNoValido} ">Inicia sesión</button>
         </form>
         <div *ngIf="isLoading">
             <app-spinner></app-spinner>

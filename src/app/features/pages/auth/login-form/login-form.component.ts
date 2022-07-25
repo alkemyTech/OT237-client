@@ -11,7 +11,7 @@ import { MatDialog } from '@angular/material/dialog';
 	styleUrls: ['./login-form.component.scss']
 })
 export class LoginFormComponent implements OnInit {
-
+	estatus:boolean=false;
 	isLoading: boolean = false;
 
 	private passwordValidator() :ValidatorFn{
@@ -63,8 +63,16 @@ public async logInSubmit() {
         const that = this;
         that.isLoading = true;
         this.loginService.getToken(this.loginForm.get('email')?.value, this.loginForm.get('password')?.value).subscribe( (resp: any) => {
-            if(resp.error == "No token") {
+            if(resp.error=="Missing required fields"){
+				return Object.values(this.loginForm.controls).forEach(control =>{
+					control.markAsTouched();
+					that.isLoading = false;
+				  });
+			}
+
+			if(resp.error == "No token") {
                 console.log("The token is invalid");
+				
             } else {
 				console.log(resp)
                 localStorage.setItem("loginToken", JSON.stringify(resp));
@@ -76,14 +84,22 @@ public async logInSubmit() {
                     this.router.navigateByUrl('backoffice')
 				}
             }
+			
             that.isLoading = false;
         },(err: any) => {
             that.openDialog(err);
         } ) 
+		
     }
 
 
 	openDialog(error: string){
 		this.dialog.open(DialogComponent, { data: error });
 	}
+	get emailNoValido(){
+		return this.loginForm.get('email')?.touched && this.loginForm.get('email')?.invalid
+	  }
+	  get passwordNoValido(){
+		return this.loginForm.get('password')?.touched && this.loginForm.get('password')?.invalid
+	  }
 }
