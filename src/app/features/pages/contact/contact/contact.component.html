@@ -1,11 +1,13 @@
 <app-page-title [title]="pageTitle"></app-page-title>
-<p>Email: {{email}}</p>
-<p>Instagram: {{instagram}}</p>
-<p>Facebook: {{facebook}}</p>
-<p>Teléfono: {{phone | contactPhone}}</p>
+<div class="container">
+  <mat-card>
+    <h1>E-Mail: {{email}}</h1>
+    <h1>Instagram: {{instagram}}</h1>
+    <h1>Facebook: {{facebook}}</h1>
+    <h1>Teléfono: {{phone | contactPhone}}</h1>
+  </mat-card>
+</div>
 
-<div class="map"
-  leaflet
-  [leafletOptions]="options"
-  [leafletLayersControl]="layersControl">
+
+<div class="map" leaflet [leafletOptions]="options" [leafletLayersControl]="layersControl">
 </div>

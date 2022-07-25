@@ -40,6 +40,7 @@ import { MatDividerModule } from "@angular/material/divider";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatInputModule } from "@angular/material/input";
+import { MatCardModule } from "@angular/material/card"; 
 import { MatIconModule } from "@angular/material/icon";
 
 
@@ -101,7 +102,8 @@ import { MatIconModule } from "@angular/material/icon";
     MatFormFieldModule,
     MatDialogModule,
     MatInputModule,
-    MatIconModule
+    MatCardModule,
+    MatIconModule,
     // MatTableModule  pregunatr
   ]
 })

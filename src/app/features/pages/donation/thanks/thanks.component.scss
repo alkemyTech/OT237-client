@@ -1,26 +1,23 @@
-.container{
-    position: fixed;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.container {
+  min-height: 35vw;
+  text-align: center;
+  justify-items: center;
+  margin-top: 10rem;
 }
 
-.row{
-    display: flex;
-    align-content: center;
+.row {
+  flex-direction: row;
 }
 
-h1{
-    font-size: xx-large;
+h1 {
+  font-size: xx-large;
 }
 
-mat-icon{
-    font-size: xx-large;
-    margin-bottom: 1rem;
+mat-icon {
+  font-size: xx-large;
+  margin-bottom: 1rem;
 }
 
-a{
-    font-size: 20px;
-    margin: auto;
-    align-content: center;
+a {
+  font-size: 20px;
 }
