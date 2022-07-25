@@ -37,6 +37,7 @@ import { MatDividerModule } from "@angular/material/divider";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatDialogModule } from "@angular/material/dialog";
 import { MatInputModule } from "@angular/material/input";
+import { MatCardModule } from "@angular/material/card"; 
 
 
 @NgModule({
@@ -94,6 +95,7 @@ import { MatInputModule } from "@angular/material/input";
     MatFormFieldModule,
     MatDialogModule,
     MatInputModule,
+    MatCardModule,
     // MatTableModule  pregunatr
   ]
 })
