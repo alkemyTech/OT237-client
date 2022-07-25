@@ -103,11 +103,7 @@ import { MatIconModule } from "@angular/material/icon";
     MatDialogModule,
     MatInputModule,
     MatCardModule,
-<<<<<<< HEAD
     MatIconModule,
-=======
-    MatIconModule
->>>>>>> 1f2525459d2f5fe9830b41f67d6338c5fd302604
     // MatTableModule  pregunatr
   ]
 })
